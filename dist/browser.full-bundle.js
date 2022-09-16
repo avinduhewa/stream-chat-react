@@ -38202,7 +38202,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     var SIZING_STYLE = ['borderBottomWidth', 'borderLeftWidth', 'borderRightWidth', 'borderTopWidth', 'boxSizing', 'fontFamily', 'fontSize', 'fontStyle', 'fontWeight', 'letterSpacing', 'lineHeight', 'paddingBottom', 'paddingLeft', 'paddingRight', 'paddingTop', // non-standard
     'tabSize', 'textIndent', // non-standard
     'textRendering', 'textTransform', 'width'];
-    var isIE$1 = !!document.documentElement.currentStyle ;
+    var isIE$1 = typeof document !== undefined && !!document.documentElement.currentStyle ;
 
     var getSizingData = function getSizingData(node) {
       var style = window.getComputedStyle(node);
