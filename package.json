@@ -53,6 +53,7 @@
     "react-markdown": "^5.0.3",
     "react-player": "^2.10.1",
     "react-popper": "^2.3.0",
+    "react-textarea-autosize": "https://github.com/avinduhewa/react-textarea-autosize/#rp-main-built",
     "react-virtuoso": "^2.16.5",
     "textarea-caret": "^3.1.0"
   },

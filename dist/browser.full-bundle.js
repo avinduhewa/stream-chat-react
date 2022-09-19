@@ -9237,7 +9237,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
     function _isNativeReflectConstruct$3() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
-    function noop$3() {}
+    function noop$4() {}
 
     function bindMemberFunctions(inst) {
       var mems = Object.getOwnPropertyNames(Object.getPrototypeOf(inst));
@@ -9402,7 +9402,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
           }
 
           this.format = this.options.interpolation.format;
-          if (!callback) callback = noop$3;
+          if (!callback) callback = noop$4;
 
           if (this.options.fallbackLng && !this.services.languageDetector && !this.options.lng) {
             var codes = this.services.languageUtils.getFallbackCodes(this.options.fallbackLng);
@@ -9463,7 +9463,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         value: function loadResources(language) {
           var _this3 = this;
 
-          var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : noop$3;
+          var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : noop$4;
           var usedCallback = callback;
           var usedLng = typeof language === 'string' ? language : this.language;
           if (typeof language === 'function') usedCallback = language;
@@ -9511,7 +9511,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
           var deferred = defer();
           if (!lngs) lngs = this.languages;
           if (!ns) ns = this.options.ns;
-          if (!callback) callback = noop$3;
+          if (!callback) callback = noop$4;
           this.services.backendConnector.reload(lngs, ns, function (err) {
             deferred.resolve();
             callback(err);
@@ -9790,7 +9790,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
           var _this8 = this;
 
           var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-          var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : noop$3;
+          var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : noop$4;
 
           var mergedOptions = _objectSpread$6$1(_objectSpread$6$1(_objectSpread$6$1({}, this.options), options), {
             isClone: true
@@ -12277,7 +12277,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
       return v instanceof DOMException && (v.name === "SecurityError" || v.code === v.SECURITY_ERR);
     }
 
-    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};var _excluded$2 = ["children"],
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};var _excluded$3 = ["children"],
         _excluded2$1 = ["open"],
         _excluded3$1 = ["refKey", "role", "onKeyDown", "onFocus", "onBlur", "onClick", "onDragEnter", "onDragOver", "onDragLeave", "onDrop"],
         _excluded4$1 = ["refKey", "onChange", "onClick"];
@@ -12308,9 +12308,9 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
     function _defineProperty$3(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-    function _objectWithoutProperties$1(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose$2(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+    function _objectWithoutProperties$1(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose$3(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
-    function _objectWithoutPropertiesLoose$2(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+    function _objectWithoutPropertiesLoose$3(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
     /**
      * Convenience wrapper component for the `useDropzone` hook
      *
@@ -12328,7 +12328,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
     var Dropzone$1 = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
       var children = _ref.children,
-          params = _objectWithoutProperties$1(_ref, _excluded$2);
+          params = _objectWithoutProperties$1(_ref, _excluded$3);
 
       var _useDropzone = useDropzone$1(params),
           open = _useDropzone.open,
@@ -12722,10 +12722,10 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
           validator = _defaultProps$options.validator;
 
       var onFileDialogOpenCb = React.useMemo(function () {
-        return typeof onFileDialogOpen === "function" ? onFileDialogOpen : noop$2;
+        return typeof onFileDialogOpen === "function" ? onFileDialogOpen : noop$3;
       }, [onFileDialogOpen]);
       var onFileDialogCancelCb = React.useMemo(function () {
-        return typeof onFileDialogCancel === "function" ? onFileDialogCancel : noop$2;
+        return typeof onFileDialogCancel === "function" ? onFileDialogCancel : noop$3;
       }, [onFileDialogCancel]);
       var rootRef = React.useRef(null);
       var inputRef = React.useRef(null);
@@ -13183,7 +13183,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
       }
     }
 
-    function noop$2() {}
+    function noop$3() {}
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};var __assign$2 = (undefined && undefined.__assign) || function () {
         __assign$2 = Object.assign || function(t) {
@@ -16410,7 +16410,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         point = {};
       }
 
-      return index(point.line) + ':' + index(point.column)
+      return index$2(point.line) + ':' + index$2(point.column)
     }
 
     function position(pos) {
@@ -16421,7 +16421,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
       return point(pos.start) + '-' + point(pos.end)
     }
 
-    function index(value) {
+    function index$2(value) {
       return value && typeof value === 'number' ? value : 1
     }
 
@@ -37970,7 +37970,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     module.exports = _extends, module.exports.__esModule = true, module.exports["default"] = module.exports;
     });
 
-    var _extends$1 = unwrapExports(_extends_1$1);
+    var _extends$2 = unwrapExports(_extends_1$1);
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
     var _typeof_1 = createCommonjsModule$1(function (module) {
@@ -38117,6 +38117,288 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     });
 
     var _getPrototypeOf = unwrapExports(getPrototypeOf$1);
+
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};function _extends$1() {
+      _extends$1 = Object.assign || function (target) {
+        for (var i = 1; i < arguments.length; i++) {
+          var source = arguments[i];
+
+          for (var key in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+
+        return target;
+      };
+
+      return _extends$1.apply(this, arguments);
+    }
+
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};function _objectWithoutPropertiesLoose$2(source, excluded) {
+      if (source == null) return {};
+      var target = {};
+      var sourceKeys = Object.keys(source);
+      var key, i;
+
+      for (i = 0; i < sourceKeys.length; i++) {
+        key = sourceKeys[i];
+        if (excluded.indexOf(key) >= 0) continue;
+        target[key] = source[key];
+      }
+
+      return target;
+    }
+
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
+    var index$1 =  React.useLayoutEffect ;
+
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
+    var useLatest = function useLatest(value) {
+      var ref = React__namespace.useRef(value);
+      index$1(function () {
+        ref.current = value;
+      });
+      return ref;
+    };
+
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
+    var updateRef = function updateRef(ref, value) {
+      if (typeof ref === 'function') {
+        ref(value);
+        return;
+      }
+      ref.current = value;
+    };
+
+    var useComposedRef = function useComposedRef(libRef, userRef) {
+      var prevUserRef = React.useRef();
+      return React.useCallback(function (instance) {
+        libRef.current = instance;
+
+        if (prevUserRef.current) {
+          updateRef(prevUserRef.current, null);
+        }
+
+        prevUserRef.current = userRef;
+
+        if (!userRef) {
+          return;
+        }
+
+        updateRef(userRef, instance);
+      }, [userRef]);
+    };
+
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
+    var HIDDEN_TEXTAREA_STYLE = {
+      'min-height': '0',
+      'max-height': 'none',
+      height: '0',
+      visibility: 'hidden',
+      overflow: 'hidden',
+      position: 'absolute',
+      'z-index': '-1000',
+      top: '0',
+      right: '0'
+    };
+
+    var forceHiddenStyles = function forceHiddenStyles(node) {
+      Object.keys(HIDDEN_TEXTAREA_STYLE).forEach(function (key) {
+        node.style.setProperty(key, HIDDEN_TEXTAREA_STYLE[key], 'important');
+      });
+    };
+
+    var forceHiddenStyles$1 = forceHiddenStyles;
+
+    //   export type CalculatedNodeHeights = [height: number, rowHeight: number];
+    // https://github.com/microsoft/TypeScript/issues/28259
+
+    var hiddenTextarea = null;
+
+    var getHeight = function getHeight(node, sizingData) {
+      var height = node.scrollHeight;
+
+      if (sizingData.sizingStyle.boxSizing === 'border-box') {
+        // border-box: add border, since height = content + padding + border
+        return height + sizingData.borderSize;
+      } // remove padding, since height = content
+
+
+      return height - sizingData.paddingSize;
+    };
+
+    function calculateNodeHeight(sizingData, value, minRows, maxRows) {
+      if (minRows === void 0) {
+        minRows = 1;
+      }
+
+      if (maxRows === void 0) {
+        maxRows = Infinity;
+      }
+
+      if (!hiddenTextarea) {
+        hiddenTextarea = document.createElement('textarea');
+        hiddenTextarea.setAttribute('tabindex', '-1');
+        hiddenTextarea.setAttribute('aria-hidden', 'true');
+        forceHiddenStyles$1(hiddenTextarea);
+      }
+
+      if (hiddenTextarea.parentNode === null) {
+        document.body.appendChild(hiddenTextarea);
+      }
+
+      var paddingSize = sizingData.paddingSize,
+          borderSize = sizingData.borderSize,
+          sizingStyle = sizingData.sizingStyle;
+      var boxSizing = sizingStyle.boxSizing;
+      Object.keys(sizingStyle).forEach(function (_key) {
+        var key = _key;
+        hiddenTextarea.style[key] = sizingStyle[key];
+      });
+      forceHiddenStyles$1(hiddenTextarea);
+      hiddenTextarea.value = value;
+      var height = getHeight(hiddenTextarea, sizingData); // measure height of a textarea with a single row
+
+      hiddenTextarea.value = 'x';
+      var rowHeight = hiddenTextarea.scrollHeight - paddingSize;
+      var minHeight = rowHeight * minRows;
+
+      if (boxSizing === 'border-box') {
+        minHeight = minHeight + paddingSize + borderSize;
+      }
+
+      height = Math.max(minHeight, height);
+      var maxHeight = rowHeight * maxRows;
+
+      if (boxSizing === 'border-box') {
+        maxHeight = maxHeight + paddingSize + borderSize;
+      }
+
+      height = Math.min(maxHeight, height);
+      return [height, rowHeight];
+    }
+
+    var noop$2 = function noop() {};
+    var pick = function pick(props, obj) {
+      return props.reduce(function (acc, prop) {
+        acc[prop] = obj[prop];
+        return acc;
+      }, {});
+    };
+
+    var SIZING_STYLE = ['borderBottomWidth', 'borderLeftWidth', 'borderRightWidth', 'borderTopWidth', 'boxSizing', 'fontFamily', 'fontSize', 'fontStyle', 'fontWeight', 'letterSpacing', 'lineHeight', 'paddingBottom', 'paddingLeft', 'paddingRight', 'paddingTop', // non-standard
+    'tabSize', 'textIndent', // non-standard
+    'textRendering', 'textTransform', 'width', 'wordBreak'];
+    var isIE$1 = typeof document !== 'undefined' ? !!document.documentElement.currentStyle : false;
+
+    var getSizingData = function getSizingData(node) {
+      var style = window.getComputedStyle(node);
+
+      if (style === null) {
+        return null;
+      }
+
+      var sizingStyle = pick(SIZING_STYLE, style);
+      var boxSizing = sizingStyle.boxSizing; // probably node is detached from DOM, can't read computed dimensions
+
+      if (boxSizing === '') {
+        return null;
+      } // IE (Edge has already correct behaviour) returns content width as computed width
+      // so we need to add manually padding and border widths
+
+
+      if (isIE$1 && boxSizing === 'border-box') {
+        sizingStyle.width = parseFloat(sizingStyle.width) + parseFloat(sizingStyle.borderRightWidth) + parseFloat(sizingStyle.borderLeftWidth) + parseFloat(sizingStyle.paddingRight) + parseFloat(sizingStyle.paddingLeft) + 'px';
+      }
+
+      var paddingSize = parseFloat(sizingStyle.paddingBottom) + parseFloat(sizingStyle.paddingTop);
+      var borderSize = parseFloat(sizingStyle.borderBottomWidth) + parseFloat(sizingStyle.borderTopWidth);
+      return {
+        sizingStyle: sizingStyle,
+        paddingSize: paddingSize,
+        borderSize: borderSize
+      };
+    };
+
+    var getSizingData$1 = getSizingData;
+
+    var useWindowResizeListener = function useWindowResizeListener(listener) {
+      var latestListener = useLatest(listener);
+      React__namespace.useLayoutEffect(function () {
+        var handler = function handler(event) {
+          latestListener.current(event);
+        };
+
+        window.addEventListener('resize', handler);
+        return function () {
+          window.removeEventListener('resize', handler);
+        };
+      }, []);
+    };
+
+    var _excluded$2 = ["cacheMeasurements", "maxRows", "minRows", "onChange", "onHeightChange"];
+
+    var TextareaAutosize = function TextareaAutosize(_ref, userRef) {
+      var cacheMeasurements = _ref.cacheMeasurements,
+          maxRows = _ref.maxRows,
+          minRows = _ref.minRows,
+          _ref$onChange = _ref.onChange,
+          onChange = _ref$onChange === void 0 ? noop$2 : _ref$onChange,
+          _ref$onHeightChange = _ref.onHeightChange,
+          onHeightChange = _ref$onHeightChange === void 0 ? noop$2 : _ref$onHeightChange,
+          props = _objectWithoutPropertiesLoose$2(_ref, _excluded$2);
+
+      var isControlled = props.value !== undefined;
+      var libRef = React__namespace.useRef(null);
+      var ref = useComposedRef(libRef, userRef);
+      var heightRef = React__namespace.useRef(0);
+      var measurementsCacheRef = React__namespace.useRef();
+
+      var resizeTextarea = function resizeTextarea() {
+        var node = libRef.current;
+        var nodeSizingData = cacheMeasurements && measurementsCacheRef.current ? measurementsCacheRef.current : getSizingData$1(node);
+
+        if (!nodeSizingData) {
+          return;
+        }
+
+        measurementsCacheRef.current = nodeSizingData;
+
+        var _calculateNodeHeight = calculateNodeHeight(nodeSizingData, node.value || node.placeholder || 'x', minRows, maxRows),
+            height = _calculateNodeHeight[0],
+            rowHeight = _calculateNodeHeight[1];
+
+        if (heightRef.current !== height) {
+          heightRef.current = height;
+          node.style.setProperty('height', height + "px", 'important');
+          onHeightChange(height, {
+            rowHeight: rowHeight
+          });
+        }
+      };
+
+      var handleChange = function handleChange(event) {
+        if (!isControlled) {
+          resizeTextarea();
+        }
+
+        onChange(event);
+      };
+
+      if (typeof document !== 'undefined') {
+        React__namespace.useLayoutEffect(resizeTextarea);
+        useWindowResizeListener(resizeTextarea);
+      }
+
+      return /*#__PURE__*/React__namespace.createElement("textarea", _extends$1({}, props, {
+        onChange: handleChange,
+        ref: ref
+      }));
+    };
+
+    var index = /* #__PURE__ */React__namespace.forwardRef(TextareaAutosize);
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
     var textareaCaret = createCommonjsModule$1(function (module) {
@@ -39025,7 +39307,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
               className: clsx('rta__autocomplete', 'str-chat__suggestion-list-container', dropdownClassName),
               ref: this.setDropdownRef,
               style: dropdownStyle
-            }, /*#__PURE__*/React__default["default"].createElement(SuggestionList, _extends$1({
+            }, /*#__PURE__*/React__default["default"].createElement(SuggestionList, _extends$2({
               className: clsx('str-chat__suggestion-list', listClassName),
               dropdownScroll: this._dropdownScroll,
               itemClassName: clsx('str-chat__suggestion-list-item', itemClassName),
@@ -39040,16 +39322,18 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
       }, {
         key: "render",
         value: function render() {
-          var _this$props8 = this.props;
-              _this$props8.className;
-              var containerClassName = _this$props8.containerClassName,
-              containerStyle = _this$props8.containerStyle;
-              _this$props8.style;
-          this.props.maxRows;
+          var _this2 = this;
+
+          var _this$props8 = this.props,
+              className = _this$props8.className,
+              containerClassName = _this$props8.containerClassName,
+              containerStyle = _this$props8.containerStyle,
+              style = _this$props8.style;
+          var maxRows = this.props.maxRows;
           var _this$state7 = this.state,
-              dataLoading = _this$state7.dataLoading;
-              _this$state7.value;
-          if (!this.props.grow) ; // By setting defaultValue to undefined, avoid error:
+              dataLoading = _this$state7.dataLoading,
+              value = _this$state7.value;
+          if (!this.props.grow) maxRows = 1; // By setting defaultValue to undefined, avoid error:
           // ForwardRef(TextareaAutosize) contains a textarea with both value and defaultValue props.
           // Textarea elements must be either controlled or uncontrolled
 
@@ -39058,7 +39342,29 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
               'rta--loading': dataLoading
             }),
             style: containerStyle
-          }, this.renderSuggestionListContainer());
+          }, this.renderSuggestionListContainer(), /*#__PURE__*/React__default["default"].createElement(index, _extends$2({
+            "data-testid": "message-input"
+          }, this._cleanUpProps(), {
+            className: clsx('rta__textarea', className),
+            maxRows: maxRows,
+            onBlur: this._onClickAndBlurHandler,
+            onChange: this._changeHandler,
+            onClick: this._onClickAndBlurHandler,
+            onFocus: this.props.onFocus,
+            onKeyDown: this._handleKeyDown,
+            onScroll: this._onScrollHandler,
+            onSelect: this._selectHandler,
+            ref: function ref(_ref) {
+              var _this2$props;
+
+              (_this2$props = _this2.props) === null || _this2$props === void 0 ? void 0 : _this2$props.innerRef(_ref);
+              _this2.textareaRef = _ref;
+            },
+            style: style,
+            value: value
+          }, this.props.additionalTextareaProps, {
+            defaultValue: undefined
+          })));
         }
       }], [{
         key: "getDerivedStateFromProps",

@@ -45,6 +45,7 @@ var _inherits = require('@babel/runtime/helpers/inherits');
 var _possibleConstructorReturn = require('@babel/runtime/helpers/possibleConstructorReturn');
 var _getPrototypeOf = require('@babel/runtime/helpers/getPrototypeOf');
 var PropTypes = require('prop-types');
+var Textarea = require('react-textarea-autosize');
 var getCaretCoordinates = require('textarea-caret');
 var reactIs = require('react-is');
 var debounce$1 = require('lodash.debounce');
@@ -105,6 +106,7 @@ var _inherits__default = /*#__PURE__*/_interopDefaultLegacy(_inherits);
 var _possibleConstructorReturn__default = /*#__PURE__*/_interopDefaultLegacy(_possibleConstructorReturn);
 var _getPrototypeOf__default = /*#__PURE__*/_interopDefaultLegacy(_getPrototypeOf);
 var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
+var Textarea__default = /*#__PURE__*/_interopDefaultLegacy(Textarea);
 var getCaretCoordinates__default = /*#__PURE__*/_interopDefaultLegacy(getCaretCoordinates);
 var debounce__default = /*#__PURE__*/_interopDefaultLegacy(debounce$1);
 var throttle__default = /*#__PURE__*/_interopDefaultLegacy(throttle);
@@ -3692,16 +3694,18 @@ var ReactTextareaAutocomplete = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this$props8 = this.props;
-          _this$props8.className;
-          var containerClassName = _this$props8.containerClassName,
-          containerStyle = _this$props8.containerStyle;
-          _this$props8.style;
-      this.props.maxRows;
+      var _this2 = this;
+
+      var _this$props8 = this.props,
+          className = _this$props8.className,
+          containerClassName = _this$props8.containerClassName,
+          containerStyle = _this$props8.containerStyle,
+          style = _this$props8.style;
+      var maxRows = this.props.maxRows;
       var _this$state7 = this.state,
-          dataLoading = _this$state7.dataLoading;
-          _this$state7.value;
-      if (!this.props.grow) ; // By setting defaultValue to undefined, avoid error:
+          dataLoading = _this$state7.dataLoading,
+          value = _this$state7.value;
+      if (!this.props.grow) maxRows = 1; // By setting defaultValue to undefined, avoid error:
       // ForwardRef(TextareaAutosize) contains a textarea with both value and defaultValue props.
       // Textarea elements must be either controlled or uncontrolled
 
@@ -3710,7 +3714,29 @@ var ReactTextareaAutocomplete = /*#__PURE__*/function (_React$Component) {
           'rta--loading': dataLoading
         }),
         style: containerStyle
-      }, this.renderSuggestionListContainer());
+      }, this.renderSuggestionListContainer(), /*#__PURE__*/React__default["default"].createElement(Textarea__default["default"], _extends__default["default"]({
+        "data-testid": "message-input"
+      }, this._cleanUpProps(), {
+        className: clsx('rta__textarea', className),
+        maxRows: maxRows,
+        onBlur: this._onClickAndBlurHandler,
+        onChange: this._changeHandler,
+        onClick: this._onClickAndBlurHandler,
+        onFocus: this.props.onFocus,
+        onKeyDown: this._handleKeyDown,
+        onScroll: this._onScrollHandler,
+        onSelect: this._selectHandler,
+        ref: function ref(_ref) {
+          var _this2$props;
+
+          (_this2$props = _this2.props) === null || _this2$props === void 0 ? void 0 : _this2$props.innerRef(_ref);
+          _this2.textareaRef = _ref;
+        },
+        style: style,
+        value: value
+      }, this.props.additionalTextareaProps, {
+        defaultValue: undefined
+      })));
     }
   }], [{
     key: "getDerivedStateFromProps",

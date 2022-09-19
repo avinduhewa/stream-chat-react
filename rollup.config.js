@@ -57,7 +57,7 @@ const externalDependencies = [
   'react-is',
   /react-markdown/,
   'react-player',
-  // 'react-textarea-autosize',
+  'react-textarea-autosize',
   'react-virtuoso',
   'textarea-caret',
   /uuid/,

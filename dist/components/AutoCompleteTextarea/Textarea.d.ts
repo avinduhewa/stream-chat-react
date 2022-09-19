@@ -28,12 +28,12 @@ export class ReactTextareaAutocomplete extends React.Component<any, any, any> {
         value: any;
     };
     getSelectionPosition: () => {
-        selectionEnd: any;
-        selectionStart: any;
+        selectionEnd: number;
+        selectionStart: number;
     } | null;
     getSelectedText: () => any;
     setCaretPosition: (position?: number) => void;
-    getCaretPosition: () => any;
+    getCaretPosition: () => number;
     /**
      * isComposing prevents double submissions in Korean and other languages.
      * starting point for a read:
@@ -78,6 +78,7 @@ export class ReactTextareaAutocomplete extends React.Component<any, any, any> {
     dropdownRef: any;
     renderSuggestionListContainer(): JSX.Element | null;
     render(): JSX.Element;
+    textareaRef: HTMLTextAreaElement | null | undefined;
 }
 export namespace ReactTextareaAutocomplete {
     namespace propTypes {

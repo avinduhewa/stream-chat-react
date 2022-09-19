@@ -26,7 +26,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import React from 'react';
 import PropTypes from 'prop-types';
-// import Textarea from 'react-textarea-autosize';
+import Textarea from 'react-textarea-autosize';
 import getCaretCoordinates from 'textarea-caret';
 import { isValidElementType } from 'react-is';
 import clsx from 'clsx';
@@ -538,6 +538,7 @@ var ReactTextareaAutocomplete = /** @class */ (function (_super) {
         return null;
     };
     ReactTextareaAutocomplete.prototype.render = function () {
+        var _this = this;
         var _a = this.props, className = _a.className, containerClassName = _a.containerClassName, containerStyle = _a.containerStyle, style = _a.style;
         var maxRows = this.props.maxRows;
         var _b = this.state, dataLoading = _b.dataLoading, value = _b.value;
@@ -548,7 +549,13 @@ var ReactTextareaAutocomplete = /** @class */ (function (_super) {
         // Textarea elements must be either controlled or uncontrolled
         return (React.createElement("div", { className: clsx('rta', containerClassName, {
                 'rta--loading': dataLoading,
-            }), style: containerStyle }, this.renderSuggestionListContainer()));
+            }), style: containerStyle },
+            this.renderSuggestionListContainer(),
+            React.createElement(Textarea, __assign({ "data-testid": 'message-input' }, this._cleanUpProps(), { className: clsx('rta__textarea', className), maxRows: maxRows, onBlur: this._onClickAndBlurHandler, onChange: this._changeHandler, onClick: this._onClickAndBlurHandler, onFocus: this.props.onFocus, onKeyDown: this._handleKeyDown, onScroll: this._onScrollHandler, onSelect: this._selectHandler, ref: function (ref) {
+                    var _a;
+                    (_a = _this.props) === null || _a === void 0 ? void 0 : _a.innerRef(ref);
+                    _this.textareaRef = ref;
+                }, style: style, value: value }, this.props.additionalTextareaProps, { defaultValue: undefined }))));
     };
     ReactTextareaAutocomplete.defaultProps = {
         closeOnClickOutside: true,
