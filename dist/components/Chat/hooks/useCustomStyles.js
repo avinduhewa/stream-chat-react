@@ -31,6 +31,7 @@ export var useCustomStyles = function (customStyles) {
         return;
     for (var _i = 0, _a = Object.entries(customStyles); _i < _a.length; _i++) {
         var _b = _a[_i], key = _b[0], value = _b[1];
-        document.documentElement.style.setProperty(key, value);
+        // eslint-disable-next-line babel/no-unused-expressions
+        typeof document !== undefined && document.documentElement.style.setProperty(key, value);
     }
 };

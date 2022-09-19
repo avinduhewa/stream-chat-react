@@ -57,7 +57,7 @@ const externalDependencies = [
   'react-is',
   /react-markdown/,
   'react-player',
-  'react-textarea-autosize',
+  // 'react-textarea-autosize',
   'react-virtuoso',
   'textarea-caret',
   /uuid/,
@@ -114,7 +114,7 @@ const normalBundle = {
       sourcemap: true,
     },
   ],
-  plugins: [...basePlugins({ useBrowserResolve: false })],
+  plugins: [...basePlugins({ useBrowserResolve: true })],
 };
 
 const fullBrowserBundle = ({ min } = { min: false }) => ({

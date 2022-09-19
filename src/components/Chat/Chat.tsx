@@ -95,9 +95,12 @@ export const Chat = <
   } = useChat({ client, defaultLanguage, i18nInstance, initialNavOpen });
 
   const channelsQueryState = useChannelsQueryState();
-  const themeVersion = (getComputedStyle(document.documentElement)
-    .getPropertyValue('--str-chat__theme-version')
-    .replace(' ', '') || '1') as ThemeVersion;
+  const themeVersion =
+    typeof document == undefined
+      ? ('1' as ThemeVersion)
+      : ((getComputedStyle(document.documentElement)
+          .getPropertyValue('--str-chat__theme-version')
+          .replace(' ', '') || '1') as ThemeVersion);
 
   useCustomStyles(darkMode ? darkModeTheme : customStyles);
 

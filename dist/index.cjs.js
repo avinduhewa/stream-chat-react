@@ -45,7 +45,6 @@ var _inherits = require('@babel/runtime/helpers/inherits');
 var _possibleConstructorReturn = require('@babel/runtime/helpers/possibleConstructorReturn');
 var _getPrototypeOf = require('@babel/runtime/helpers/getPrototypeOf');
 var PropTypes = require('prop-types');
-var Textarea = require('react-textarea-autosize');
 var getCaretCoordinates = require('textarea-caret');
 var reactIs = require('react-is');
 var debounce$1 = require('lodash.debounce');
@@ -106,7 +105,6 @@ var _inherits__default = /*#__PURE__*/_interopDefaultLegacy(_inherits);
 var _possibleConstructorReturn__default = /*#__PURE__*/_interopDefaultLegacy(_possibleConstructorReturn);
 var _getPrototypeOf__default = /*#__PURE__*/_interopDefaultLegacy(_getPrototypeOf);
 var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
-var Textarea__default = /*#__PURE__*/_interopDefaultLegacy(Textarea);
 var getCaretCoordinates__default = /*#__PURE__*/_interopDefaultLegacy(getCaretCoordinates);
 var debounce__default = /*#__PURE__*/_interopDefaultLegacy(debounce$1);
 var throttle__default = /*#__PURE__*/_interopDefaultLegacy(throttle);
@@ -201,46 +199,7 @@ function __spreadArray$1(to, from, pack) {
     return to.concat(ar || from);
 }
 
-function toVal(mix) {
-	var k, y, str='';
-
-	if (typeof mix === 'string' || typeof mix === 'number') {
-		str += mix;
-	} else if (typeof mix === 'object') {
-		if (Array.isArray(mix)) {
-			for (k=0; k < mix.length; k++) {
-				if (mix[k]) {
-					if (y = toVal(mix[k])) {
-						str && (str += ' ');
-						str += y;
-					}
-				}
-			}
-		} else {
-			for (k in mix) {
-				if (mix[k]) {
-					str && (str += ' ');
-					str += k;
-				}
-			}
-		}
-	}
-
-	return str;
-}
-
-function clsx () {
-	var i=0, tmp, x, str='';
-	while (i < arguments.length) {
-		if (tmp = arguments[i++]) {
-			if (x = toVal(tmp)) {
-				str && (str += ' ');
-				str += x;
-			}
-		}
-	}
-	return str;
-}
+function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e))for(t=0;t<e.length;t++)e[t]&&(f=r(e[t]))&&(n&&(n+=" "),n+=f);else for(t in e)e[t]&&(n&&(n+=" "),n+=t);return n}function clsx(){for(var e,t,f=0,n="";f<arguments.length;)(e=arguments[f++])&&(t=r(e))&&(n&&(n+=" "),n+=t);return n}
 
 var UnMemoizedAttachmentActions = function (props) {
     var actionHandler = props.actionHandler, actions = props.actions, id = props.id, text = props.text;
@@ -2078,18 +2037,18 @@ function ok$1() {
  * @returns {string}
  */
 function color(d) {
-  return '\u001B[33m' + d + '\u001B[39m'
+  return d
 }
 
 /**
  * @typedef {import('unist').Node} Node
  * @typedef {import('unist').Parent} Parent
  * @typedef {import('unist-util-is').Test} Test
- * @typedef {import('./complex-types').Action} Action
- * @typedef {import('./complex-types').Index} Index
- * @typedef {import('./complex-types').ActionTuple} ActionTuple
- * @typedef {import('./complex-types').VisitorResult} VisitorResult
- * @typedef {import('./complex-types').Visitor} Visitor
+ * @typedef {import('./complex-types.js').Action} Action
+ * @typedef {import('./complex-types.js').Index} Index
+ * @typedef {import('./complex-types.js').ActionTuple} ActionTuple
+ * @typedef {import('./complex-types.js').VisitorResult} VisitorResult
+ * @typedef {import('./complex-types.js').Visitor} Visitor
  */
 
 /**
@@ -2106,26 +2065,30 @@ const SKIP = 'skip';
 const EXIT = false;
 
 /**
- * Visit children of tree which pass a test
+ * Visit children of tree which pass test.
  *
- * @param tree Abstract syntax tree to walk
- * @param test Test node, optional
- * @param visitor Function to run for each node
- * @param reverse Visit the tree in reverse order, defaults to false
+ * @param tree
+ *   Tree to walk
+ * @param [test]
+ *   `unist-util-is`-compatible test
+ * @param visitor
+ *   Function called for nodes that pass `test`.
+ * @param [reverse=false]
+ *   Traverse in reverse preorder (NRL) instead of preorder (NLR) (default).
  */
 const visitParents =
   /**
    * @type {(
-   *   (<Tree extends Node, Check extends Test>(tree: Tree, test: Check, visitor: import('./complex-types').BuildVisitor<Tree, Check>, reverse?: boolean) => void) &
-   *   (<Tree extends Node>(tree: Tree, visitor: import('./complex-types').BuildVisitor<Tree>, reverse?: boolean) => void)
+   *   (<Tree extends Node, Check extends Test>(tree: Tree, test: Check, visitor: import('./complex-types.js').BuildVisitor<Tree, Check>, reverse?: boolean) => void) &
+   *   (<Tree extends Node>(tree: Tree, visitor: import('./complex-types.js').BuildVisitor<Tree>, reverse?: boolean) => void)
    * )}
    */
   (
     /**
      * @param {Node} tree
      * @param {Test} test
-     * @param {import('./complex-types').Visitor<Node>} visitor
-     * @param {boolean} [reverse]
+     * @param {import('./complex-types.js').Visitor<Node>} visitor
+     * @param {boolean} [reverse=false]
      */
     function (tree, test, visitor, reverse) {
       if (typeof test === 'function' && typeof visitor !== 'function') {
@@ -2143,10 +2106,10 @@ const visitParents =
       /**
        * @param {Node} node
        * @param {number?} index
-       * @param {Array.<Parent>} parents
+       * @param {Array<Parent>} parents
        */
       function factory(node, index, parents) {
-        /** @type {Object.<string, unknown>} */
+        /** @type {Record<string, unknown>} */
         // @ts-expect-error: hush
         const value = typeof node === 'object' && node !== null ? node : {};
         /** @type {string|undefined} */
@@ -2177,7 +2140,7 @@ const visitParents =
           let subresult;
           /** @type {number} */
           let offset;
-          /** @type {Array.<Parent>} */
+          /** @type {Array<Parent>} */
           let grandparents;
 
           if (!test || is(node, index, parents[parents.length - 1] || null)) {
@@ -3729,18 +3692,16 @@ var ReactTextareaAutocomplete = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
-      var _this$props8 = this.props,
-          className = _this$props8.className,
-          containerClassName = _this$props8.containerClassName,
-          containerStyle = _this$props8.containerStyle,
-          style = _this$props8.style;
-      var maxRows = this.props.maxRows;
+      var _this$props8 = this.props;
+          _this$props8.className;
+          var containerClassName = _this$props8.containerClassName,
+          containerStyle = _this$props8.containerStyle;
+          _this$props8.style;
+      this.props.maxRows;
       var _this$state7 = this.state,
-          dataLoading = _this$state7.dataLoading,
-          value = _this$state7.value;
-      if (!this.props.grow) maxRows = 1; // By setting defaultValue to undefined, avoid error:
+          dataLoading = _this$state7.dataLoading;
+          _this$state7.value;
+      if (!this.props.grow) ; // By setting defaultValue to undefined, avoid error:
       // ForwardRef(TextareaAutosize) contains a textarea with both value and defaultValue props.
       // Textarea elements must be either controlled or uncontrolled
 
@@ -3749,29 +3710,7 @@ var ReactTextareaAutocomplete = /*#__PURE__*/function (_React$Component) {
           'rta--loading': dataLoading
         }),
         style: containerStyle
-      }, this.renderSuggestionListContainer(), /*#__PURE__*/React__default["default"].createElement(Textarea__default["default"], _extends__default["default"]({
-        "data-testid": "message-input"
-      }, this._cleanUpProps(), {
-        className: clsx('rta__textarea', className),
-        maxRows: maxRows,
-        onBlur: this._onClickAndBlurHandler,
-        onChange: this._changeHandler,
-        onClick: this._onClickAndBlurHandler,
-        onFocus: this.props.onFocus,
-        onKeyDown: this._handleKeyDown,
-        onScroll: this._onScrollHandler,
-        onSelect: this._selectHandler,
-        ref: function ref(_ref) {
-          var _this2$props;
-
-          (_this2$props = _this2.props) === null || _this2$props === void 0 ? void 0 : _this2$props.innerRef(_ref);
-          _this2.textareaRef = _ref;
-        },
-        style: style,
-        value: value
-      }, this.props.additionalTextareaProps, {
-        defaultValue: undefined
-      })));
+      }, this.renderSuggestionListContainer());
     }
   }], [{
     key: "getDerivedStateFromProps",
@@ -12820,7 +12759,8 @@ var useCustomStyles = function (customStyles) {
         return;
     for (var _i = 0, _a = Object.entries(customStyles); _i < _a.length; _i++) {
         var _b = _a[_i], key = _b[0], value = _b[1];
-        document.documentElement.style.setProperty(key, value);
+        // eslint-disable-next-line babel/no-unused-expressions
+        typeof document !== undefined && document.documentElement.style.setProperty(key, value);
     }
 };
 
@@ -12832,9 +12772,11 @@ var Chat = function (props) {
     var children = props.children, client = props.client, customClasses = props.customClasses, customStyles = props.customStyles, _a = props.darkMode, darkMode = _a === void 0 ? false : _a, defaultLanguage = props.defaultLanguage, i18nInstance = props.i18nInstance, _b = props.initialNavOpen, initialNavOpen = _b === void 0 ? true : _b, _c = props.theme, theme = _c === void 0 ? 'messaging light' : _c, _d = props.useImageFlagEmojisOnWindows, useImageFlagEmojisOnWindows = _d === void 0 ? false : _d;
     var _e = useChat({ client: client, defaultLanguage: defaultLanguage, i18nInstance: i18nInstance, initialNavOpen: initialNavOpen }), channel = _e.channel, closeMobileNav = _e.closeMobileNav, getAppSettings = _e.getAppSettings, latestMessageDatesByChannels = _e.latestMessageDatesByChannels, mutes = _e.mutes, navOpen = _e.navOpen, openMobileNav = _e.openMobileNav, setActiveChannel = _e.setActiveChannel, translators = _e.translators;
     var channelsQueryState = useChannelsQueryState();
-    var themeVersion = (getComputedStyle(document.documentElement)
-        .getPropertyValue('--str-chat__theme-version')
-        .replace(' ', '') || '1');
+    var themeVersion = typeof document == undefined
+        ? '1'
+        : (getComputedStyle(document.documentElement)
+            .getPropertyValue('--str-chat__theme-version')
+            .replace(' ', '') || '1');
     useCustomStyles(darkMode ? darkModeTheme : customStyles);
     var chatContextValue = useCreateChatContext({
         channel: channel,

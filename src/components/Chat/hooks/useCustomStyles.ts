@@ -128,6 +128,7 @@ export const useCustomStyles = (customStyles?: CustomStyles) => {
   if (!customStyles) return;
 
   for (const [key, value] of Object.entries(customStyles)) {
-    document.documentElement.style.setProperty(key, value);
+    // eslint-disable-next-line babel/no-unused-expressions
+    typeof document !== undefined && document.documentElement.style.setProperty(key, value);
   }
 };

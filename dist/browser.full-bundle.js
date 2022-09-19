@@ -4060,12 +4060,25 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
     unwrapExports(players);
 
-    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};function areInputsEqual(newInputs, lastInputs) {
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};var safeIsNaN = Number.isNaN ||
+        function ponyfill(value) {
+            return typeof value === 'number' && value !== value;
+        };
+    function isEqual(first, second) {
+        if (first === second) {
+            return true;
+        }
+        if (safeIsNaN(first) && safeIsNaN(second)) {
+            return true;
+        }
+        return false;
+    }
+    function areInputsEqual(newInputs, lastInputs) {
         if (newInputs.length !== lastInputs.length) {
             return false;
         }
         for (var i = 0; i < newInputs.length; i++) {
-            if (newInputs[i] !== lastInputs[i]) {
+            if (!isEqual(newInputs[i], lastInputs[i])) {
                 return false;
             }
         }
@@ -5539,46 +5552,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
     var ReactPlayer = unwrapExports(lib$8);
 
-    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};function toVal(mix) {
-    	var k, y, str='';
-
-    	if (typeof mix === 'string' || typeof mix === 'number') {
-    		str += mix;
-    	} else if (typeof mix === 'object') {
-    		if (Array.isArray(mix)) {
-    			for (k=0; k < mix.length; k++) {
-    				if (mix[k]) {
-    					if (y = toVal(mix[k])) {
-    						str && (str += ' ');
-    						str += y;
-    					}
-    				}
-    			}
-    		} else {
-    			for (k in mix) {
-    				if (mix[k]) {
-    					str && (str += ' ');
-    					str += k;
-    				}
-    			}
-    		}
-    	}
-
-    	return str;
-    }
-
-    function clsx () {
-    	var i=0, tmp, x, str='';
-    	while (i < arguments.length) {
-    		if (tmp = arguments[i++]) {
-    			if (x = toVal(tmp)) {
-    				str && (str += ' ');
-    				str += x;
-    			}
-    		}
-    	}
-    	return str;
-    }
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};function r$2(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e))for(t=0;t<e.length;t++)e[t]&&(f=r$2(e[t]))&&(n&&(n+=" "),n+=f);else for(t in e)e[t]&&(n&&(n+=" "),n+=t);return n}function clsx(){for(var e,t,f=0,n="";f<arguments.length;)(e=arguments[f++])&&(t=r$2(e))&&(n&&(n+=" "),n+=t);return n}
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};var UnMemoizedAttachmentActions = function (props) {
         var actionHandler = props.actionHandler, actions = props.actions, id = props.id, text = props.text;
@@ -5990,7 +5964,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     unwrapExports(interopRequireDefault);
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
-    var classCallCheck = createCommonjsModule$1(function (module) {
+    var classCallCheck$1 = createCommonjsModule$1(function (module) {
     function _classCallCheck(instance, Constructor) {
       if (!(instance instanceof Constructor)) {
         throw new TypeError("Cannot call a class as a function");
@@ -6000,10 +5974,10 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     module.exports = _classCallCheck, module.exports.__esModule = true, module.exports["default"] = module.exports;
     });
 
-    var _classCallCheck$1 = unwrapExports(classCallCheck);
+    unwrapExports(classCallCheck$1);
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
-    var createClass = createCommonjsModule$1(function (module) {
+    var createClass$1 = createCommonjsModule$1(function (module) {
     function _defineProperties(target, props) {
       for (var i = 0; i < props.length; i++) {
         var descriptor = props[i];
@@ -6026,10 +6000,10 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     module.exports = _createClass, module.exports.__esModule = true, module.exports["default"] = module.exports;
     });
 
-    var _createClass$1 = unwrapExports(createClass);
+    unwrapExports(createClass$1);
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
-    var _typeof_1 = createCommonjsModule$1(function (module) {
+    var _typeof_1$1 = createCommonjsModule$1(function (module) {
     function _typeof(obj) {
       "@babel/helpers - typeof";
 
@@ -6043,7 +6017,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
     });
 
-    var _typeof$1 = unwrapExports(_typeof_1);
+    unwrapExports(_typeof_1$1);
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
     var data = createCommonjsModule$1(function (module, exports) {
@@ -6238,7 +6212,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     exports.measureScrollbar = measureScrollbar;
     exports.throttleIdleTask = throttleIdleTask;
 
-    var _typeof2 = interopRequireDefault(_typeof_1);
+    var _typeof2 = interopRequireDefault(_typeof_1$1);
 
 
 
@@ -6582,9 +6556,9 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     });
     exports["default"] = void 0;
 
-    var _classCallCheck2 = interopRequireDefault(classCallCheck);
+    var _classCallCheck2 = interopRequireDefault(classCallCheck$1);
 
-    var _createClass2 = interopRequireDefault(createClass);
+    var _createClass2 = interopRequireDefault(createClass$1);
 
 
 
@@ -6954,17 +6928,17 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
 
-    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};function _typeof(obj) {
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};function _typeof$1(obj) {
       "@babel/helpers - typeof";
 
-      return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+      return _typeof$1 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
         return typeof obj;
       } : function (obj) {
         return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-      }, _typeof(obj);
+      }, _typeof$1(obj);
     }
 
-    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};function _classCallCheck(instance, Constructor) {
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};function _classCallCheck$1(instance, Constructor) {
       if (!(instance instanceof Constructor)) {
         throw new TypeError("Cannot call a class as a function");
       }
@@ -6980,7 +6954,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
       }
     }
 
-    function _createClass(Constructor, protoProps, staticProps) {
+    function _createClass$1(Constructor, protoProps, staticProps) {
       if (protoProps) _defineProperties(Constructor.prototype, protoProps);
       if (staticProps) _defineProperties(Constructor, staticProps);
       Object.defineProperty(Constructor, "prototype", {
@@ -7025,7 +6999,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     }
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};function _possibleConstructorReturn$1(self, call) {
-      if (call && (_typeof(call) === "object" || typeof call === "function")) {
+      if (call && (_typeof$1(call) === "object" || typeof call === "function")) {
         return call;
       } else if (call !== void 0) {
         throw new TypeError("Derived constructors may only return object or undefined");
@@ -7116,12 +7090,12 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
       function Logger(concreteLogger) {
         var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-        _classCallCheck(this, Logger);
+        _classCallCheck$1(this, Logger);
 
         this.init(concreteLogger, options);
       }
 
-      _createClass(Logger, [{
+      _createClass$1(Logger, [{
         key: "init",
         value: function init(concreteLogger) {
           var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -7194,12 +7168,12 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
     var EventEmitter = function () {
       function EventEmitter() {
-        _classCallCheck(this, EventEmitter);
+        _classCallCheck$1(this, EventEmitter);
 
         this.observers = {};
       }
 
-      _createClass(EventEmitter, [{
+      _createClass$1(EventEmitter, [{
         key: "on",
         value: function on(events, listener) {
           var _this = this;
@@ -7373,7 +7347,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
       return data;
     }
-    var isIE10 = typeof window !== 'undefined' && window.navigator && window.navigator.userAgent && window.navigator.userAgent.indexOf('MSIE') > -1;
+    var isIE10 = typeof window !== 'undefined' && window.navigator && typeof window.navigator.userAgentData === 'undefined' && window.navigator.userAgent && window.navigator.userAgent.indexOf('MSIE') > -1;
     var chars = [' ', ',', '?', '!', ';'];
     function looksLikeObjectPath(key, nsSeparator, keySeparator) {
       nsSeparator = nsSeparator || '';
@@ -7432,6 +7406,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
           }
 
           if (mix === undefined) return undefined;
+          if (mix === null) return null;
 
           if (path.endsWith(p)) {
             if (typeof mix === 'string') return mix;
@@ -7462,7 +7437,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
           defaultNS: 'translation'
         };
 
-        _classCallCheck(this, ResourceStore);
+        _classCallCheck$1(this, ResourceStore);
 
         _this = _super.call(this);
 
@@ -7484,7 +7459,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         return _this;
       }
 
-      _createClass(ResourceStore, [{
+      _createClass$1(ResourceStore, [{
         key: "addNamespaces",
         value: function addNamespaces(ns) {
           if (this.options.ns.indexOf(ns) < 0) {
@@ -7661,7 +7636,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
         var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-        _classCallCheck(this, Translator);
+        _classCallCheck$1(this, Translator);
 
         _this = _super.call(this);
 
@@ -7680,7 +7655,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         return _this;
       }
 
-      _createClass(Translator, [{
+      _createClass$1(Translator, [{
         key: "changeLanguage",
         value: function changeLanguage(lng) {
           if (lng) this.language = lng;
@@ -7735,13 +7710,14 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         value: function translate(keys, options, lastKey) {
           var _this2 = this;
 
-          if (_typeof(options) !== 'object' && this.options.overloadTranslationOptionHandler) {
+          if (_typeof$1(options) !== 'object' && this.options.overloadTranslationOptionHandler) {
             options = this.options.overloadTranslationOptionHandler(arguments);
           }
 
           if (!options) options = {};
           if (keys === undefined || keys === null) return '';
           if (!Array.isArray(keys)) keys = [String(keys)];
+          var returnDetails = options.returnDetails !== undefined ? options.returnDetails : this.options.returnDetails;
           var keySeparator = options.keySeparator !== undefined ? options.keySeparator : this.options.keySeparator;
 
           var _this$extractFromKey = this.extractFromKey(keys[keys.length - 1], options),
@@ -7755,7 +7731,18 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
           if (lng && lng.toLowerCase() === 'cimode') {
             if (appendNamespaceToCIMode) {
               var nsSeparator = options.nsSeparator || this.options.nsSeparator;
-              return namespace + nsSeparator + key;
+
+              if (returnDetails) {
+                resolved.res = "".concat(namespace).concat(nsSeparator).concat(key);
+                return resolved;
+              }
+
+              return "".concat(namespace).concat(nsSeparator).concat(key);
+            }
+
+            if (returnDetails) {
+              resolved.res = key;
+              return resolved;
             }
 
             return key;
@@ -7777,9 +7764,16 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
                 this.logger.warn('accessing an object - but returnObjects options is not enabled!');
               }
 
-              return this.options.returnedObjectHandler ? this.options.returnedObjectHandler(resUsedKey, res, _objectSpread$2$1(_objectSpread$2$1({}, options), {}, {
+              var r = this.options.returnedObjectHandler ? this.options.returnedObjectHandler(resUsedKey, res, _objectSpread$2$1(_objectSpread$2$1({}, options), {}, {
                 ns: namespaces
               })) : "key '".concat(key, " (").concat(this.language, ")' returned an object instead of string.");
+
+              if (returnDetails) {
+                resolved.res = r;
+                return resolved;
+              }
+
+              return r;
             }
 
             if (keySeparator) {
@@ -7878,11 +7872,16 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
             if ((usedKey || usedDefault) && this.options.parseMissingKeyHandler) {
               if (this.options.compatibilityAPI !== 'v1') {
-                res = this.options.parseMissingKeyHandler(key, usedDefault ? res : undefined);
+                res = this.options.parseMissingKeyHandler(this.options.appendNamespaceToMissingKey ? "".concat(namespace, ":").concat(key) : key, usedDefault ? res : undefined);
               } else {
                 res = this.options.parseMissingKeyHandler(res);
               }
             }
+          }
+
+          if (returnDetails) {
+            resolved.res = res;
+            return resolved;
           }
 
           return res;
@@ -7893,7 +7892,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
           var _this3 = this;
 
           if (this.i18nFormat && this.i18nFormat.parse) {
-            res = this.i18nFormat.parse(res, options, resolved.usedLng, resolved.usedNS, resolved.usedKey, {
+            res = this.i18nFormat.parse(res, _objectSpread$2$1(_objectSpread$2$1({}, this.options.interpolation.defaultVariables), options), resolved.usedLng, resolved.usedNS, resolved.usedKey, {
               resolved: resolved
             });
           } else if (!options.skipInterpolation) {
@@ -7992,7 +7991,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
                 } else {
                   var pluralSuffix;
                   if (needsPluralHandling) pluralSuffix = _this4.pluralResolver.getSuffix(code, options.count, options);
-                  var zeroSuffix = '_zero';
+                  var zeroSuffix = "".concat(_this4.options.pluralSeparator, "zero");
 
                   if (needsPluralHandling) {
                     finalKeys.push(key + pluralSuffix);
@@ -8071,14 +8070,14 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
     var LanguageUtil = function () {
       function LanguageUtil(options) {
-        _classCallCheck(this, LanguageUtil);
+        _classCallCheck$1(this, LanguageUtil);
 
         this.options = options;
         this.supportedLngs = this.options.supportedLngs || false;
         this.logger = baseLogger.create('languageUtils');
       }
 
-      _createClass(LanguageUtil, [{
+      _createClass$1(LanguageUtil, [{
         key: "getScriptPartFromCode",
         value: function getScriptPartFromCode(code) {
           if (!code || code.indexOf('-') < 0) return null;
@@ -8402,7 +8401,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
       function PluralResolver(languageUtils) {
         var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-        _classCallCheck(this, PluralResolver);
+        _classCallCheck$1(this, PluralResolver);
 
         this.languageUtils = languageUtils;
         this.options = options;
@@ -8416,7 +8415,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         this.rules = createRules();
       }
 
-      _createClass(PluralResolver, [{
+      _createClass$1(PluralResolver, [{
         key: "addRule",
         value: function addRule(lng, obj) {
           this.rules[lng] = obj;
@@ -8549,7 +8548,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
       function Interpolator() {
         var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-        _classCallCheck(this, Interpolator);
+        _classCallCheck$1(this, Interpolator);
 
         this.logger = baseLogger.create('interpolator');
         this.options = options;
@@ -8561,7 +8560,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         this.init(options);
       }
 
-      _createClass(Interpolator, [{
+      _createClass$1(Interpolator, [{
         key: "init",
         value: function init() {
           var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -8672,7 +8671,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
               str = str.replace(match[0], safeValue);
 
               if (skipOnVariables) {
-                todo.regex.lastIndex += safeValue.length;
+                todo.regex.lastIndex += value.length;
                 todo.regex.lastIndex -= match[0].length;
               } else {
                 todo.regex.lastIndex = 0;
@@ -8790,11 +8789,11 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
                 key = _opt$split2[0],
                 rest = _opt$split2.slice(1);
 
-            var val = rest.join(':');
-            if (!formatOptions[key.trim()]) formatOptions[key.trim()] = val.trim();
-            if (val.trim() === 'false') formatOptions[key.trim()] = false;
-            if (val.trim() === 'true') formatOptions[key.trim()] = true;
-            if (!isNaN(val.trim())) formatOptions[key.trim()] = parseInt(val.trim(), 10);
+            var val = rest.join(':').trim().replace(/^'+|'+$/g, '');
+            if (!formatOptions[key.trim()]) formatOptions[key.trim()] = val;
+            if (val === 'false') formatOptions[key.trim()] = false;
+            if (val === 'true') formatOptions[key.trim()] = true;
+            if (!isNaN(val)) formatOptions[key.trim()] = parseInt(val, 10);
           });
         }
       }
@@ -8809,7 +8808,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
       function Formatter() {
         var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-        _classCallCheck(this, Formatter);
+        _classCallCheck$1(this, Formatter);
 
         this.logger = baseLogger.create('formatter');
         this.options = options;
@@ -8835,7 +8834,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         this.init(options);
       }
 
-      _createClass(Formatter, [{
+      _createClass$1(Formatter, [{
         key: "init",
         value: function init(services) {
           var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
@@ -8894,12 +8893,10 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
     function _isNativeReflectConstruct$2() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
-    function remove(arr, what) {
-      var found = arr.indexOf(what);
-
-      while (found !== -1) {
-        arr.splice(found, 1);
-        found = arr.indexOf(what);
+    function removePending(q, name) {
+      if (q.pending[name] !== undefined) {
+        delete q.pending[name];
+        q.pendingCount--;
       }
     }
 
@@ -8913,7 +8910,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
         var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
 
-        _classCallCheck(this, Connector);
+        _classCallCheck$1(this, Connector);
 
         _this = _super.call(this);
 
@@ -8927,6 +8924,11 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         _this.languageUtils = services.languageUtils;
         _this.options = options;
         _this.logger = baseLogger.create('backendConnector');
+        _this.waitingReads = [];
+        _this.maxParallelReads = options.maxParallelReads || 10;
+        _this.readingCalls = 0;
+        _this.maxRetries = options.maxRetries >= 0 ? options.maxRetries : 5;
+        _this.retryTimeout = options.retryTimeout >= 1 ? options.retryTimeout : 350;
         _this.state = {};
         _this.queue = [];
 
@@ -8937,15 +8939,15 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         return _this;
       }
 
-      _createClass(Connector, [{
+      _createClass$1(Connector, [{
         key: "queueLoad",
         value: function queueLoad(languages, namespaces, options, callback) {
           var _this2 = this;
 
-          var toLoad = [];
-          var pending = [];
-          var toLoadLanguages = [];
-          var toLoadNamespaces = [];
+          var toLoad = {};
+          var pending = {};
+          var toLoadLanguages = {};
+          var toLoadNamespaces = {};
           languages.forEach(function (lng) {
             var hasAllNamespaces = true;
             namespaces.forEach(function (ns) {
@@ -8954,21 +8956,22 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
               if (!options.reload && _this2.store.hasResourceBundle(lng, ns)) {
                 _this2.state[name] = 2;
               } else if (_this2.state[name] < 0) ; else if (_this2.state[name] === 1) {
-                if (pending.indexOf(name) < 0) pending.push(name);
+                if (pending[name] === undefined) pending[name] = true;
               } else {
                 _this2.state[name] = 1;
                 hasAllNamespaces = false;
-                if (pending.indexOf(name) < 0) pending.push(name);
-                if (toLoad.indexOf(name) < 0) toLoad.push(name);
-                if (toLoadNamespaces.indexOf(ns) < 0) toLoadNamespaces.push(ns);
+                if (pending[name] === undefined) pending[name] = true;
+                if (toLoad[name] === undefined) toLoad[name] = true;
+                if (toLoadNamespaces[ns] === undefined) toLoadNamespaces[ns] = true;
               }
             });
-            if (!hasAllNamespaces) toLoadLanguages.push(lng);
+            if (!hasAllNamespaces) toLoadLanguages[lng] = true;
           });
 
-          if (toLoad.length || pending.length) {
+          if (Object.keys(toLoad).length || Object.keys(pending).length) {
             this.queue.push({
               pending: pending,
+              pendingCount: Object.keys(pending).length,
               loaded: {},
               errors: [],
               callback: callback
@@ -8976,10 +8979,10 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
           }
 
           return {
-            toLoad: toLoad,
-            pending: pending,
-            toLoadLanguages: toLoadLanguages,
-            toLoadNamespaces: toLoadNamespaces
+            toLoad: Object.keys(toLoad),
+            pending: Object.keys(pending),
+            toLoadLanguages: Object.keys(toLoadLanguages),
+            toLoadNamespaces: Object.keys(toLoadNamespaces)
           };
         }
       }, {
@@ -8998,16 +9001,17 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
           var loaded = {};
           this.queue.forEach(function (q) {
             pushPath(q.loaded, [lng], ns);
-            remove(q.pending, name);
+            removePending(q, name);
             if (err) q.errors.push(err);
 
-            if (q.pending.length === 0 && !q.done) {
+            if (q.pendingCount === 0 && !q.done) {
               Object.keys(q.loaded).forEach(function (l) {
-                if (!loaded[l]) loaded[l] = [];
+                if (!loaded[l]) loaded[l] = {};
+                var loadedKeys = q.loaded[l];
 
-                if (q.loaded[l].length) {
-                  q.loaded[l].forEach(function (ns) {
-                    if (loaded[l].indexOf(ns) < 0) loaded[l].push(ns);
+                if (loadedKeys.length) {
+                  loadedKeys.forEach(function (ns) {
+                    if (loaded[l][ns] === undefined) loaded[l][ns] = true;
                   });
                 }
               });
@@ -9031,11 +9035,33 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
           var _this3 = this;
 
           var tried = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
-          var wait = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 350;
+          var wait = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : this.retryTimeout;
           var callback = arguments.length > 5 ? arguments[5] : undefined;
           if (!lng.length) return callback(null, {});
+
+          if (this.readingCalls >= this.maxParallelReads) {
+            this.waitingReads.push({
+              lng: lng,
+              ns: ns,
+              fcName: fcName,
+              tried: tried,
+              wait: wait,
+              callback: callback
+            });
+            return;
+          }
+
+          this.readingCalls++;
           return this.backend[fcName](lng, ns, function (err, data) {
-            if (err && data && tried < 5) {
+            _this3.readingCalls--;
+
+            if (_this3.waitingReads.length > 0) {
+              var next = _this3.waitingReads.shift();
+
+              _this3.read(next.lng, next.ns, next.fcName, next.tried, next.wait, next.callback);
+            }
+
+            if (err && data && tried < _this3.maxRetries) {
               setTimeout(function () {
                 _this3.read.call(_this3, lng, ns, fcName, tried + 1, wait * 2, callback);
               }, wait);
@@ -9161,11 +9187,11 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         appendNamespaceToCIMode: false,
         overloadTranslationOptionHandler: function handle(args) {
           var ret = {};
-          if (_typeof(args[1]) === 'object') ret = args[1];
+          if (_typeof$1(args[1]) === 'object') ret = args[1];
           if (typeof args[1] === 'string') ret.defaultValue = args[1];
           if (typeof args[2] === 'string') ret.tDescription = args[2];
 
-          if (_typeof(args[2]) === 'object' || _typeof(args[3]) === 'object') {
+          if (_typeof$1(args[2]) === 'object' || _typeof$1(args[3]) === 'object') {
             var options = args[3] || args[2];
             Object.keys(options).forEach(function (key) {
               ret[key] = options[key];
@@ -9211,7 +9237,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
     function _isNativeReflectConstruct$3() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
-    function noop$4() {}
+    function noop$3() {}
 
     function bindMemberFunctions(inst) {
       var mems = Object.getOwnPropertyNames(Object.getPrototypeOf(inst));
@@ -9233,7 +9259,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
         var callback = arguments.length > 1 ? arguments[1] : undefined;
 
-        _classCallCheck(this, I18n);
+        _classCallCheck$1(this, I18n);
 
         _this = _super.call(this);
 
@@ -9264,7 +9290,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         return _this;
       }
 
-      _createClass(I18n, [{
+      _createClass$1(I18n, [{
         key: "init",
         value: function init() {
           var _this2 = this;
@@ -9277,7 +9303,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
             options = {};
           }
 
-          if (!options.defaultNS && options.ns) {
+          if (!options.defaultNS && options.defaultNS !== false && options.ns) {
             if (typeof options.ns === 'string') {
               options.defaultNS = options.ns;
             } else if (options.ns.indexOf('translation') < 0) {
@@ -9376,7 +9402,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
           }
 
           this.format = this.options.interpolation.format;
-          if (!callback) callback = noop$4;
+          if (!callback) callback = noop$3;
 
           if (this.options.fallbackLng && !this.services.languageDetector && !this.options.lng) {
             var codes = this.services.languageUtils.getFallbackCodes(this.options.fallbackLng);
@@ -9437,7 +9463,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         value: function loadResources(language) {
           var _this3 = this;
 
-          var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : noop$4;
+          var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : noop$3;
           var usedCallback = callback;
           var usedLng = typeof language === 'string' ? language : this.language;
           if (typeof language === 'function') usedCallback = language;
@@ -9485,7 +9511,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
           var deferred = defer();
           if (!lngs) lngs = this.languages;
           if (!ns) ns = this.options.ns;
-          if (!callback) callback = noop$4;
+          if (!callback) callback = noop$3;
           this.services.backendConnector.reload(lngs, ns, function (err) {
             deferred.resolve();
             callback(err);
@@ -9620,7 +9646,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
           var fixedT = function fixedT(key, opts) {
             var options;
 
-            if (_typeof(opts) !== 'object') {
+            if (_typeof$1(opts) !== 'object') {
               for (var _len3 = arguments.length, rest = new Array(_len3 > 2 ? _len3 - 2 : 0), _key3 = 2; _key3 < _len3; _key3++) {
                 rest[_key3 - 2] = arguments[_key3];
               }
@@ -9633,8 +9659,9 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
             options.lng = options.lng || fixedT.lng;
             options.lngs = options.lngs || fixedT.lngs;
             options.ns = options.ns || fixedT.ns;
+            options.keyPrefix = options.keyPrefix || keyPrefix || fixedT.keyPrefix;
             var keySeparator = _this5.options.keySeparator || '.';
-            var resultKey = keyPrefix ? "".concat(keyPrefix).concat(keySeparator).concat(key) : key;
+            var resultKey = options.keyPrefix ? "".concat(options.keyPrefix).concat(keySeparator).concat(key) : key;
             return _this5.t(resultKey, options);
           };
 
@@ -9701,7 +9728,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
           }
 
           if (this.hasResourceBundle(lng, ns)) return true;
-          if (!this.services.backendConnector.backend) return true;
+          if (!this.services.backendConnector.backend || this.options.resources && !this.options.partialBundledLanguages) return true;
           if (loadNotPending(lng, ns) && (!fallbackLng || loadNotPending(lastLng, ns))) return true;
           return false;
         }
@@ -9763,7 +9790,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
           var _this8 = this;
 
           var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-          var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : noop$4;
+          var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : noop$3;
 
           var mergedOptions = _objectSpread$6$1(_objectSpread$6$1(_objectSpread$6$1({}, this.options), options), {
             isClone: true
@@ -10621,7 +10648,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
     var imageGallery = createCommonjsModule$1(function (module, exports) {
-    !function(e,t){module.exports=t(React__default["default"]);}(commonjsGlobal,(function(e){return (()=>{var t={703:(e,t,n)=>{var i=n(414);function r(){}function a(){}a.resetWarningCache=r,e.exports=function(){function e(e,t,n,r,a,s){if(s!==i){var o=new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");throw o.name="Invariant Violation",o}}function t(){return e}e.isRequired=e;var n={array:e,bool:e,func:e,number:e,object:e,string:e,symbol:e,any:e,arrayOf:t,element:e,elementType:e,instanceOf:t,node:e,objectOf:t,oneOf:t,oneOfType:t,shape:t,exact:t,checkPropTypes:a,resetWarningCache:r};return n.PropTypes=n,n};},697:(e,t,n)=>{e.exports=n(703)();},414:e=>{e.exports="SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";},590:e=>{var t="undefined"!=typeof Element,n="function"==typeof Map,i="function"==typeof Set,r="function"==typeof ArrayBuffer&&!!ArrayBuffer.isView;function a(e,s){if(e===s)return !0;if(e&&s&&"object"==typeof e&&"object"==typeof s){if(e.constructor!==s.constructor)return !1;var o,l,u,c;if(Array.isArray(e)){if((o=e.length)!=s.length)return !1;for(l=o;0!=l--;)if(!a(e[l],s[l]))return !1;return !0}if(n&&e instanceof Map&&s instanceof Map){if(e.size!==s.size)return !1;for(c=e.entries();!(l=c.next()).done;)if(!s.has(l.value[0]))return !1;for(c=e.entries();!(l=c.next()).done;)if(!a(l.value[1],s.get(l.value[0])))return !1;return !0}if(i&&e instanceof Set&&s instanceof Set){if(e.size!==s.size)return !1;for(c=e.entries();!(l=c.next()).done;)if(!s.has(l.value[0]))return !1;return !0}if(r&&ArrayBuffer.isView(e)&&ArrayBuffer.isView(s)){if((o=e.length)!=s.length)return !1;for(l=o;0!=l--;)if(e[l]!==s[l])return !1;return !0}if(e.constructor===RegExp)return e.source===s.source&&e.flags===s.flags;if(e.valueOf!==Object.prototype.valueOf)return e.valueOf()===s.valueOf();if(e.toString!==Object.prototype.toString)return e.toString()===s.toString();if((o=(u=Object.keys(e)).length)!==Object.keys(s).length)return !1;for(l=o;0!=l--;)if(!Object.prototype.hasOwnProperty.call(s,u[l]))return !1;if(t&&e instanceof Element)return !1;for(l=o;0!=l--;)if(("_owner"!==u[l]&&"__v"!==u[l]&&"__o"!==u[l]||!e.$$typeof)&&!a(e[u[l]],s[u[l]]))return !1;return !0}return e!=e&&s!=s}e.exports=function(e,t){try{return a(e,t)}catch(e){if((e.message||"").match(/stack|recursion/i))return console.warn("react-fast-compare cannot handle circular refs"),!1;throw e}};},37:function(e,t,n){!function(e,t){function n(){return (n=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var i in n)Object.prototype.hasOwnProperty.call(n,i)&&(e[i]=n[i]);}return e}).apply(this,arguments)}var i="Left",r="Right",a="Down",s={delta:10,preventDefaultTouchmoveEvent:!1,rotationAngle:0,trackMouse:!1,trackTouch:!0},o={first:!0,initial:[0,0],start:0,swiping:!1,xy:[0,0]},l="mousemove",u="mouseup";function c(e,t){if(0===t)return e;var n=Math.PI/180*t;return [e[0]*Math.cos(n)+e[1]*Math.sin(n),e[1]*Math.cos(n)-e[0]*Math.sin(n)]}function h(e,t){var s=function(t){t&&"touches"in t&&t.touches.length>1||e((function(e,i){i.trackMouse&&(document.addEventListener(l,h),document.addEventListener(u,f));var r="touches"in t?t.touches[0]:t,a=c([r.clientX,r.clientY],i.rotationAngle);return n({},e,o,{initial:[].concat(a),xy:a,start:t.timeStamp||0})}));},h=function(t){e((function(e,s){if("touches"in t&&t.touches.length>1)return e;var o="touches"in t?t.touches[0]:t,l=c([o.clientX,o.clientY],s.rotationAngle),u=l[0],h=l[1],d=u-e.xy[0],f=h-e.xy[1],p=Math.abs(d),m=Math.abs(f),v=(t.timeStamp||0)-e.start,g=Math.sqrt(p*p+m*m)/(v||1),b=[d/(v||1),f/(v||1)];if(p<s.delta&&m<s.delta&&!e.swiping)return e;var y=function(e,t,n,s){return e>t?n>0?r:i:s>0?a:"Up"}(p,m,d,f),w={absX:p,absY:m,deltaX:d,deltaY:f,dir:y,event:t,first:e.first,initial:e.initial,velocity:g,vxvy:b};s.onSwiping&&s.onSwiping(w);var T=!1;return (s.onSwiping||s.onSwiped||"onSwiped"+y in s)&&(T=!0),T&&s.preventDefaultTouchmoveEvent&&s.trackTouch&&t.cancelable&&t.preventDefault(),n({},e,{first:!1,eventData:w,swiping:!0})}));},d=function(t){e((function(e,i){var r;if(e.swiping&&e.eventData){r=n({},e.eventData,{event:t}),i.onSwiped&&i.onSwiped(r);var a="onSwiped"+r.dir;a in i&&i[a](r);}else i.onTap&&i.onTap({event:t});return n({},e,o,{eventData:r})}));},f=function(e){document.removeEventListener(l,h),document.removeEventListener(u,f),d(e);},p=function(e,t){var n=function(){};if(e&&e.addEventListener){var i=[["touchstart",s],["touchmove",h],["touchend",d]];i.forEach((function(n){var i=n[0],r=n[1];return e.addEventListener(i,r,{passive:t})})),n=function(){return i.forEach((function(t){var n=t[0],i=t[1];return e.removeEventListener(n,i)}))};}return n},m={ref:function(t){null!==t&&e((function(e,i){if(e.el===t)return e;var r={};return e.el&&e.el!==t&&e.cleanUpTouch&&(e.cleanUpTouch(),r.cleanUpTouch=void 0),i.trackTouch&&t&&(r.cleanUpTouch=p(t,!i.preventDefaultTouchmoveEvent)),n({},e,{el:t},r)}));}};return t.trackMouse&&(m.onMouseDown=s),[m,p]}e.DOWN=a,e.LEFT=i,e.RIGHT=r,e.UP="Up",e.useSwipeable=function(e){var i=e.trackMouse,r=t.useRef(n({},o)),a=t.useRef(n({},s));a.current=n({},s,e);var l=t.useMemo((function(){return h((function(e){return r.current=e(r.current,a.current)}),{trackMouse:i})}),[i]),u=l[0],c=l[1];return r.current=function(e,t,i){var r={};return !t.trackTouch&&e.cleanUpTouch?(e.cleanUpTouch(),r.cleanUpTouch=void 0):t.trackTouch&&!e.cleanUpTouch&&e.el&&(r.cleanUpTouch=i(e.el,!t.preventDefaultTouchmoveEvent)),n({},e,r)}(r.current,a.current,c),u};}(t,n(888));},888:t=>{t.exports=e;}},n={};function i(e){var r=n[e];if(void 0!==r)return r.exports;var a=n[e]={exports:{}};return t[e].call(a.exports,a,a.exports,i),a.exports}i.n=e=>{var t=e&&e.__esModule?()=>e.default:()=>e;return i.d(t,{a:t}),t},i.d=(e,t)=>{for(var n in t)i.o(t,n)&&!i.o(e,n)&&Object.defineProperty(e,n,{enumerable:!0,get:t[n]});},i.g=function(){if("object"==typeof globalThis)return globalThis;try{return this||new Function("return this")()}catch(e){if("object"==typeof window)return window}}(),i.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),i.r=e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0});};var r={};return (()=>{function e(t){var n,i,r="";if("string"==typeof t||"number"==typeof t)r+=t;else if("object"==typeof t)if(Array.isArray(t))for(n=0;n<t.length;n++)t[n]&&(i=e(t[n]))&&(r&&(r+=" "),r+=i);else for(n in t)t[n]&&(r&&(r+=" "),r+=n);return r}function t(){for(var t,n,i=0,r="";i<arguments.length;)(t=arguments[i++])&&(n=e(t))&&(r&&(r+=" "),r+=n);return r}i.r(r),i.d(r,{default:()=>Me});var n=i(888),a=i.n(n);const s=function(e){var t=typeof e;return null!=e&&("object"==t||"function"==t)},o="object"==typeof commonjsGlobal&&commonjsGlobal&&commonjsGlobal.Object===Object&&commonjsGlobal;var l="object"==typeof self&&self&&self.Object===Object&&self;const u=o||l||Function("return this")(),c=function(){return u.Date.now()};var h=/\s/;var d=/^\s+/;const f=function(e){return e?e.slice(0,function(e){for(var t=e.length;t--&&h.test(e.charAt(t)););return t}(e)+1).replace(d,""):e},p=u.Symbol;var m=Object.prototype,v=m.hasOwnProperty,g=m.toString,b=p?p.toStringTag:void 0;var y=Object.prototype.toString;var w=p?p.toStringTag:void 0;const T=function(e){return null==e?void 0===e?"[object Undefined]":"[object Null]":w&&w in Object(e)?function(e){var t=v.call(e,b),n=e[b];try{e[b]=void 0;var i=!0;}catch(e){}var r=g.call(e);return i&&(t?e[b]=n:delete e[b]),r}(e):function(e){return y.call(e)}(e)};var S=/^[-+]0x[0-9a-f]+$/i,O=/^0b[01]+$/i,E=/^0o[0-7]+$/i,I=parseInt;const k=function(e){if("number"==typeof e)return e;if(function(e){return "symbol"==typeof e||function(e){return null!=e&&"object"==typeof e}(e)&&"[object Symbol]"==T(e)}(e))return NaN;if(s(e)){var t="function"==typeof e.valueOf?e.valueOf():e;e=s(t)?t+"":t;}if("string"!=typeof e)return 0===e?e:+e;e=f(e);var n=O.test(e);return n||E.test(e)?I(e.slice(2),n?2:8):S.test(e)?NaN:+e};var x=Math.max,_=Math.min;const L=function(e,t,n){var i,r,a,o,l,u,h=0,d=!1,f=!1,p=!0;if("function"!=typeof e)throw new TypeError("Expected a function");function m(t){var n=i,a=r;return i=r=void 0,h=t,o=e.apply(a,n)}function v(e){return h=e,l=setTimeout(b,t),d?m(e):o}function g(e){var n=e-u;return void 0===u||n>=t||n<0||f&&e-h>=a}function b(){var e=c();if(g(e))return y(e);l=setTimeout(b,function(e){var n=t-(e-u);return f?_(n,a-(e-h)):n}(e));}function y(e){return l=void 0,p&&i?m(e):(i=r=void 0,o)}function w(){var e=c(),n=g(e);if(i=arguments,r=this,u=e,n){if(void 0===l)return v(u);if(f)return clearTimeout(l),l=setTimeout(b,t),m(u)}return void 0===l&&(l=setTimeout(b,t)),o}return t=k(t)||0,s(n)&&(d=!!n.leading,a=(f="maxWait"in n)?x(k(n.maxWait)||0,t):a,p="trailing"in n?!!n.trailing:p),w.cancel=function(){void 0!==l&&clearTimeout(l),h=0,i=u=r=l=void 0;},w.flush=function(){return void 0===l?o:y(c())},w},P=function(e,t,n){var i=!0,r=!0;if("function"!=typeof e)throw new TypeError("Expected a function");return s(n)&&(i="leading"in n?!!n.leading:i,r="trailing"in n?!!n.trailing:r),L(e,t,{leading:i,maxWait:t,trailing:r})};var M=i(590),R=i.n(M),D=function(){if("undefined"!=typeof Map)return Map;function e(e,t){var n=-1;return e.some((function(e,i){return e[0]===t&&(n=i,!0)})),n}return function(){function t(){this.__entries__=[];}return Object.defineProperty(t.prototype,"size",{get:function(){return this.__entries__.length},enumerable:!0,configurable:!0}),t.prototype.get=function(t){var n=e(this.__entries__,t),i=this.__entries__[n];return i&&i[1]},t.prototype.set=function(t,n){var i=e(this.__entries__,t);~i?this.__entries__[i][1]=n:this.__entries__.push([t,n]);},t.prototype.delete=function(t){var n=this.__entries__,i=e(n,t);~i&&n.splice(i,1);},t.prototype.has=function(t){return !!~e(this.__entries__,t)},t.prototype.clear=function(){this.__entries__.splice(0);},t.prototype.forEach=function(e,t){void 0===t&&(t=null);for(var n=0,i=this.__entries__;n<i.length;n++){var r=i[n];e.call(t,r[1],r[0]);}},t}()}(),F="undefined"!=typeof window&&"undefined"!=typeof document&&window.document===document,C=void 0!==i.g&&i.g.Math===Math?i.g:"undefined"!=typeof self&&self.Math===Math?self:"undefined"!=typeof window&&window.Math===Math?window:Function("return this")(),W="function"==typeof requestAnimationFrame?requestAnimationFrame.bind(C):function(e){return setTimeout((function(){return e(Date.now())}),1e3/60)},N=["top","right","bottom","left","width","height","size","weight"],j="undefined"!=typeof MutationObserver,z=function(){function e(){this.connected_=!1,this.mutationEventsAdded_=!1,this.mutationsObserver_=null,this.observers_=[],this.onTransitionEnd_=this.onTransitionEnd_.bind(this),this.refresh=function(e,t){var n=!1,i=!1,r=0;function a(){n&&(n=!1,e()),i&&o();}function s(){W(a);}function o(){var e=Date.now();if(n){if(e-r<2)return;i=!0;}else n=!0,i=!1,setTimeout(s,20);r=e;}return o}(this.refresh.bind(this));}return e.prototype.addObserver=function(e){~this.observers_.indexOf(e)||this.observers_.push(e),this.connected_||this.connect_();},e.prototype.removeObserver=function(e){var t=this.observers_,n=t.indexOf(e);~n&&t.splice(n,1),!t.length&&this.connected_&&this.disconnect_();},e.prototype.refresh=function(){this.updateObservers_()&&this.refresh();},e.prototype.updateObservers_=function(){var e=this.observers_.filter((function(e){return e.gatherActive(),e.hasActive()}));return e.forEach((function(e){return e.broadcastActive()})),e.length>0},e.prototype.connect_=function(){F&&!this.connected_&&(document.addEventListener("transitionend",this.onTransitionEnd_),window.addEventListener("resize",this.refresh),j?(this.mutationsObserver_=new MutationObserver(this.refresh),this.mutationsObserver_.observe(document,{attributes:!0,childList:!0,characterData:!0,subtree:!0})):(document.addEventListener("DOMSubtreeModified",this.refresh),this.mutationEventsAdded_=!0),this.connected_=!0);},e.prototype.disconnect_=function(){F&&this.connected_&&(document.removeEventListener("transitionend",this.onTransitionEnd_),window.removeEventListener("resize",this.refresh),this.mutationsObserver_&&this.mutationsObserver_.disconnect(),this.mutationEventsAdded_&&document.removeEventListener("DOMSubtreeModified",this.refresh),this.mutationsObserver_=null,this.mutationEventsAdded_=!1,this.connected_=!1);},e.prototype.onTransitionEnd_=function(e){var t=e.propertyName,n=void 0===t?"":t;N.some((function(e){return !!~n.indexOf(e)}))&&this.refresh();},e.getInstance=function(){return this.instance_||(this.instance_=new e),this.instance_},e.instance_=null,e}(),B=function(e,t){for(var n=0,i=Object.keys(t);n<i.length;n++){var r=i[n];Object.defineProperty(e,r,{value:t[r],enumerable:!1,writable:!1,configurable:!0});}return e},A=function(e){return e&&e.ownerDocument&&e.ownerDocument.defaultView||C},G=V(0,0,0,0);function U(e){return parseFloat(e)||0}function H(e){for(var t=[],n=1;n<arguments.length;n++)t[n-1]=arguments[n];return t.reduce((function(t,n){return t+U(e["border-"+n+"-width"])}),0)}var q="undefined"!=typeof SVGGraphicsElement?function(e){return e instanceof A(e).SVGGraphicsElement}:function(e){return e instanceof A(e).SVGElement&&"function"==typeof e.getBBox};function K(e){return F?q(e)?function(e){var t=e.getBBox();return V(0,0,t.width,t.height)}(e):function(e){var t=e.clientWidth,n=e.clientHeight;if(!t&&!n)return G;var i=A(e).getComputedStyle(e),r=function(e){for(var t={},n=0,i=["top","right","bottom","left"];n<i.length;n++){var r=i[n],a=e["padding-"+r];t[r]=U(a);}return t}(i),a=r.left+r.right,s=r.top+r.bottom,o=U(i.width),l=U(i.height);if("border-box"===i.boxSizing&&(Math.round(o+a)!==t&&(o-=H(i,"left","right")+a),Math.round(l+s)!==n&&(l-=H(i,"top","bottom")+s)),!function(e){return e===A(e).document.documentElement}(e)){var u=Math.round(o+a)-t,c=Math.round(l+s)-n;1!==Math.abs(u)&&(o-=u),1!==Math.abs(c)&&(l-=c);}return V(r.left,r.top,o,l)}(e):G}function V(e,t,n,i){return {x:e,y:t,width:n,height:i}}var X=function(){function e(e){this.broadcastWidth=0,this.broadcastHeight=0,this.contentRect_=V(0,0,0,0),this.target=e;}return e.prototype.isActive=function(){var e=K(this.target);return this.contentRect_=e,e.width!==this.broadcastWidth||e.height!==this.broadcastHeight},e.prototype.broadcastRect=function(){var e=this.contentRect_;return this.broadcastWidth=e.width,this.broadcastHeight=e.height,e},e}(),Y=function(e,t){var n,i,r,a,s,o,l,u=(i=(n=t).x,r=n.y,a=n.width,s=n.height,o="undefined"!=typeof DOMRectReadOnly?DOMRectReadOnly:Object,l=Object.create(o.prototype),B(l,{x:i,y:r,width:a,height:s,top:r,right:i+a,bottom:s+r,left:i}),l);B(this,{target:e,contentRect:u});},$=function(){function e(e,t,n){if(this.activeObservations_=[],this.observations_=new D,"function"!=typeof e)throw new TypeError("The callback provided as parameter 1 is not a function.");this.callback_=e,this.controller_=t,this.callbackCtx_=n;}return e.prototype.observe=function(e){if(!arguments.length)throw new TypeError("1 argument required, but only 0 present.");if("undefined"!=typeof Element&&Element instanceof Object){if(!(e instanceof A(e).Element))throw new TypeError('parameter 1 is not of type "Element".');var t=this.observations_;t.has(e)||(t.set(e,new X(e)),this.controller_.addObserver(this),this.controller_.refresh());}},e.prototype.unobserve=function(e){if(!arguments.length)throw new TypeError("1 argument required, but only 0 present.");if("undefined"!=typeof Element&&Element instanceof Object){if(!(e instanceof A(e).Element))throw new TypeError('parameter 1 is not of type "Element".');var t=this.observations_;t.has(e)&&(t.delete(e),t.size||this.controller_.removeObserver(this));}},e.prototype.disconnect=function(){this.clearActive(),this.observations_.clear(),this.controller_.removeObserver(this);},e.prototype.gatherActive=function(){var e=this;this.clearActive(),this.observations_.forEach((function(t){t.isActive()&&e.activeObservations_.push(t);}));},e.prototype.broadcastActive=function(){if(this.hasActive()){var e=this.callbackCtx_,t=this.activeObservations_.map((function(e){return new Y(e.target,e.broadcastRect())}));this.callback_.call(e,t,e),this.clearActive();}},e.prototype.clearActive=function(){this.activeObservations_.splice(0);},e.prototype.hasActive=function(){return this.activeObservations_.length>0},e}(),J="undefined"!=typeof WeakMap?new WeakMap:new D,Q=function e(t){if(!(this instanceof e))throw new TypeError("Cannot call a class as a function.");if(!arguments.length)throw new TypeError("1 argument required, but only 0 present.");var n=z.getInstance(),i=new $(t,n,this);J.set(this,i);};["observe","unobserve","disconnect"].forEach((function(e){Q.prototype[e]=function(){var t;return (t=J.get(this))[e].apply(t,arguments)};}));const Z=void 0!==C.ResizeObserver?C.ResizeObserver:Q;var ee=i(37),te=i(697),ne=a().memo((function(e){var t=e.description,n=e.fullscreen,i=e.handleImageLoaded,r=e.isFullscreen,s=e.onImageError,o=e.original,l=e.originalAlt,u=e.originalHeight,c=e.originalWidth,h=e.originalTitle,d=e.sizes,f=e.srcSet,p=r&&n||o;return a().createElement(a().Fragment,null,a().createElement("img",{className:"image-gallery-image",src:p,alt:l,srcSet:f,height:u,width:c,sizes:d,title:h,onLoad:function(e){return i(e,o)},onError:s}),t&&a().createElement("span",{className:"image-gallery-description"},t))}));ne.displayName="Item",ne.propTypes={description:te.string,fullscreen:te.string,handleImageLoaded:te.func.isRequired,isFullscreen:te.bool,onImageError:te.func.isRequired,original:te.string.isRequired,originalAlt:te.string,originalHeight:te.string,originalWidth:te.string,originalTitle:te.string,sizes:te.string,srcSet:te.string},ne.defaultProps={description:"",fullscreen:"",isFullscreen:!1,originalAlt:"",originalHeight:"",originalWidth:"",originalTitle:"",sizes:"",srcSet:""};const ie=ne;var re={left:a().createElement("polyline",{points:"15 18 9 12 15 6"}),right:a().createElement("polyline",{points:"9 18 15 12 9 6"}),maximize:a().createElement("path",{d:"M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"}),minimize:a().createElement("path",{d:"M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"}),play:a().createElement("polygon",{points:"5 3 19 12 5 21 5 3"}),pause:a().createElement(a().Fragment,null,a().createElement("rect",{x:"6",y:"4",width:"4",height:"16"}),a().createElement("rect",{x:"14",y:"4",width:"4",height:"16"}))},ae=function(e){var t=e.strokeWidth,n=e.viewBox,i=e.icon;return a().createElement("svg",{className:"image-gallery-svg",xmlns:"http://www.w3.org/2000/svg",viewBox:n,fill:"none",stroke:"currentColor",strokeWidth:t,strokeLinecap:"round",strokeLinejoin:"round"},re[i])};ae.propTypes={strokeWidth:te.number,viewBox:te.string,icon:(0, te.oneOf)(["left","right","maximize","minimize","play","pause"]).isRequired},ae.defaultProps={strokeWidth:1,viewBox:"0 0 24 24"};const se=ae;var oe=a().memo((function(e){var t=e.isFullscreen,n=e.onClick;return a().createElement("button",{type:"button",className:"image-gallery-icon image-gallery-fullscreen-button",onClick:n,"aria-label":"Open Fullscreen"},a().createElement(se,{strokeWidth:2,icon:t?"minimize":"maximize"}))}));oe.displayName="Fullscreen",oe.propTypes={isFullscreen:te.bool.isRequired,onClick:te.func.isRequired};const le=oe;var ue=a().memo((function(e){var t=e.disabled,n=e.onClick;return a().createElement("button",{type:"button",className:"image-gallery-icon image-gallery-left-nav",disabled:t,onClick:n,"aria-label":"Previous Slide"},a().createElement(se,{icon:"left",viewBox:"6 0 12 24"}))}));ue.displayName="LeftNav",ue.propTypes={disabled:te.bool.isRequired,onClick:te.func.isRequired};const ce=ue;var he=a().memo((function(e){var t=e.disabled,n=e.onClick;return a().createElement("button",{type:"button",className:"image-gallery-icon image-gallery-right-nav",disabled:t,onClick:n,"aria-label":"Next Slide"},a().createElement(se,{icon:"right",viewBox:"6 0 12 24"}))}));he.displayName="RightNav",he.propTypes={disabled:te.bool.isRequired,onClick:te.func.isRequired};const de=he;var fe=a().memo((function(e){var t=e.isPlaying,n=e.onClick;return a().createElement("button",{type:"button",className:"image-gallery-icon image-gallery-play-button",onClick:n,"aria-label":"Play or Pause Slideshow"},a().createElement(se,{strokeWidth:2,icon:t?"pause":"play"}))}));fe.displayName="PlayPause",fe.propTypes={isPlaying:te.bool.isRequired,onClick:te.func.isRequired};const pe=fe;function me(){return (me=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var i in n)Object.prototype.hasOwnProperty.call(n,i)&&(e[i]=n[i]);}return e}).apply(this,arguments)}var ve=function(e){var t=e.children,n=e.className,i=e.delta,r=e.onSwiping,s=e.onSwiped,o=(0, ee.useSwipeable)({delta:i,onSwiping:r,onSwiped:s});return a().createElement("div",me({},o,{className:n}),t)};ve.propTypes={children:te.node.isRequired,className:te.string,delta:te.number,onSwiped:te.func,onSwiping:te.func},ve.defaultProps={className:"",delta:0,onSwiping:function(){},onSwiped:function(){}};const ge=ve;function be(e){return (be="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function ye(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var i=Object.getOwnPropertySymbols(e);t&&(i=i.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),n.push.apply(n,i);}return n}function we(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{};t%2?ye(Object(n),!0).forEach((function(t){Te(e,t,n[t]);})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):ye(Object(n)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(n,t));}));}return e}function Te(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function Se(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i);}}function Oe(e,t){return (Oe=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function Ee(e,t){return !t||"object"!==be(t)&&"function"!=typeof t?Ie(e):t}function Ie(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function ke(e){return (ke=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}var xe=["fullscreenchange","MSFullscreenChange","mozfullscreenchange","webkitfullscreenchange"],_e=(0, te.arrayOf)((0, te.shape)({srcSet:te.string,media:te.string}));function Le(e){var t=parseInt(e.keyCode||e.which||0,10);return 66===t||62===t}var Pe=function(e){!function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&Oe(e,t);}(l,e);var n,i,r,s,o=(r=l,s=function(){if("undefined"==typeof Reflect||!Reflect.construct)return !1;if(Reflect.construct.sham)return !1;if("function"==typeof Proxy)return !0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],(function(){}))),!0}catch(e){return !1}}(),function(){var e,t=ke(r);if(s){var n=ke(this).constructor;e=Reflect.construct(t,arguments,n);}else e=t.apply(this,arguments);return Ee(this,e)});function l(e){var t;return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,l),(t=o.call(this,e)).state={currentIndex:e.startIndex,thumbsTranslate:0,thumbsSwipedTranslate:0,currentSlideOffset:0,galleryWidth:0,thumbnailsWrapperWidth:0,thumbnailsWrapperHeight:0,thumbsStyle:{transition:"all ".concat(e.slideDuration,"ms ease-out")},isFullscreen:!1,isSwipingThumbnail:!1,isPlaying:!1},t.loadedImages={},t.imageGallery=a().createRef(),t.thumbnailsWrapper=a().createRef(),t.thumbnails=a().createRef(),t.imageGallerySlideWrapper=a().createRef(),t.handleImageLoaded=t.handleImageLoaded.bind(Ie(t)),t.handleKeyDown=t.handleKeyDown.bind(Ie(t)),t.handleMouseDown=t.handleMouseDown.bind(Ie(t)),t.handleTouchMove=t.handleTouchMove.bind(Ie(t)),t.handleOnSwiped=t.handleOnSwiped.bind(Ie(t)),t.handleScreenChange=t.handleScreenChange.bind(Ie(t)),t.handleSwiping=t.handleSwiping.bind(Ie(t)),t.handleThumbnailSwiping=t.handleThumbnailSwiping.bind(Ie(t)),t.handleOnThumbnailSwiped=t.handleOnThumbnailSwiped.bind(Ie(t)),t.onThumbnailMouseLeave=t.onThumbnailMouseLeave.bind(Ie(t)),t.handleImageError=t.handleImageError.bind(Ie(t)),t.pauseOrPlay=t.pauseOrPlay.bind(Ie(t)),t.renderThumbInner=t.renderThumbInner.bind(Ie(t)),t.renderItem=t.renderItem.bind(Ie(t)),t.slideLeft=t.slideLeft.bind(Ie(t)),t.slideRight=t.slideRight.bind(Ie(t)),t.toggleFullScreen=t.toggleFullScreen.bind(Ie(t)),t.togglePlay=t.togglePlay.bind(Ie(t)),t.unthrottledSlideToIndex=t.slideToIndex,t.slideToIndex=P(t.unthrottledSlideToIndex,e.slideDuration,{trailing:!1}),e.lazyLoad&&(t.lazyLoaded=[]),t}return n=l,(i=[{key:"componentDidMount",value:function(){var e=this.props,t=e.autoPlay,n=e.useWindowKeyDown;t&&this.play(),n?window.addEventListener("keydown",this.handleKeyDown):this.imageGallery.current.addEventListener("keydown",this.handleKeyDown),window.addEventListener("mousedown",this.handleMouseDown),window.addEventListener("touchmove",this.handleTouchMove,{passive:!1}),this.initResizeObserver(this.imageGallerySlideWrapper),this.addScreenChangeEvent();}},{key:"componentDidUpdate",value:function(e,t){var n=this.props,i=n.items,r=n.lazyLoad,a=n.slideDuration,s=n.slideInterval,o=n.startIndex,l=n.thumbnailPosition,u=n.showThumbnails,c=n.useWindowKeyDown,h=this.state.currentIndex,d=e.items.length!==i.length,f=!R()(e.items,i),p=e.startIndex!==o,m=e.thumbnailPosition!==l,v=e.showThumbnails!==u;s===e.slideInterval&&a===e.slideDuration||(this.pause(),this.play()),m&&(this.removeResizeObserver(),this.initResizeObserver(this.imageGallerySlideWrapper)),(d||v)&&this.handleResize(),t.currentIndex!==h&&this.slideThumbnailBar(),e.slideDuration!==a&&(this.slideToIndex=P(this.unthrottledSlideToIndex,a,{trailing:!1})),!r||e.lazyLoad&&!f||(this.lazyLoaded=[]),c!==e.useWindowKeyDown&&(c?(this.imageGallery.current.removeEventListener("keydown",this.handleKeyDown),window.addEventListener("keydown",this.handleKeyDown)):(window.removeEventListener("keydown",this.handleKeyDown),this.imageGallery.current.addEventListener("keydown",this.handleKeyDown))),(p||f)&&this.setState({currentIndex:o});}},{key:"componentWillUnmount",value:function(){var e=this.props.useWindowKeyDown;window.removeEventListener("mousedown",this.handleMouseDown),window.removeEventListener("touchmove",this.handleTouchMove),this.removeScreenChangeEvent(),this.removeResizeObserver(),this.playPauseIntervalId&&(window.clearInterval(this.playPauseIntervalId),this.playPauseIntervalId=null),this.transitionTimer&&window.clearTimeout(this.transitionTimer),e?window.removeEventListener("keydown",this.handleKeyDown):this.imageGallery.current.removeEventListener("keydown",this.handleKeyDown);}},{key:"onSliding",value:function(){var e=this,t=this.state,n=t.currentIndex,i=t.isTransitioning,r=this.props,a=r.onSlide,s=r.slideDuration;this.transitionTimer=window.setTimeout((function(){i&&(e.setState({isTransitioning:!i,isSwipingThumbnail:!1}),a&&a(n));}),s+50);}},{key:"onThumbnailClick",value:function(e,t){var n=this.props.onThumbnailClick;e.target.parentNode.parentNode.blur(),this.slideToIndex(t,e),n&&n(e,t);}},{key:"onThumbnailMouseOver",value:function(e,t){var n=this;this.thumbnailMouseOverTimer&&(window.clearTimeout(this.thumbnailMouseOverTimer),this.thumbnailMouseOverTimer=null),this.thumbnailMouseOverTimer=window.setTimeout((function(){n.slideToIndex(t),n.pause();}),300);}},{key:"onThumbnailMouseLeave",value:function(){if(this.thumbnailMouseOverTimer){var e=this.props.autoPlay;window.clearTimeout(this.thumbnailMouseOverTimer),this.thumbnailMouseOverTimer=null,e&&this.play();}}},{key:"setThumbsTranslate",value:function(e){this.setState({thumbsTranslate:e});}},{key:"setModalFullscreen",value:function(e){var t=this.props.onScreenChange;this.setState({modalFullscreen:e}),t&&t(e);}},{key:"getThumbsTranslate",value:function(e){var t,n=this.props,i=n.disableThumbnailScroll,r=n.items,a=this.state,s=a.thumbnailsWrapperWidth,o=a.thumbnailsWrapperHeight,l=this.thumbnails&&this.thumbnails.current;if(i)return 0;if(l){if(this.isThumbnailVertical()){if(l.scrollHeight<=o)return 0;t=l.scrollHeight-o;}else {if(l.scrollWidth<=s||s<=0)return 0;t=l.scrollWidth-s;}return e*(t/(r.length-1))}return 0}},{key:"getAlignmentClassName",value:function(e){var t=this.state.currentIndex,n=this.props,i=n.infinite,r=n.items,a="",s="left",o="right";switch(e){case t-1:a=" ".concat(s);break;case t:a=" ".concat("center");break;case t+1:a=" ".concat(o);}return r.length>=3&&i&&(0===e&&t===r.length-1?a=" ".concat(o):e===r.length-1&&0===t&&(a=" ".concat(s))),a}},{key:"getTranslateXForTwoSlide",value:function(e){var t=this.state,n=t.currentIndex,i=t.currentSlideOffset,r=t.previousIndex,a=n!==r,s=0===e&&0===r,o=1===e&&1===r,l=0===e&&1===n,u=1===e&&0===n,c=0===i,h=-100*n+100*e+i;return i>0?this.direction="left":i<0&&(this.direction="right"),u&&i>0&&(h=-100+i),l&&i<0&&(h=100+i),a?s&&c&&"left"===this.direction?h=100:o&&c&&"right"===this.direction&&(h=-100):(u&&c&&"left"===this.direction&&(h=-100),l&&c&&"right"===this.direction&&(h=100)),h}},{key:"getThumbnailBarHeight",value:function(){return this.isThumbnailVertical()?{height:this.state.gallerySlideWrapperHeight}:{}}},{key:"getSlideStyle",value:function(e){var t=this.state,n=t.currentIndex,i=t.currentSlideOffset,r=t.slideStyle,a=this.props,s=a.infinite,o=a.items,l=a.useTranslate3D,u=a.isRTL,c=-100*n,h=o.length-1,d=(c+100*e)*(u?-1:1)+i;s&&o.length>2&&(0===n&&e===h?d=-100*(u?-1:1)+i:n===h&&0===e&&(d=100*(u?-1:1)+i)),s&&2===o.length&&(d=this.getTranslateXForTwoSlide(e));var f="translate(".concat(d,"%, 0)");return l&&(f="translate3d(".concat(d,"%, 0, 0)")),we({display:this.isSlideVisible(e)?"inherit":"none",WebkitTransform:f,MozTransform:f,msTransform:f,OTransform:f,transform:f},r)}},{key:"getCurrentIndex",value:function(){return this.state.currentIndex}},{key:"getThumbnailStyle",value:function(){var e,t=this.props,n=t.useTranslate3D,i=t.isRTL,r=this.state,a=r.thumbsTranslate,s=r.thumbsStyle,o=i?-1*a:a;return this.isThumbnailVertical()?(e="translate(0, ".concat(a,"px)"),n&&(e="translate3d(0, ".concat(a,"px, 0)"))):(e="translate(".concat(o,"px, 0)"),n&&(e="translate3d(".concat(o,"px, 0, 0)"))),we({WebkitTransform:e,MozTransform:e,msTransform:e,OTransform:e,transform:e},s)}},{key:"getSlideItems",value:function(){var e=this,n=this.state.currentIndex,i=this.props,r=i.items,s=i.slideOnThumbnailOver,o=i.onClick,l=i.lazyLoad,u=i.onTouchMove,c=i.onTouchEnd,h=i.onTouchStart,d=i.onMouseOver,f=i.onMouseLeave,p=i.renderItem,m=i.renderThumbInner,v=i.showThumbnails,g=i.showBullets,b=[],y=[],w=[];return r.forEach((function(i,r){var T=e.getAlignmentClassName(r),S=i.originalClass?" ".concat(i.originalClass):"",O=i.thumbnailClass?" ".concat(i.thumbnailClass):"",E=i.renderItem||p||e.renderItem,I=i.renderThumbInner||m||e.renderThumbInner,k=!l||T||e.lazyLoaded[r];k&&l&&!e.lazyLoaded[r]&&(e.lazyLoaded[r]=!0);var x=e.getSlideStyle(r),_=a().createElement("div",{"aria-label":"Go to Slide ".concat(r+1),key:"slide-".concat(r),tabIndex:"-1",className:"image-gallery-slide ".concat(T," ").concat(S),style:x,onClick:o,onKeyUp:e.handleSlideKeyUp,onTouchMove:u,onTouchEnd:c,onTouchStart:h,onMouseOver:d,onFocus:d,onMouseLeave:f,role:"button"},k?E(i):a().createElement("div",{style:{height:"100%"}}));if(b.push(_),v&&i.thumbnail){var L=t("image-gallery-thumbnail",O,{active:n===r});y.push(a().createElement("button",{key:"thumbnail-".concat(r),type:"button",tabIndex:"0","aria-pressed":n===r?"true":"false","aria-label":"Go to Slide ".concat(r+1),className:L,onMouseLeave:s?e.onThumbnailMouseLeave:null,onMouseOver:function(t){return e.handleThumbnailMouseOver(t,r)},onFocus:function(t){return e.handleThumbnailMouseOver(t,r)},onKeyUp:function(t){return e.handleThumbnailKeyUp(t,r)},onClick:function(t){return e.onThumbnailClick(t,r)}},I(i)));}if(g){var P=t("image-gallery-bullet",i.bulletClass,{active:n===r});w.push(a().createElement("button",{type:"button",key:"bullet-".concat(r),className:P,onClick:function(t){return i.bulletOnClick&&i.bulletOnClick({item:i,itemIndex:r,currentIndex:n}),t.target.blur(),e.slideToIndex.call(e,r,t)},"aria-pressed":n===r?"true":"false","aria-label":"Go to Slide ".concat(r+1)}));}})),{slides:b,thumbnails:y,bullets:w}}},{key:"ignoreIsTransitioning",value:function(){var e=this.props.items,t=this.state,n=t.previousIndex,i=t.currentIndex,r=e.length-1;return Math.abs(n-i)>1&&!(0===n&&i===r)&&!(n===r&&0===i)}},{key:"isFirstOrLastSlide",value:function(e){return e===this.props.items.length-1||0===e}},{key:"slideIsTransitioning",value:function(e){var t=this.state,n=t.isTransitioning,i=t.previousIndex,r=t.currentIndex;return n&&!(e===i||e===r)}},{key:"isSlideVisible",value:function(e){return !this.slideIsTransitioning(e)||this.ignoreIsTransitioning()&&!this.isFirstOrLastSlide(e)}},{key:"slideThumbnailBar",value:function(){var e=this.state,t=e.currentIndex,n=e.isSwipingThumbnail,i=-this.getThumbsTranslate(t);n||(0===t?this.setState({thumbsTranslate:0,thumbsSwipedTranslate:0}):this.setState({thumbsTranslate:i,thumbsSwipedTranslate:i}));}},{key:"canSlide",value:function(){return this.props.items.length>=2}},{key:"canSlideLeft",value:function(){var e=this.props,t=e.infinite,n=e.isRTL;return t||(n?this.canSlideNext():this.canSlidePrevious())}},{key:"canSlideRight",value:function(){var e=this.props,t=e.infinite,n=e.isRTL;return t||(n?this.canSlidePrevious():this.canSlideNext())}},{key:"canSlidePrevious",value:function(){return this.state.currentIndex>0}},{key:"canSlideNext",value:function(){return this.state.currentIndex<this.props.items.length-1}},{key:"handleSwiping",value:function(e){var t=e.event,n=e.absX,i=e.dir,r=this.props,a=r.disableSwipe,s=r.stopPropagation,o=this.state,l=o.galleryWidth,u=o.isTransitioning,c=o.swipingUpDown,h=o.swipingLeftRight;if(i!==ee.UP&&i!==ee.DOWN&&!c||h){if(i!==ee.LEFT&&i!==ee.RIGHT||h||this.setState({swipingLeftRight:!0}),!a){var d=this.props.swipingTransitionDuration;if(s&&t.preventDefault(),u)this.setState({currentSlideOffset:0});else {var f=i===ee.RIGHT?1:-1,p=n/l*100;Math.abs(p)>=100&&(p=100);var m={transition:"transform ".concat(d,"ms ease-out")};this.setState({currentSlideOffset:f*p,slideStyle:m});}}}else c||this.setState({swipingUpDown:!0});}},{key:"handleThumbnailSwiping",value:function(e){var t=e.event,n=e.absX,i=e.absY,r=e.dir,a=this.props,s=a.stopPropagation,o=a.swipingThumbnailTransitionDuration,l=this.state,u=l.thumbsSwipedTranslate,c=l.thumbnailsWrapperHeight,h=l.thumbnailsWrapperWidth,d=l.swipingUpDown,f=l.swipingLeftRight;if(this.isThumbnailVertical()){if((r===ee.LEFT||r===ee.RIGHT||f)&&!d)return void(f||this.setState({swipingLeftRight:!0}));r!==ee.UP&&r!==ee.DOWN||d||this.setState({swipingUpDown:!0});}else {if((r===ee.UP||r===ee.DOWN||d)&&!f)return void(d||this.setState({swipingUpDown:!0}));r!==ee.LEFT&&r!==ee.RIGHT||f||this.setState({swipingLeftRight:!0});}var p,m,v,g,b,y=this.thumbnails&&this.thumbnails.current;if(this.isThumbnailVertical()?(p=u+(r===ee.DOWN?i:-i),m=y.scrollHeight-c+20,v=Math.abs(p)>m,g=p>20,b=y.scrollHeight<=c):(p=u+(r===ee.RIGHT?n:-n),m=y.scrollWidth-h+20,v=Math.abs(p)>m,g=p>20,b=y.scrollWidth<=h),!b&&(r!==ee.LEFT&&r!==ee.UP||!v)&&(r!==ee.RIGHT&&r!==ee.DOWN||!g)){s&&t.stopPropagation();var w={transition:"transform ".concat(o,"ms ease-out")};this.setState({thumbsTranslate:p,thumbsStyle:w});}}},{key:"handleOnThumbnailSwiped",value:function(){var e=this.state.thumbsTranslate,t=this.props.slideDuration;this.resetSwipingDirection(),this.setState({isSwipingThumbnail:!0,thumbsSwipedTranslate:e,thumbsStyle:{transition:"all ".concat(t,"ms ease-out")}});}},{key:"sufficientSwipe",value:function(){var e=this.state.currentSlideOffset,t=this.props.swipeThreshold;return Math.abs(e)>t}},{key:"resetSwipingDirection",value:function(){var e=this.state,t=e.swipingUpDown,n=e.swipingLeftRight;t&&this.setState({swipingUpDown:!1}),n&&this.setState({swipingLeftRight:!1});}},{key:"handleOnSwiped",value:function(e){var t=e.event,n=e.dir,i=e.velocity,r=this.props,a=r.disableSwipe,s=r.stopPropagation,o=r.flickThreshold;if(!a){var l=this.props.isRTL;s&&t.stopPropagation(),this.resetSwipingDirection();var u=(n===ee.LEFT?1:-1)*(l?-1:1),c=n===ee.UP||n===ee.DOWN,h=i>o&&!c;this.handleOnSwipedTo(u,h);}}},{key:"handleOnSwipedTo",value:function(e,t){var n=this.state,i=n.currentIndex,r=n.isTransitioning,a=i;!this.sufficientSwipe()&&!t||r||(a+=e),(-1===e&&!this.canSlideLeft()||1===e&&!this.canSlideRight())&&(a=i),this.unthrottledSlideToIndex(a);}},{key:"handleTouchMove",value:function(e){this.state.swipingLeftRight&&e.preventDefault();}},{key:"handleMouseDown",value:function(){this.imageGallery.current.classList.add("image-gallery-using-mouse");}},{key:"handleKeyDown",value:function(e){var t=this.props,n=t.disableKeyDown,i=t.useBrowserFullscreen,r=this.state.isFullscreen;if(this.imageGallery.current.classList.remove("image-gallery-using-mouse"),!n)switch(parseInt(e.keyCode||e.which||0,10)){case 37:this.canSlideLeft()&&!this.playPauseIntervalId&&this.slideLeft(e);break;case 39:this.canSlideRight()&&!this.playPauseIntervalId&&this.slideRight(e);break;case 27:r&&!i&&this.exitFullScreen();}}},{key:"handleImageError",value:function(e){var t=this.props.onErrorImageURL;t&&-1===e.target.src.indexOf(t)&&(e.target.src=t);}},{key:"removeResizeObserver",value:function(){this.resizeObserver&&this.imageGallerySlideWrapper&&this.imageGallerySlideWrapper.current&&(this.resizeObserver.unobserve(this.imageGallerySlideWrapper.current),this.resizeObserver=null);}},{key:"handleResize",value:function(){var e=this.state.currentIndex;this.resizeObserver&&(this.imageGallery&&this.imageGallery.current&&this.setState({galleryWidth:this.imageGallery.current.offsetWidth}),this.imageGallerySlideWrapper&&this.imageGallerySlideWrapper.current&&this.setState({gallerySlideWrapperHeight:this.imageGallerySlideWrapper.current.offsetHeight}),this.thumbnailsWrapper&&this.thumbnailsWrapper.current&&(this.isThumbnailVertical()?this.setState({thumbnailsWrapperHeight:this.thumbnailsWrapper.current.offsetHeight}):this.setState({thumbnailsWrapperWidth:this.thumbnailsWrapper.current.offsetWidth})),this.setThumbsTranslate(-this.getThumbsTranslate(e)));}},{key:"initResizeObserver",value:function(e){var t=this;this.resizeObserver=new Z(L((function(e){e&&e.forEach((function(){t.handleResize();}));}),300)),this.resizeObserver.observe(e.current);}},{key:"toggleFullScreen",value:function(){this.state.isFullscreen?this.exitFullScreen():this.fullScreen();}},{key:"togglePlay",value:function(){this.playPauseIntervalId?this.pause():this.play();}},{key:"handleScreenChange",value:function(){var e=this.props,t=e.onScreenChange,n=e.useBrowserFullscreen,i=document.fullscreenElement||document.msFullscreenElement||document.mozFullScreenElement||document.webkitFullscreenElement,r=this.imageGallery.current===i;t&&t(r),n&&this.setState({isFullscreen:r});}},{key:"slideToIndex",value:function(e,t){var n=this.state,i=n.currentIndex,r=n.isTransitioning,a=this.props,s=a.items,o=a.slideDuration,l=a.onBeforeSlide;if(!r){t&&this.playPauseIntervalId&&(this.pause(!1),this.play(!1));var u=s.length-1,c=e;e<0?c=u:e>u&&(c=0),l&&c!==i&&l(c),this.setState({previousIndex:i,currentIndex:c,isTransitioning:c!==i,currentSlideOffset:0,slideStyle:{transition:"all ".concat(o,"ms ease-out")}},this.onSliding);}}},{key:"slideLeft",value:function(e){var t=this.props.isRTL;this.slideTo(e,t?"right":"left");}},{key:"slideRight",value:function(e){var t=this.props.isRTL;this.slideTo(e,t?"left":"right");}},{key:"slideTo",value:function(e,t){var n=this,i=this.state,r=i.currentIndex,a=i.currentSlideOffset,s=i.isTransitioning,o=this.props.items,l=r+("left"===t?-1:1);s||(2===o.length?this.setState({currentSlideOffset:a+("left"===t?.001:-.001),slideStyle:{transition:"none"}},(function(){window.setTimeout((function(){return n.slideToIndex(l,e)}),25);})):this.slideToIndex(l,e));}},{key:"handleThumbnailMouseOver",value:function(e,t){this.props.slideOnThumbnailOver&&this.onThumbnailMouseOver(e,t);}},{key:"handleThumbnailKeyUp",value:function(e,t){Le(e)&&this.onThumbnailClick(e,t);}},{key:"handleSlideKeyUp",value:function(e){Le(e)&&(0, this.props.onClick)(e);}},{key:"isThumbnailVertical",value:function(){var e=this.props.thumbnailPosition;return "left"===e||"right"===e}},{key:"addScreenChangeEvent",value:function(){var e=this;xe.forEach((function(t){document.addEventListener(t,e.handleScreenChange);}));}},{key:"removeScreenChangeEvent",value:function(){var e=this;xe.forEach((function(t){document.removeEventListener(t,e.handleScreenChange);}));}},{key:"fullScreen",value:function(){var e=this.props.useBrowserFullscreen,t=this.imageGallery.current;e?t.requestFullscreen?t.requestFullscreen():t.msRequestFullscreen?t.msRequestFullscreen():t.mozRequestFullScreen?t.mozRequestFullScreen():t.webkitRequestFullscreen?t.webkitRequestFullscreen():this.setModalFullscreen(!0):this.setModalFullscreen(!0),this.setState({isFullscreen:!0});}},{key:"exitFullScreen",value:function(){var e=this.state.isFullscreen,t=this.props.useBrowserFullscreen;e&&(t?document.exitFullscreen?document.exitFullscreen():document.webkitExitFullscreen?document.webkitExitFullscreen():document.mozCancelFullScreen?document.mozCancelFullScreen():document.msExitFullscreen?document.msExitFullscreen():this.setModalFullscreen(!1):this.setModalFullscreen(!1),this.setState({isFullscreen:!1}));}},{key:"pauseOrPlay",value:function(){var e=this.props.infinite,t=this.state.currentIndex;e||this.canSlideRight()?this.slideToIndex(t+1):this.pause();}},{key:"play",value:function(){var e=!(arguments.length>0&&void 0!==arguments[0])||arguments[0],t=this.props,n=t.onPlay,i=t.slideInterval,r=t.slideDuration,a=this.state.currentIndex;this.playPauseIntervalId||(this.setState({isPlaying:!0}),this.playPauseIntervalId=window.setInterval(this.pauseOrPlay,Math.max(i,r)),n&&e&&n(a));}},{key:"pause",value:function(){var e=!(arguments.length>0&&void 0!==arguments[0])||arguments[0],t=this.props.onPause,n=this.state.currentIndex;this.playPauseIntervalId&&(window.clearInterval(this.playPauseIntervalId),this.playPauseIntervalId=null,this.setState({isPlaying:!1}),t&&e&&t(n));}},{key:"isImageLoaded",value:function(e){return !!this.loadedImages[e.original]||(this.loadedImages[e.original]=!0,!1)}},{key:"handleImageLoaded",value:function(e,t){var n=this.props.onImageLoad;!this.loadedImages[t]&&n&&(this.loadedImages[t]=!0,n(e));}},{key:"renderItem",value:function(e){var t=this.state.isFullscreen,n=this.props.onImageError||this.handleImageError;return a().createElement(ie,{description:e.description,fullscreen:e.fullscreen,handleImageLoaded:this.handleImageLoaded,isFullscreen:t,onImageError:n,original:e.original,originalAlt:e.originalAlt,originalHeight:e.originalHeight,originalWidth:e.originalWidth,originalTitle:e.originalTitle,sizes:e.sizes,srcSet:e.srcSet})}},{key:"renderThumbInner",value:function(e){var t=this.props.onThumbnailError||this.handleImageError;return a().createElement("span",{className:"image-gallery-thumbnail-inner"},a().createElement("img",{className:"image-gallery-thumbnail-image",src:e.thumbnail,height:e.thumbnailHeight,width:e.thumbnailWidth,alt:e.thumbnailAlt,title:e.thumbnailTitle,onError:t}),e.thumbnailLabel&&a().createElement("div",{className:"image-gallery-thumbnail-label"},e.thumbnailLabel))}},{key:"render",value:function(){var e=this.state,n=e.currentIndex,i=e.isFullscreen,r=e.modalFullscreen,s=e.isPlaying,o=this.props,l=o.additionalClass,u=o.disableThumbnailSwipe,c=o.indexSeparator,h=o.isRTL,d=o.items,f=o.thumbnailPosition,p=o.renderFullscreenButton,m=o.renderCustomControls,v=o.renderLeftNav,g=o.renderRightNav,b=o.showBullets,y=o.showFullscreenButton,w=o.showIndex,T=o.showThumbnails,S=o.showNav,O=o.showPlayButton,E=o.renderPlayPauseButton,I=this.getThumbnailStyle(),k=this.getSlideItems(),x=k.slides,_=k.thumbnails,L=k.bullets,P=t("image-gallery-slide-wrapper",f,{"image-gallery-rtl":h}),M=a().createElement("div",{ref:this.imageGallerySlideWrapper,className:P},m&&m(),this.canSlide()?a().createElement(a().Fragment,null,S&&a().createElement(a().Fragment,null,v(this.slideLeft,!this.canSlideLeft()),g(this.slideRight,!this.canSlideRight())),a().createElement(ge,{className:"image-gallery-swipe",delta:0,onSwiping:this.handleSwiping,onSwiped:this.handleOnSwiped},a().createElement("div",{className:"image-gallery-slides"},x))):a().createElement("div",{className:"image-gallery-slides"},x),O&&E(this.togglePlay,s),b&&a().createElement("div",{className:"image-gallery-bullets"},a().createElement("div",{className:"image-gallery-bullets-container",role:"navigation","aria-label":"Bullet Navigation"},L)),y&&p(this.toggleFullScreen,i),w&&a().createElement("div",{className:"image-gallery-index"},a().createElement("span",{className:"image-gallery-index-current"},n+1),a().createElement("span",{className:"image-gallery-index-separator"},c),a().createElement("span",{className:"image-gallery-index-total"},d.length))),R=t("image-gallery",l,{"fullscreen-modal":r}),D=t("image-gallery-content",f,{fullscreen:i}),F=t("image-gallery-thumbnails-wrapper",f,{"thumbnails-wrapper-rtl":!this.isThumbnailVertical()&&h},{"thumbnails-swipe-horizontal":!this.isThumbnailVertical()&&!u},{"thumbnails-swipe-vertical":this.isThumbnailVertical()&&!u});return a().createElement("div",{ref:this.imageGallery,className:R,"aria-live":"polite"},a().createElement("div",{className:D},("bottom"===f||"right"===f)&&M,T&&_.length>0?a().createElement(ge,{className:F,delta:0,onSwiping:!u&&this.handleThumbnailSwiping,onSwiped:!u&&this.handleOnThumbnailSwiped},a().createElement("div",{className:"image-gallery-thumbnails",ref:this.thumbnailsWrapper,style:this.getThumbnailBarHeight()},a().createElement("div",{ref:this.thumbnails,className:"image-gallery-thumbnails-container",style:I,"aria-label":"Thumbnail Navigation"},_))):null,("top"===f||"left"===f)&&M))}}])&&Se(n.prototype,i),l}(a().Component);Pe.propTypes={flickThreshold:te.number,items:(0, te.arrayOf)((0, te.shape)({bulletClass:te.string,bulletOnClick:te.func,description:te.string,original:te.string,originalHeight:te.number,originalWidth:te.number,thumbnailHeight:te.number,thumbnailWidth:te.number,fullscreen:te.string,originalAlt:te.string,originalTitle:te.string,thumbnail:te.string,thumbnailAlt:te.string,thumbnailLabel:te.string,thumbnailTitle:te.string,originalClass:te.string,thumbnailClass:te.string,renderItem:te.func,renderThumbInner:te.func,imageSet:_e,srcSet:te.string,sizes:te.string})).isRequired,showNav:te.bool,autoPlay:te.bool,lazyLoad:te.bool,infinite:te.bool,showIndex:te.bool,showBullets:te.bool,showThumbnails:te.bool,showPlayButton:te.bool,showFullscreenButton:te.bool,disableThumbnailScroll:te.bool,disableKeyDown:te.bool,disableSwipe:te.bool,disableThumbnailSwipe:te.bool,useBrowserFullscreen:te.bool,onErrorImageURL:te.string,indexSeparator:te.string,thumbnailPosition:(0, te.oneOf)(["top","bottom","left","right"]),startIndex:te.number,slideDuration:te.number,slideInterval:te.number,slideOnThumbnailOver:te.bool,swipeThreshold:te.number,swipingTransitionDuration:te.number,swipingThumbnailTransitionDuration:te.number,onSlide:te.func,onBeforeSlide:te.func,onScreenChange:te.func,onPause:te.func,onPlay:te.func,onClick:te.func,onImageLoad:te.func,onImageError:te.func,onTouchMove:te.func,onTouchEnd:te.func,onTouchStart:te.func,onMouseOver:te.func,onMouseLeave:te.func,onThumbnailError:te.func,onThumbnailClick:te.func,renderCustomControls:te.func,renderLeftNav:te.func,renderRightNav:te.func,renderPlayPauseButton:te.func,renderFullscreenButton:te.func,renderItem:te.func,renderThumbInner:te.func,stopPropagation:te.bool,additionalClass:te.string,useTranslate3D:te.bool,isRTL:te.bool,useWindowKeyDown:te.bool},Pe.defaultProps={onErrorImageURL:"",additionalClass:"",showNav:!0,autoPlay:!1,lazyLoad:!1,infinite:!0,showIndex:!1,showBullets:!1,showThumbnails:!0,showPlayButton:!0,showFullscreenButton:!0,disableThumbnailScroll:!1,disableKeyDown:!1,disableSwipe:!1,disableThumbnailSwipe:!1,useTranslate3D:!0,isRTL:!1,useBrowserFullscreen:!0,flickThreshold:.4,stopPropagation:!1,indexSeparator:" / ",thumbnailPosition:"bottom",startIndex:0,slideDuration:450,swipingTransitionDuration:0,swipingThumbnailTransitionDuration:0,onSlide:null,onBeforeSlide:null,onScreenChange:null,onPause:null,onPlay:null,onClick:null,onImageLoad:null,onImageError:null,onTouchMove:null,onTouchEnd:null,onTouchStart:null,onMouseOver:null,onMouseLeave:null,onThumbnailError:null,onThumbnailClick:null,renderCustomControls:null,renderThumbInner:null,renderItem:null,slideInterval:3e3,slideOnThumbnailOver:!1,swipeThreshold:30,renderLeftNav:function(e,t){return a().createElement(ce,{onClick:e,disabled:t})},renderRightNav:function(e,t){return a().createElement(de,{onClick:e,disabled:t})},renderPlayPauseButton:function(e,t){return a().createElement(pe,{onClick:e,isPlaying:t})},renderFullscreenButton:function(e,t){return a().createElement(le,{onClick:e,isFullscreen:t})},useWindowKeyDown:!0};const Me=Pe;})(),r})()}));
+    !function(e,t){module.exports=t(React__default["default"]);}(commonjsGlobal,(function(e){return (()=>{var t={703:(e,t,n)=>{var i=n(414);function r(){}function a(){}a.resetWarningCache=r,e.exports=function(){function e(e,t,n,r,a,s){if(s!==i){var o=new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");throw o.name="Invariant Violation",o}}function t(){return e}e.isRequired=e;var n={array:e,bool:e,func:e,number:e,object:e,string:e,symbol:e,any:e,arrayOf:t,element:e,elementType:e,instanceOf:t,node:e,objectOf:t,oneOf:t,oneOfType:t,shape:t,exact:t,checkPropTypes:a,resetWarningCache:r};return n.PropTypes=n,n};},697:(e,t,n)=>{e.exports=n(703)();},414:e=>{e.exports="SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";},590:e=>{var t="undefined"!=typeof Element,n="function"==typeof Map,i="function"==typeof Set,r="function"==typeof ArrayBuffer&&!!ArrayBuffer.isView;function a(e,s){if(e===s)return !0;if(e&&s&&"object"==typeof e&&"object"==typeof s){if(e.constructor!==s.constructor)return !1;var o,l,u,c;if(Array.isArray(e)){if((o=e.length)!=s.length)return !1;for(l=o;0!=l--;)if(!a(e[l],s[l]))return !1;return !0}if(n&&e instanceof Map&&s instanceof Map){if(e.size!==s.size)return !1;for(c=e.entries();!(l=c.next()).done;)if(!s.has(l.value[0]))return !1;for(c=e.entries();!(l=c.next()).done;)if(!a(l.value[1],s.get(l.value[0])))return !1;return !0}if(i&&e instanceof Set&&s instanceof Set){if(e.size!==s.size)return !1;for(c=e.entries();!(l=c.next()).done;)if(!s.has(l.value[0]))return !1;return !0}if(r&&ArrayBuffer.isView(e)&&ArrayBuffer.isView(s)){if((o=e.length)!=s.length)return !1;for(l=o;0!=l--;)if(e[l]!==s[l])return !1;return !0}if(e.constructor===RegExp)return e.source===s.source&&e.flags===s.flags;if(e.valueOf!==Object.prototype.valueOf)return e.valueOf()===s.valueOf();if(e.toString!==Object.prototype.toString)return e.toString()===s.toString();if((o=(u=Object.keys(e)).length)!==Object.keys(s).length)return !1;for(l=o;0!=l--;)if(!Object.prototype.hasOwnProperty.call(s,u[l]))return !1;if(t&&e instanceof Element)return !1;for(l=o;0!=l--;)if(("_owner"!==u[l]&&"__v"!==u[l]&&"__o"!==u[l]||!e.$$typeof)&&!a(e[u[l]],s[u[l]]))return !1;return !0}return e!=e&&s!=s}e.exports=function(e,t){try{return a(e,t)}catch(e){if((e.message||"").match(/stack|recursion/i))return console.warn("react-fast-compare cannot handle circular refs"),!1;throw e}};},37:function(e,t,n){!function(e,t){function n(){return (n=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var i in n)Object.prototype.hasOwnProperty.call(n,i)&&(e[i]=n[i]);}return e}).apply(this,arguments)}var i="Left",r="Right",a="Down",s={delta:10,preventDefaultTouchmoveEvent:!1,rotationAngle:0,trackMouse:!1,trackTouch:!0},o={first:!0,initial:[0,0],start:0,swiping:!1,xy:[0,0]},l="mousemove",u="mouseup";function c(e,t){if(0===t)return e;var n=Math.PI/180*t;return [e[0]*Math.cos(n)+e[1]*Math.sin(n),e[1]*Math.cos(n)-e[0]*Math.sin(n)]}function h(e,t){var s=function(t){t&&"touches"in t&&t.touches.length>1||e((function(e,i){i.trackMouse&&(document.addEventListener(l,h),document.addEventListener(u,f));var r="touches"in t?t.touches[0]:t,a=c([r.clientX,r.clientY],i.rotationAngle);return n({},e,o,{initial:[].concat(a),xy:a,start:t.timeStamp||0})}));},h=function(t){e((function(e,s){if("touches"in t&&t.touches.length>1)return e;var o="touches"in t?t.touches[0]:t,l=c([o.clientX,o.clientY],s.rotationAngle),u=l[0],h=l[1],d=u-e.xy[0],f=h-e.xy[1],p=Math.abs(d),m=Math.abs(f),g=(t.timeStamp||0)-e.start,v=Math.sqrt(p*p+m*m)/(g||1),b=[d/(g||1),f/(g||1)];if(p<s.delta&&m<s.delta&&!e.swiping)return e;var y=function(e,t,n,s){return e>t?n>0?r:i:s>0?a:"Up"}(p,m,d,f),w={absX:p,absY:m,deltaX:d,deltaY:f,dir:y,event:t,first:e.first,initial:e.initial,velocity:v,vxvy:b};s.onSwiping&&s.onSwiping(w);var T=!1;return (s.onSwiping||s.onSwiped||"onSwiped"+y in s)&&(T=!0),T&&s.preventDefaultTouchmoveEvent&&s.trackTouch&&t.cancelable&&t.preventDefault(),n({},e,{first:!1,eventData:w,swiping:!0})}));},d=function(t){e((function(e,i){var r;if(e.swiping&&e.eventData){r=n({},e.eventData,{event:t}),i.onSwiped&&i.onSwiped(r);var a="onSwiped"+r.dir;a in i&&i[a](r);}else i.onTap&&i.onTap({event:t});return n({},e,o,{eventData:r})}));},f=function(e){document.removeEventListener(l,h),document.removeEventListener(u,f),d(e);},p=function(e,t){var n=function(){};if(e&&e.addEventListener){var i=[["touchstart",s],["touchmove",h],["touchend",d]];i.forEach((function(n){var i=n[0],r=n[1];return e.addEventListener(i,r,{passive:t})})),n=function(){return i.forEach((function(t){var n=t[0],i=t[1];return e.removeEventListener(n,i)}))};}return n},m={ref:function(t){null!==t&&e((function(e,i){if(e.el===t)return e;var r={};return e.el&&e.el!==t&&e.cleanUpTouch&&(e.cleanUpTouch(),r.cleanUpTouch=void 0),i.trackTouch&&t&&(r.cleanUpTouch=p(t,!i.preventDefaultTouchmoveEvent)),n({},e,{el:t},r)}));}};return t.trackMouse&&(m.onMouseDown=s),[m,p]}e.DOWN=a,e.LEFT=i,e.RIGHT=r,e.UP="Up",e.useSwipeable=function(e){var i=e.trackMouse,r=t.useRef(n({},o)),a=t.useRef(n({},s));a.current=n({},s,e);var l=t.useMemo((function(){return h((function(e){return r.current=e(r.current,a.current)}),{trackMouse:i})}),[i]),u=l[0],c=l[1];return r.current=function(e,t,i){var r={};return !t.trackTouch&&e.cleanUpTouch?(e.cleanUpTouch(),r.cleanUpTouch=void 0):t.trackTouch&&!e.cleanUpTouch&&e.el&&(r.cleanUpTouch=i(e.el,!t.preventDefaultTouchmoveEvent)),n({},e,r)}(r.current,a.current,c),u};}(t,n(888));},888:t=>{t.exports=e;}},n={};function i(e){var r=n[e];if(void 0!==r)return r.exports;var a=n[e]={exports:{}};return t[e].call(a.exports,a,a.exports,i),a.exports}i.n=e=>{var t=e&&e.__esModule?()=>e.default:()=>e;return i.d(t,{a:t}),t},i.d=(e,t)=>{for(var n in t)i.o(t,n)&&!i.o(e,n)&&Object.defineProperty(e,n,{enumerable:!0,get:t[n]});},i.g=function(){if("object"==typeof globalThis)return globalThis;try{return this||new Function("return this")()}catch(e){if("object"==typeof window)return window}}(),i.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),i.r=e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0});};var r={};return (()=>{function e(t){var n,i,r="";if("string"==typeof t||"number"==typeof t)r+=t;else if("object"==typeof t)if(Array.isArray(t))for(n=0;n<t.length;n++)t[n]&&(i=e(t[n]))&&(r&&(r+=" "),r+=i);else for(n in t)t[n]&&(r&&(r+=" "),r+=n);return r}function t(){for(var t,n,i=0,r="";i<arguments.length;)(t=arguments[i++])&&(n=e(t))&&(r&&(r+=" "),r+=n);return r}i.r(r),i.d(r,{default:()=>Me});var n=i(888),a=i.n(n);const s=function(e){var t=typeof e;return null!=e&&("object"==t||"function"==t)},o="object"==typeof commonjsGlobal&&commonjsGlobal&&commonjsGlobal.Object===Object&&commonjsGlobal;var l="object"==typeof self&&self&&self.Object===Object&&self;const u=o||l||Function("return this")(),c=function(){return u.Date.now()};var h=/\s/;var d=/^\s+/;const f=function(e){return e?e.slice(0,function(e){for(var t=e.length;t--&&h.test(e.charAt(t)););return t}(e)+1).replace(d,""):e},p=u.Symbol;var m=Object.prototype,g=m.hasOwnProperty,v=m.toString,b=p?p.toStringTag:void 0;var y=Object.prototype.toString;var w=p?p.toStringTag:void 0;const T=function(e){return null==e?void 0===e?"[object Undefined]":"[object Null]":w&&w in Object(e)?function(e){var t=g.call(e,b),n=e[b];try{e[b]=void 0;var i=!0;}catch(e){}var r=v.call(e);return i&&(t?e[b]=n:delete e[b]),r}(e):function(e){return y.call(e)}(e)};var S=/^[-+]0x[0-9a-f]+$/i,O=/^0b[01]+$/i,E=/^0o[0-7]+$/i,I=parseInt;const k=function(e){if("number"==typeof e)return e;if(function(e){return "symbol"==typeof e||function(e){return null!=e&&"object"==typeof e}(e)&&"[object Symbol]"==T(e)}(e))return NaN;if(s(e)){var t="function"==typeof e.valueOf?e.valueOf():e;e=s(t)?t+"":t;}if("string"!=typeof e)return 0===e?e:+e;e=f(e);var n=O.test(e);return n||E.test(e)?I(e.slice(2),n?2:8):S.test(e)?NaN:+e};var x=Math.max,_=Math.min;const L=function(e,t,n){var i,r,a,o,l,u,h=0,d=!1,f=!1,p=!0;if("function"!=typeof e)throw new TypeError("Expected a function");function m(t){var n=i,a=r;return i=r=void 0,h=t,o=e.apply(a,n)}function g(e){return h=e,l=setTimeout(b,t),d?m(e):o}function v(e){var n=e-u;return void 0===u||n>=t||n<0||f&&e-h>=a}function b(){var e=c();if(v(e))return y(e);l=setTimeout(b,function(e){var n=t-(e-u);return f?_(n,a-(e-h)):n}(e));}function y(e){return l=void 0,p&&i?m(e):(i=r=void 0,o)}function w(){var e=c(),n=v(e);if(i=arguments,r=this,u=e,n){if(void 0===l)return g(u);if(f)return clearTimeout(l),l=setTimeout(b,t),m(u)}return void 0===l&&(l=setTimeout(b,t)),o}return t=k(t)||0,s(n)&&(d=!!n.leading,a=(f="maxWait"in n)?x(k(n.maxWait)||0,t):a,p="trailing"in n?!!n.trailing:p),w.cancel=function(){void 0!==l&&clearTimeout(l),h=0,i=u=r=l=void 0;},w.flush=function(){return void 0===l?o:y(c())},w},P=function(e,t,n){var i=!0,r=!0;if("function"!=typeof e)throw new TypeError("Expected a function");return s(n)&&(i="leading"in n?!!n.leading:i,r="trailing"in n?!!n.trailing:r),L(e,t,{leading:i,maxWait:t,trailing:r})};var M=i(590),R=i.n(M),D=function(){if("undefined"!=typeof Map)return Map;function e(e,t){var n=-1;return e.some((function(e,i){return e[0]===t&&(n=i,!0)})),n}return function(){function t(){this.__entries__=[];}return Object.defineProperty(t.prototype,"size",{get:function(){return this.__entries__.length},enumerable:!0,configurable:!0}),t.prototype.get=function(t){var n=e(this.__entries__,t),i=this.__entries__[n];return i&&i[1]},t.prototype.set=function(t,n){var i=e(this.__entries__,t);~i?this.__entries__[i][1]=n:this.__entries__.push([t,n]);},t.prototype.delete=function(t){var n=this.__entries__,i=e(n,t);~i&&n.splice(i,1);},t.prototype.has=function(t){return !!~e(this.__entries__,t)},t.prototype.clear=function(){this.__entries__.splice(0);},t.prototype.forEach=function(e,t){void 0===t&&(t=null);for(var n=0,i=this.__entries__;n<i.length;n++){var r=i[n];e.call(t,r[1],r[0]);}},t}()}(),F="undefined"!=typeof window&&"undefined"!=typeof document&&window.document===document,C=void 0!==i.g&&i.g.Math===Math?i.g:"undefined"!=typeof self&&self.Math===Math?self:"undefined"!=typeof window&&window.Math===Math?window:Function("return this")(),W="function"==typeof requestAnimationFrame?requestAnimationFrame.bind(C):function(e){return setTimeout((function(){return e(Date.now())}),1e3/60)},N=["top","right","bottom","left","width","height","size","weight"],j="undefined"!=typeof MutationObserver,z=function(){function e(){this.connected_=!1,this.mutationEventsAdded_=!1,this.mutationsObserver_=null,this.observers_=[],this.onTransitionEnd_=this.onTransitionEnd_.bind(this),this.refresh=function(e,t){var n=!1,i=!1,r=0;function a(){n&&(n=!1,e()),i&&o();}function s(){W(a);}function o(){var e=Date.now();if(n){if(e-r<2)return;i=!0;}else n=!0,i=!1,setTimeout(s,20);r=e;}return o}(this.refresh.bind(this));}return e.prototype.addObserver=function(e){~this.observers_.indexOf(e)||this.observers_.push(e),this.connected_||this.connect_();},e.prototype.removeObserver=function(e){var t=this.observers_,n=t.indexOf(e);~n&&t.splice(n,1),!t.length&&this.connected_&&this.disconnect_();},e.prototype.refresh=function(){this.updateObservers_()&&this.refresh();},e.prototype.updateObservers_=function(){var e=this.observers_.filter((function(e){return e.gatherActive(),e.hasActive()}));return e.forEach((function(e){return e.broadcastActive()})),e.length>0},e.prototype.connect_=function(){F&&!this.connected_&&(document.addEventListener("transitionend",this.onTransitionEnd_),window.addEventListener("resize",this.refresh),j?(this.mutationsObserver_=new MutationObserver(this.refresh),this.mutationsObserver_.observe(document,{attributes:!0,childList:!0,characterData:!0,subtree:!0})):(document.addEventListener("DOMSubtreeModified",this.refresh),this.mutationEventsAdded_=!0),this.connected_=!0);},e.prototype.disconnect_=function(){F&&this.connected_&&(document.removeEventListener("transitionend",this.onTransitionEnd_),window.removeEventListener("resize",this.refresh),this.mutationsObserver_&&this.mutationsObserver_.disconnect(),this.mutationEventsAdded_&&document.removeEventListener("DOMSubtreeModified",this.refresh),this.mutationsObserver_=null,this.mutationEventsAdded_=!1,this.connected_=!1);},e.prototype.onTransitionEnd_=function(e){var t=e.propertyName,n=void 0===t?"":t;N.some((function(e){return !!~n.indexOf(e)}))&&this.refresh();},e.getInstance=function(){return this.instance_||(this.instance_=new e),this.instance_},e.instance_=null,e}(),B=function(e,t){for(var n=0,i=Object.keys(t);n<i.length;n++){var r=i[n];Object.defineProperty(e,r,{value:t[r],enumerable:!1,writable:!1,configurable:!0});}return e},A=function(e){return e&&e.ownerDocument&&e.ownerDocument.defaultView||C},G=V(0,0,0,0);function U(e){return parseFloat(e)||0}function H(e){for(var t=[],n=1;n<arguments.length;n++)t[n-1]=arguments[n];return t.reduce((function(t,n){return t+U(e["border-"+n+"-width"])}),0)}var q="undefined"!=typeof SVGGraphicsElement?function(e){return e instanceof A(e).SVGGraphicsElement}:function(e){return e instanceof A(e).SVGElement&&"function"==typeof e.getBBox};function K(e){return F?q(e)?function(e){var t=e.getBBox();return V(0,0,t.width,t.height)}(e):function(e){var t=e.clientWidth,n=e.clientHeight;if(!t&&!n)return G;var i=A(e).getComputedStyle(e),r=function(e){for(var t={},n=0,i=["top","right","bottom","left"];n<i.length;n++){var r=i[n],a=e["padding-"+r];t[r]=U(a);}return t}(i),a=r.left+r.right,s=r.top+r.bottom,o=U(i.width),l=U(i.height);if("border-box"===i.boxSizing&&(Math.round(o+a)!==t&&(o-=H(i,"left","right")+a),Math.round(l+s)!==n&&(l-=H(i,"top","bottom")+s)),!function(e){return e===A(e).document.documentElement}(e)){var u=Math.round(o+a)-t,c=Math.round(l+s)-n;1!==Math.abs(u)&&(o-=u),1!==Math.abs(c)&&(l-=c);}return V(r.left,r.top,o,l)}(e):G}function V(e,t,n,i){return {x:e,y:t,width:n,height:i}}var X=function(){function e(e){this.broadcastWidth=0,this.broadcastHeight=0,this.contentRect_=V(0,0,0,0),this.target=e;}return e.prototype.isActive=function(){var e=K(this.target);return this.contentRect_=e,e.width!==this.broadcastWidth||e.height!==this.broadcastHeight},e.prototype.broadcastRect=function(){var e=this.contentRect_;return this.broadcastWidth=e.width,this.broadcastHeight=e.height,e},e}(),Y=function(e,t){var n,i,r,a,s,o,l,u=(i=(n=t).x,r=n.y,a=n.width,s=n.height,o="undefined"!=typeof DOMRectReadOnly?DOMRectReadOnly:Object,l=Object.create(o.prototype),B(l,{x:i,y:r,width:a,height:s,top:r,right:i+a,bottom:s+r,left:i}),l);B(this,{target:e,contentRect:u});},$=function(){function e(e,t,n){if(this.activeObservations_=[],this.observations_=new D,"function"!=typeof e)throw new TypeError("The callback provided as parameter 1 is not a function.");this.callback_=e,this.controller_=t,this.callbackCtx_=n;}return e.prototype.observe=function(e){if(!arguments.length)throw new TypeError("1 argument required, but only 0 present.");if("undefined"!=typeof Element&&Element instanceof Object){if(!(e instanceof A(e).Element))throw new TypeError('parameter 1 is not of type "Element".');var t=this.observations_;t.has(e)||(t.set(e,new X(e)),this.controller_.addObserver(this),this.controller_.refresh());}},e.prototype.unobserve=function(e){if(!arguments.length)throw new TypeError("1 argument required, but only 0 present.");if("undefined"!=typeof Element&&Element instanceof Object){if(!(e instanceof A(e).Element))throw new TypeError('parameter 1 is not of type "Element".');var t=this.observations_;t.has(e)&&(t.delete(e),t.size||this.controller_.removeObserver(this));}},e.prototype.disconnect=function(){this.clearActive(),this.observations_.clear(),this.controller_.removeObserver(this);},e.prototype.gatherActive=function(){var e=this;this.clearActive(),this.observations_.forEach((function(t){t.isActive()&&e.activeObservations_.push(t);}));},e.prototype.broadcastActive=function(){if(this.hasActive()){var e=this.callbackCtx_,t=this.activeObservations_.map((function(e){return new Y(e.target,e.broadcastRect())}));this.callback_.call(e,t,e),this.clearActive();}},e.prototype.clearActive=function(){this.activeObservations_.splice(0);},e.prototype.hasActive=function(){return this.activeObservations_.length>0},e}(),J="undefined"!=typeof WeakMap?new WeakMap:new D,Q=function e(t){if(!(this instanceof e))throw new TypeError("Cannot call a class as a function.");if(!arguments.length)throw new TypeError("1 argument required, but only 0 present.");var n=z.getInstance(),i=new $(t,n,this);J.set(this,i);};["observe","unobserve","disconnect"].forEach((function(e){Q.prototype[e]=function(){var t;return (t=J.get(this))[e].apply(t,arguments)};}));const Z=void 0!==C.ResizeObserver?C.ResizeObserver:Q;var ee=i(37),te=i(697),ne=a().memo((function(e){var t=e.description,n=e.fullscreen,i=e.handleImageLoaded,r=e.isFullscreen,s=e.onImageError,o=e.original,l=e.originalAlt,u=e.originalHeight,c=e.originalWidth,h=e.originalTitle,d=e.sizes,f=e.srcSet,p=e.loading,m=r&&n||o;return a().createElement(a().Fragment,null,a().createElement("img",{className:"image-gallery-image",src:m,alt:l,srcSet:f,height:u,width:c,sizes:d,title:h,onLoad:function(e){return i(e,o)},onError:s,loading:p}),t&&a().createElement("span",{className:"image-gallery-description"},t))}));ne.displayName="Item",ne.propTypes={description:te.string,fullscreen:te.string,handleImageLoaded:te.func.isRequired,isFullscreen:te.bool,onImageError:te.func.isRequired,original:te.string.isRequired,originalAlt:te.string,originalHeight:te.string,originalWidth:te.string,originalTitle:te.string,sizes:te.string,srcSet:te.string,loading:te.string},ne.defaultProps={description:"",fullscreen:"",isFullscreen:!1,originalAlt:"",originalHeight:"",originalWidth:"",originalTitle:"",sizes:"",srcSet:"",loading:"eager"};const ie=ne;var re={left:a().createElement("polyline",{points:"15 18 9 12 15 6"}),right:a().createElement("polyline",{points:"9 18 15 12 9 6"}),maximize:a().createElement("path",{d:"M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"}),minimize:a().createElement("path",{d:"M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"}),play:a().createElement("polygon",{points:"5 3 19 12 5 21 5 3"}),pause:a().createElement(a().Fragment,null,a().createElement("rect",{x:"6",y:"4",width:"4",height:"16"}),a().createElement("rect",{x:"14",y:"4",width:"4",height:"16"}))},ae=function(e){var t=e.strokeWidth,n=e.viewBox,i=e.icon;return a().createElement("svg",{className:"image-gallery-svg",xmlns:"http://www.w3.org/2000/svg",viewBox:n,fill:"none",stroke:"currentColor",strokeWidth:t,strokeLinecap:"round",strokeLinejoin:"round"},re[i])};ae.propTypes={strokeWidth:te.number,viewBox:te.string,icon:(0, te.oneOf)(["left","right","maximize","minimize","play","pause"]).isRequired},ae.defaultProps={strokeWidth:1,viewBox:"0 0 24 24"};const se=ae;var oe=a().memo((function(e){var t=e.isFullscreen,n=e.onClick;return a().createElement("button",{type:"button",className:"image-gallery-icon image-gallery-fullscreen-button",onClick:n,"aria-label":"Open Fullscreen"},a().createElement(se,{strokeWidth:2,icon:t?"minimize":"maximize"}))}));oe.displayName="Fullscreen",oe.propTypes={isFullscreen:te.bool.isRequired,onClick:te.func.isRequired};const le=oe;var ue=a().memo((function(e){var t=e.disabled,n=e.onClick;return a().createElement("button",{type:"button",className:"image-gallery-icon image-gallery-left-nav",disabled:t,onClick:n,"aria-label":"Previous Slide"},a().createElement(se,{icon:"left",viewBox:"6 0 12 24"}))}));ue.displayName="LeftNav",ue.propTypes={disabled:te.bool.isRequired,onClick:te.func.isRequired};const ce=ue;var he=a().memo((function(e){var t=e.disabled,n=e.onClick;return a().createElement("button",{type:"button",className:"image-gallery-icon image-gallery-right-nav",disabled:t,onClick:n,"aria-label":"Next Slide"},a().createElement(se,{icon:"right",viewBox:"6 0 12 24"}))}));he.displayName="RightNav",he.propTypes={disabled:te.bool.isRequired,onClick:te.func.isRequired};const de=he;var fe=a().memo((function(e){var t=e.isPlaying,n=e.onClick;return a().createElement("button",{type:"button",className:"image-gallery-icon image-gallery-play-button",onClick:n,"aria-label":"Play or Pause Slideshow"},a().createElement(se,{strokeWidth:2,icon:t?"pause":"play"}))}));fe.displayName="PlayPause",fe.propTypes={isPlaying:te.bool.isRequired,onClick:te.func.isRequired};const pe=fe;function me(){return (me=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var i in n)Object.prototype.hasOwnProperty.call(n,i)&&(e[i]=n[i]);}return e}).apply(this,arguments)}var ge=function(e){var t=e.children,n=e.className,i=e.delta,r=e.onSwiping,s=e.onSwiped,o=(0, ee.useSwipeable)({delta:i,onSwiping:r,onSwiped:s});return a().createElement("div",me({},o,{className:n}),t)};ge.propTypes={children:te.node.isRequired,className:te.string,delta:te.number,onSwiped:te.func,onSwiping:te.func},ge.defaultProps={className:"",delta:0,onSwiping:function(){},onSwiped:function(){}};const ve=ge;function be(e){return (be="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function ye(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var i=Object.getOwnPropertySymbols(e);t&&(i=i.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),n.push.apply(n,i);}return n}function we(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{};t%2?ye(Object(n),!0).forEach((function(t){Te(e,t,n[t]);})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):ye(Object(n)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(n,t));}));}return e}function Te(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function Se(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i);}}function Oe(e,t){return (Oe=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function Ee(e,t){return !t||"object"!==be(t)&&"function"!=typeof t?Ie(e):t}function Ie(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function ke(e){return (ke=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}var xe=["fullscreenchange","MSFullscreenChange","mozfullscreenchange","webkitfullscreenchange"],_e=(0, te.arrayOf)((0, te.shape)({srcSet:te.string,media:te.string}));function Le(e){var t=parseInt(e.keyCode||e.which||0,10);return 66===t||62===t}var Pe=function(e){!function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&Oe(e,t);}(l,e);var n,i,r,s,o=(r=l,s=function(){if("undefined"==typeof Reflect||!Reflect.construct)return !1;if(Reflect.construct.sham)return !1;if("function"==typeof Proxy)return !0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],(function(){}))),!0}catch(e){return !1}}(),function(){var e,t=ke(r);if(s){var n=ke(this).constructor;e=Reflect.construct(t,arguments,n);}else e=t.apply(this,arguments);return Ee(this,e)});function l(e){var t;return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,l),(t=o.call(this,e)).state={currentIndex:e.startIndex,thumbsTranslate:0,thumbsSwipedTranslate:0,currentSlideOffset:0,galleryWidth:0,thumbnailsWrapperWidth:0,thumbnailsWrapperHeight:0,thumbsStyle:{transition:"all ".concat(e.slideDuration,"ms ease-out")},isFullscreen:!1,isSwipingThumbnail:!1,isPlaying:!1},t.loadedImages={},t.imageGallery=a().createRef(),t.thumbnailsWrapper=a().createRef(),t.thumbnails=a().createRef(),t.imageGallerySlideWrapper=a().createRef(),t.handleImageLoaded=t.handleImageLoaded.bind(Ie(t)),t.handleKeyDown=t.handleKeyDown.bind(Ie(t)),t.handleMouseDown=t.handleMouseDown.bind(Ie(t)),t.handleTouchMove=t.handleTouchMove.bind(Ie(t)),t.handleOnSwiped=t.handleOnSwiped.bind(Ie(t)),t.handleScreenChange=t.handleScreenChange.bind(Ie(t)),t.handleSwiping=t.handleSwiping.bind(Ie(t)),t.handleThumbnailSwiping=t.handleThumbnailSwiping.bind(Ie(t)),t.handleOnThumbnailSwiped=t.handleOnThumbnailSwiped.bind(Ie(t)),t.onThumbnailMouseLeave=t.onThumbnailMouseLeave.bind(Ie(t)),t.handleImageError=t.handleImageError.bind(Ie(t)),t.pauseOrPlay=t.pauseOrPlay.bind(Ie(t)),t.renderThumbInner=t.renderThumbInner.bind(Ie(t)),t.renderItem=t.renderItem.bind(Ie(t)),t.slideLeft=t.slideLeft.bind(Ie(t)),t.slideRight=t.slideRight.bind(Ie(t)),t.toggleFullScreen=t.toggleFullScreen.bind(Ie(t)),t.togglePlay=t.togglePlay.bind(Ie(t)),t.unthrottledSlideToIndex=t.slideToIndex,t.slideToIndex=P(t.unthrottledSlideToIndex,e.slideDuration,{trailing:!1}),e.lazyLoad&&(t.lazyLoaded=[]),t}return n=l,(i=[{key:"componentDidMount",value:function(){var e=this.props,t=e.autoPlay,n=e.useWindowKeyDown;t&&this.play(),n?window.addEventListener("keydown",this.handleKeyDown):this.imageGallery.current.addEventListener("keydown",this.handleKeyDown),window.addEventListener("mousedown",this.handleMouseDown),window.addEventListener("touchmove",this.handleTouchMove,{passive:!1}),this.initResizeObserver(this.imageGallerySlideWrapper),this.addScreenChangeEvent();}},{key:"componentDidUpdate",value:function(e,t){var n=this.props,i=n.items,r=n.lazyLoad,a=n.slideDuration,s=n.slideInterval,o=n.startIndex,l=n.thumbnailPosition,u=n.showThumbnails,c=n.useWindowKeyDown,h=this.state,d=h.currentIndex,f=h.isPlaying,p=e.items.length!==i.length,m=!R()(e.items,i),g=e.startIndex!==o,v=e.thumbnailPosition!==l,b=e.showThumbnails!==u;s===e.slideInterval&&a===e.slideDuration||f&&(this.pause(),this.play()),v&&(this.removeResizeObserver(),this.initResizeObserver(this.imageGallerySlideWrapper)),(p||b)&&this.handleResize(),t.currentIndex!==d&&this.slideThumbnailBar(),e.slideDuration!==a&&(this.slideToIndex=P(this.unthrottledSlideToIndex,a,{trailing:!1})),!r||e.lazyLoad&&!m||(this.lazyLoaded=[]),c!==e.useWindowKeyDown&&(c?(this.imageGallery.current.removeEventListener("keydown",this.handleKeyDown),window.addEventListener("keydown",this.handleKeyDown)):(window.removeEventListener("keydown",this.handleKeyDown),this.imageGallery.current.addEventListener("keydown",this.handleKeyDown))),(g||m)&&this.setState({currentIndex:o,slideStyle:{transition:"none"}});}},{key:"componentWillUnmount",value:function(){var e=this.props.useWindowKeyDown;window.removeEventListener("mousedown",this.handleMouseDown),window.removeEventListener("touchmove",this.handleTouchMove),this.removeScreenChangeEvent(),this.removeResizeObserver(),this.playPauseIntervalId&&(window.clearInterval(this.playPauseIntervalId),this.playPauseIntervalId=null),this.transitionTimer&&window.clearTimeout(this.transitionTimer),e?window.removeEventListener("keydown",this.handleKeyDown):this.imageGallery.current.removeEventListener("keydown",this.handleKeyDown);}},{key:"onSliding",value:function(){var e=this,t=this.state,n=t.currentIndex,i=t.isTransitioning,r=this.props,a=r.onSlide,s=r.slideDuration;this.transitionTimer=window.setTimeout((function(){i&&(e.setState({isTransitioning:!i,isSwipingThumbnail:!1}),a&&a(n));}),s+50);}},{key:"onThumbnailClick",value:function(e,t){var n=this.props.onThumbnailClick;e.target.parentNode.parentNode.blur(),this.slideToIndex(t,e),n&&n(e,t);}},{key:"onThumbnailMouseOver",value:function(e,t){var n=this;this.thumbnailMouseOverTimer&&(window.clearTimeout(this.thumbnailMouseOverTimer),this.thumbnailMouseOverTimer=null),this.thumbnailMouseOverTimer=window.setTimeout((function(){n.slideToIndex(t),n.pause();}),300);}},{key:"onThumbnailMouseLeave",value:function(){if(this.thumbnailMouseOverTimer){var e=this.props.autoPlay;window.clearTimeout(this.thumbnailMouseOverTimer),this.thumbnailMouseOverTimer=null,e&&this.play();}}},{key:"setThumbsTranslate",value:function(e){this.setState({thumbsTranslate:e});}},{key:"setModalFullscreen",value:function(e){var t=this.props.onScreenChange;this.setState({modalFullscreen:e}),t&&t(e);}},{key:"getThumbsTranslate",value:function(e){var t,n=this.props,i=n.disableThumbnailScroll,r=n.items,a=this.state,s=a.thumbnailsWrapperWidth,o=a.thumbnailsWrapperHeight,l=this.thumbnails&&this.thumbnails.current;if(i)return 0;if(l){if(this.isThumbnailVertical()){if(l.scrollHeight<=o)return 0;t=l.scrollHeight-o;}else {if(l.scrollWidth<=s||s<=0)return 0;t=l.scrollWidth-s;}return e*(t/(r.length-1))}return 0}},{key:"getAlignmentClassName",value:function(e){var t=this.state.currentIndex,n=this.props,i=n.infinite,r=n.items,a="",s="left",o="right";switch(e){case t-1:a=" ".concat(s);break;case t:a=" ".concat("center");break;case t+1:a=" ".concat(o);}return r.length>=3&&i&&(0===e&&t===r.length-1?a=" ".concat(o):e===r.length-1&&0===t&&(a=" ".concat(s))),a}},{key:"getTranslateXForTwoSlide",value:function(e){var t=this.state,n=t.currentIndex,i=t.currentSlideOffset,r=t.previousIndex,a=n!==r,s=0===e&&0===r,o=1===e&&1===r,l=0===e&&1===n,u=1===e&&0===n,c=0===i,h=-100*n+100*e+i;return i>0?this.direction="left":i<0&&(this.direction="right"),u&&i>0&&(h=-100+i),l&&i<0&&(h=100+i),a?s&&c&&"left"===this.direction?h=100:o&&c&&"right"===this.direction&&(h=-100):(u&&c&&"left"===this.direction&&(h=-100),l&&c&&"right"===this.direction&&(h=100)),h}},{key:"getThumbnailBarHeight",value:function(){return this.isThumbnailVertical()?{height:this.state.gallerySlideWrapperHeight}:{}}},{key:"getSlideStyle",value:function(e){var t=this.state,n=t.currentIndex,i=t.currentSlideOffset,r=t.slideStyle,a=this.props,s=a.infinite,o=a.items,l=a.useTranslate3D,u=a.isRTL,c=-100*n,h=o.length-1,d=(c+100*e)*(u?-1:1)+i;s&&o.length>2&&(0===n&&e===h?d=-100*(u?-1:1)+i:n===h&&0===e&&(d=100*(u?-1:1)+i)),s&&2===o.length&&(d=this.getTranslateXForTwoSlide(e));var f="translate(".concat(d,"%, 0)");return l&&(f="translate3d(".concat(d,"%, 0, 0)")),we({display:this.isSlideVisible(e)?"inherit":"none",WebkitTransform:f,MozTransform:f,msTransform:f,OTransform:f,transform:f},r)}},{key:"getCurrentIndex",value:function(){return this.state.currentIndex}},{key:"getThumbnailStyle",value:function(){var e,t=this.props,n=t.useTranslate3D,i=t.isRTL,r=this.state,a=r.thumbsTranslate,s=r.thumbsStyle,o=i?-1*a:a;return this.isThumbnailVertical()?(e="translate(0, ".concat(a,"px)"),n&&(e="translate3d(0, ".concat(a,"px, 0)"))):(e="translate(".concat(o,"px, 0)"),n&&(e="translate3d(".concat(o,"px, 0, 0)"))),we({WebkitTransform:e,MozTransform:e,msTransform:e,OTransform:e,transform:e},s)}},{key:"getSlideItems",value:function(){var e=this,n=this.state.currentIndex,i=this.props,r=i.items,s=i.slideOnThumbnailOver,o=i.onClick,l=i.lazyLoad,u=i.onTouchMove,c=i.onTouchEnd,h=i.onTouchStart,d=i.onMouseOver,f=i.onMouseLeave,p=i.renderItem,m=i.renderThumbInner,g=i.showThumbnails,v=i.showBullets,b=[],y=[],w=[];return r.forEach((function(i,r){var T=e.getAlignmentClassName(r),S=i.originalClass?" ".concat(i.originalClass):"",O=i.thumbnailClass?" ".concat(i.thumbnailClass):"",E=i.renderItem||p||e.renderItem,I=i.renderThumbInner||m||e.renderThumbInner,k=!l||T||e.lazyLoaded[r];k&&l&&!e.lazyLoaded[r]&&(e.lazyLoaded[r]=!0);var x=e.getSlideStyle(r),_=a().createElement("div",{"aria-label":"Go to Slide ".concat(r+1),key:"slide-".concat(r),tabIndex:"-1",className:"image-gallery-slide ".concat(T," ").concat(S),style:x,onClick:o,onKeyUp:e.handleSlideKeyUp,onTouchMove:u,onTouchEnd:c,onTouchStart:h,onMouseOver:d,onFocus:d,onMouseLeave:f,role:"button"},k?E(i):a().createElement("div",{style:{height:"100%"}}));if(b.push(_),g&&i.thumbnail){var L=t("image-gallery-thumbnail",O,{active:n===r});y.push(a().createElement("button",{key:"thumbnail-".concat(r),type:"button",tabIndex:"0","aria-pressed":n===r?"true":"false","aria-label":"Go to Slide ".concat(r+1),className:L,onMouseLeave:s?e.onThumbnailMouseLeave:null,onMouseOver:function(t){return e.handleThumbnailMouseOver(t,r)},onFocus:function(t){return e.handleThumbnailMouseOver(t,r)},onKeyUp:function(t){return e.handleThumbnailKeyUp(t,r)},onClick:function(t){return e.onThumbnailClick(t,r)}},I(i)));}if(v){var P=t("image-gallery-bullet",i.bulletClass,{active:n===r});w.push(a().createElement("button",{type:"button",key:"bullet-".concat(r),className:P,onClick:function(t){return i.bulletOnClick&&i.bulletOnClick({item:i,itemIndex:r,currentIndex:n}),t.target.blur(),e.slideToIndex.call(e,r,t)},"aria-pressed":n===r?"true":"false","aria-label":"Go to Slide ".concat(r+1)}));}})),{slides:b,thumbnails:y,bullets:w}}},{key:"ignoreIsTransitioning",value:function(){var e=this.props.items,t=this.state,n=t.previousIndex,i=t.currentIndex,r=e.length-1;return Math.abs(n-i)>1&&!(0===n&&i===r)&&!(n===r&&0===i)}},{key:"isFirstOrLastSlide",value:function(e){return e===this.props.items.length-1||0===e}},{key:"slideIsTransitioning",value:function(e){var t=this.state,n=t.isTransitioning,i=t.previousIndex,r=t.currentIndex;return n&&!(e===i||e===r)}},{key:"isSlideVisible",value:function(e){return !this.slideIsTransitioning(e)||this.ignoreIsTransitioning()&&!this.isFirstOrLastSlide(e)}},{key:"slideThumbnailBar",value:function(){var e=this.state,t=e.currentIndex,n=e.isSwipingThumbnail,i=-this.getThumbsTranslate(t);n||(0===t?this.setState({thumbsTranslate:0,thumbsSwipedTranslate:0}):this.setState({thumbsTranslate:i,thumbsSwipedTranslate:i}));}},{key:"canSlide",value:function(){return this.props.items.length>=2}},{key:"canSlideLeft",value:function(){var e=this.props,t=e.infinite,n=e.isRTL;return t||(n?this.canSlideNext():this.canSlidePrevious())}},{key:"canSlideRight",value:function(){var e=this.props,t=e.infinite,n=e.isRTL;return t||(n?this.canSlidePrevious():this.canSlideNext())}},{key:"canSlidePrevious",value:function(){return this.state.currentIndex>0}},{key:"canSlideNext",value:function(){return this.state.currentIndex<this.props.items.length-1}},{key:"handleSwiping",value:function(e){var t=e.event,n=e.absX,i=e.dir,r=this.props,a=r.disableSwipe,s=r.stopPropagation,o=this.state,l=o.galleryWidth,u=o.isTransitioning,c=o.swipingUpDown,h=o.swipingLeftRight;if(i!==ee.UP&&i!==ee.DOWN&&!c||h){if(i!==ee.LEFT&&i!==ee.RIGHT||h||this.setState({swipingLeftRight:!0}),!a){var d=this.props.swipingTransitionDuration;if(s&&t.preventDefault(),u)this.setState({currentSlideOffset:0});else {var f=i===ee.RIGHT?1:-1,p=n/l*100;Math.abs(p)>=100&&(p=100);var m={transition:"transform ".concat(d,"ms ease-out")};this.setState({currentSlideOffset:f*p,slideStyle:m});}}}else c||this.setState({swipingUpDown:!0});}},{key:"handleThumbnailSwiping",value:function(e){var t=e.event,n=e.absX,i=e.absY,r=e.dir,a=this.props,s=a.stopPropagation,o=a.swipingThumbnailTransitionDuration,l=this.state,u=l.thumbsSwipedTranslate,c=l.thumbnailsWrapperHeight,h=l.thumbnailsWrapperWidth,d=l.swipingUpDown,f=l.swipingLeftRight;if(this.isThumbnailVertical()){if((r===ee.LEFT||r===ee.RIGHT||f)&&!d)return void(f||this.setState({swipingLeftRight:!0}));r!==ee.UP&&r!==ee.DOWN||d||this.setState({swipingUpDown:!0});}else {if((r===ee.UP||r===ee.DOWN||d)&&!f)return void(d||this.setState({swipingUpDown:!0}));r!==ee.LEFT&&r!==ee.RIGHT||f||this.setState({swipingLeftRight:!0});}var p,m,g,v,b,y=this.thumbnails&&this.thumbnails.current;if(this.isThumbnailVertical()?(p=u+(r===ee.DOWN?i:-i),m=y.scrollHeight-c+20,g=Math.abs(p)>m,v=p>20,b=y.scrollHeight<=c):(p=u+(r===ee.RIGHT?n:-n),m=y.scrollWidth-h+20,g=Math.abs(p)>m,v=p>20,b=y.scrollWidth<=h),!b&&(r!==ee.LEFT&&r!==ee.UP||!g)&&(r!==ee.RIGHT&&r!==ee.DOWN||!v)){s&&t.stopPropagation();var w={transition:"transform ".concat(o,"ms ease-out")};this.setState({thumbsTranslate:p,thumbsStyle:w});}}},{key:"handleOnThumbnailSwiped",value:function(){var e=this.state.thumbsTranslate,t=this.props.slideDuration;this.resetSwipingDirection(),this.setState({isSwipingThumbnail:!0,thumbsSwipedTranslate:e,thumbsStyle:{transition:"all ".concat(t,"ms ease-out")}});}},{key:"sufficientSwipe",value:function(){var e=this.state.currentSlideOffset,t=this.props.swipeThreshold;return Math.abs(e)>t}},{key:"resetSwipingDirection",value:function(){var e=this.state,t=e.swipingUpDown,n=e.swipingLeftRight;t&&this.setState({swipingUpDown:!1}),n&&this.setState({swipingLeftRight:!1});}},{key:"handleOnSwiped",value:function(e){var t=e.event,n=e.dir,i=e.velocity,r=this.props,a=r.disableSwipe,s=r.stopPropagation,o=r.flickThreshold;if(!a){var l=this.props.isRTL;s&&t.stopPropagation(),this.resetSwipingDirection();var u=(n===ee.LEFT?1:-1)*(l?-1:1),c=n===ee.UP||n===ee.DOWN,h=i>o&&!c;this.handleOnSwipedTo(u,h);}}},{key:"handleOnSwipedTo",value:function(e,t){var n=this.state,i=n.currentIndex,r=n.isTransitioning,a=i;!this.sufficientSwipe()&&!t||r||(a+=e),(-1===e&&!this.canSlideLeft()||1===e&&!this.canSlideRight())&&(a=i),this.unthrottledSlideToIndex(a);}},{key:"handleTouchMove",value:function(e){this.state.swipingLeftRight&&e.preventDefault();}},{key:"handleMouseDown",value:function(){this.imageGallery.current.classList.add("image-gallery-using-mouse");}},{key:"handleKeyDown",value:function(e){var t=this.props,n=t.disableKeyDown,i=t.useBrowserFullscreen,r=this.state.isFullscreen;if(this.imageGallery.current.classList.remove("image-gallery-using-mouse"),!n)switch(parseInt(e.keyCode||e.which||0,10)){case 37:this.canSlideLeft()&&!this.playPauseIntervalId&&this.slideLeft(e);break;case 39:this.canSlideRight()&&!this.playPauseIntervalId&&this.slideRight(e);break;case 27:r&&!i&&this.exitFullScreen();}}},{key:"handleImageError",value:function(e){var t=this.props.onErrorImageURL;t&&-1===e.target.src.indexOf(t)&&(e.target.src=t);}},{key:"removeResizeObserver",value:function(){this.resizeObserver&&this.imageGallerySlideWrapper&&this.imageGallerySlideWrapper.current&&(this.resizeObserver.unobserve(this.imageGallerySlideWrapper.current),this.resizeObserver=null);}},{key:"handleResize",value:function(){var e=this.state.currentIndex;this.resizeObserver&&(this.imageGallery&&this.imageGallery.current&&this.setState({galleryWidth:this.imageGallery.current.offsetWidth}),this.imageGallerySlideWrapper&&this.imageGallerySlideWrapper.current&&this.setState({gallerySlideWrapperHeight:this.imageGallerySlideWrapper.current.offsetHeight}),this.thumbnailsWrapper&&this.thumbnailsWrapper.current&&(this.isThumbnailVertical()?this.setState({thumbnailsWrapperHeight:this.thumbnailsWrapper.current.offsetHeight}):this.setState({thumbnailsWrapperWidth:this.thumbnailsWrapper.current.offsetWidth})),this.setThumbsTranslate(-this.getThumbsTranslate(e)));}},{key:"initResizeObserver",value:function(e){var t=this;this.resizeObserver=new Z(L((function(e){e&&e.forEach((function(){t.handleResize();}));}),300)),this.resizeObserver.observe(e.current);}},{key:"toggleFullScreen",value:function(){this.state.isFullscreen?this.exitFullScreen():this.fullScreen();}},{key:"togglePlay",value:function(){this.playPauseIntervalId?this.pause():this.play();}},{key:"handleScreenChange",value:function(){var e=this.props,t=e.onScreenChange,n=e.useBrowserFullscreen,i=document.fullscreenElement||document.msFullscreenElement||document.mozFullScreenElement||document.webkitFullscreenElement,r=this.imageGallery.current===i;t&&t(r),n&&this.setState({isFullscreen:r});}},{key:"slideToIndex",value:function(e,t){var n=this.state,i=n.currentIndex,r=n.isTransitioning,a=this.props,s=a.items,o=a.slideDuration,l=a.onBeforeSlide;if(!r){t&&this.playPauseIntervalId&&(this.pause(!1),this.play(!1));var u=s.length-1,c=e;e<0?c=u:e>u&&(c=0),l&&c!==i&&l(c),this.setState({previousIndex:i,currentIndex:c,isTransitioning:c!==i,currentSlideOffset:0,slideStyle:{transition:"all ".concat(o,"ms ease-out")}},this.onSliding);}}},{key:"slideLeft",value:function(e){var t=this.props.isRTL;this.slideTo(e,t?"right":"left");}},{key:"slideRight",value:function(e){var t=this.props.isRTL;this.slideTo(e,t?"left":"right");}},{key:"slideTo",value:function(e,t){var n=this,i=this.state,r=i.currentIndex,a=i.currentSlideOffset,s=i.isTransitioning,o=this.props.items,l=r+("left"===t?-1:1);s||(2===o.length?this.setState({currentSlideOffset:a+("left"===t?.001:-.001),slideStyle:{transition:"none"}},(function(){window.setTimeout((function(){return n.slideToIndex(l,e)}),25);})):this.slideToIndex(l,e));}},{key:"handleThumbnailMouseOver",value:function(e,t){this.props.slideOnThumbnailOver&&this.onThumbnailMouseOver(e,t);}},{key:"handleThumbnailKeyUp",value:function(e,t){Le(e)&&this.onThumbnailClick(e,t);}},{key:"handleSlideKeyUp",value:function(e){Le(e)&&(0, this.props.onClick)(e);}},{key:"isThumbnailVertical",value:function(){var e=this.props.thumbnailPosition;return "left"===e||"right"===e}},{key:"addScreenChangeEvent",value:function(){var e=this;xe.forEach((function(t){document.addEventListener(t,e.handleScreenChange);}));}},{key:"removeScreenChangeEvent",value:function(){var e=this;xe.forEach((function(t){document.removeEventListener(t,e.handleScreenChange);}));}},{key:"fullScreen",value:function(){var e=this.props.useBrowserFullscreen,t=this.imageGallery.current;e?t.requestFullscreen?t.requestFullscreen():t.msRequestFullscreen?t.msRequestFullscreen():t.mozRequestFullScreen?t.mozRequestFullScreen():t.webkitRequestFullscreen?t.webkitRequestFullscreen():this.setModalFullscreen(!0):this.setModalFullscreen(!0),this.setState({isFullscreen:!0});}},{key:"exitFullScreen",value:function(){var e=this.state.isFullscreen,t=this.props.useBrowserFullscreen;e&&(t?document.exitFullscreen?document.exitFullscreen():document.webkitExitFullscreen?document.webkitExitFullscreen():document.mozCancelFullScreen?document.mozCancelFullScreen():document.msExitFullscreen?document.msExitFullscreen():this.setModalFullscreen(!1):this.setModalFullscreen(!1),this.setState({isFullscreen:!1}));}},{key:"pauseOrPlay",value:function(){var e=this.props.infinite,t=this.state.currentIndex;e||this.canSlideRight()?this.slideToIndex(t+1):this.pause();}},{key:"play",value:function(){var e=!(arguments.length>0&&void 0!==arguments[0])||arguments[0],t=this.props,n=t.onPlay,i=t.slideInterval,r=t.slideDuration,a=this.state.currentIndex;this.playPauseIntervalId||(this.setState({isPlaying:!0}),this.playPauseIntervalId=window.setInterval(this.pauseOrPlay,Math.max(i,r)),n&&e&&n(a));}},{key:"pause",value:function(){var e=!(arguments.length>0&&void 0!==arguments[0])||arguments[0],t=this.props.onPause,n=this.state.currentIndex;this.playPauseIntervalId&&(window.clearInterval(this.playPauseIntervalId),this.playPauseIntervalId=null,this.setState({isPlaying:!1}),t&&e&&t(n));}},{key:"isImageLoaded",value:function(e){return !!this.loadedImages[e.original]||(this.loadedImages[e.original]=!0,!1)}},{key:"handleImageLoaded",value:function(e,t){var n=this.props.onImageLoad;!this.loadedImages[t]&&n&&(this.loadedImages[t]=!0,n(e));}},{key:"renderItem",value:function(e){var t=this.state.isFullscreen,n=this.props.onImageError||this.handleImageError;return a().createElement(ie,{description:e.description,fullscreen:e.fullscreen,handleImageLoaded:this.handleImageLoaded,isFullscreen:t,onImageError:n,original:e.original,originalAlt:e.originalAlt,originalHeight:e.originalHeight,originalWidth:e.originalWidth,originalTitle:e.originalTitle,sizes:e.sizes,loading:e.loading,srcSet:e.srcSet})}},{key:"renderThumbInner",value:function(e){var t=this.props.onThumbnailError||this.handleImageError;return a().createElement("span",{className:"image-gallery-thumbnail-inner"},a().createElement("img",{className:"image-gallery-thumbnail-image",src:e.thumbnail,height:e.thumbnailHeight,width:e.thumbnailWidth,alt:e.thumbnailAlt,title:e.thumbnailTitle,loading:e.thumbnailLoading,onError:t}),e.thumbnailLabel&&a().createElement("div",{className:"image-gallery-thumbnail-label"},e.thumbnailLabel))}},{key:"render",value:function(){var e=this.state,n=e.currentIndex,i=e.isFullscreen,r=e.modalFullscreen,s=e.isPlaying,o=this.props,l=o.additionalClass,u=o.disableThumbnailSwipe,c=o.indexSeparator,h=o.isRTL,d=o.items,f=o.thumbnailPosition,p=o.renderFullscreenButton,m=o.renderCustomControls,g=o.renderLeftNav,v=o.renderRightNav,b=o.showBullets,y=o.showFullscreenButton,w=o.showIndex,T=o.showThumbnails,S=o.showNav,O=o.showPlayButton,E=o.renderPlayPauseButton,I=this.getThumbnailStyle(),k=this.getSlideItems(),x=k.slides,_=k.thumbnails,L=k.bullets,P=t("image-gallery-slide-wrapper",f,{"image-gallery-rtl":h}),M=a().createElement("div",{ref:this.imageGallerySlideWrapper,className:P},m&&m(),this.canSlide()?a().createElement(a().Fragment,null,S&&a().createElement(a().Fragment,null,g(this.slideLeft,!this.canSlideLeft()),v(this.slideRight,!this.canSlideRight())),a().createElement(ve,{className:"image-gallery-swipe",delta:0,onSwiping:this.handleSwiping,onSwiped:this.handleOnSwiped},a().createElement("div",{className:"image-gallery-slides"},x))):a().createElement("div",{className:"image-gallery-slides"},x),O&&E(this.togglePlay,s),b&&a().createElement("div",{className:"image-gallery-bullets"},a().createElement("div",{className:"image-gallery-bullets-container",role:"navigation","aria-label":"Bullet Navigation"},L)),y&&p(this.toggleFullScreen,i),w&&a().createElement("div",{className:"image-gallery-index"},a().createElement("span",{className:"image-gallery-index-current"},n+1),a().createElement("span",{className:"image-gallery-index-separator"},c),a().createElement("span",{className:"image-gallery-index-total"},d.length))),R=t("image-gallery",l,{"fullscreen-modal":r}),D=t("image-gallery-content",f,{fullscreen:i}),F=t("image-gallery-thumbnails-wrapper",f,{"thumbnails-wrapper-rtl":!this.isThumbnailVertical()&&h},{"thumbnails-swipe-horizontal":!this.isThumbnailVertical()&&!u},{"thumbnails-swipe-vertical":this.isThumbnailVertical()&&!u});return a().createElement("div",{ref:this.imageGallery,className:R,"aria-live":"polite"},a().createElement("div",{className:D},("bottom"===f||"right"===f)&&M,T&&_.length>0?a().createElement(ve,{className:F,delta:0,onSwiping:!u&&this.handleThumbnailSwiping,onSwiped:!u&&this.handleOnThumbnailSwiped},a().createElement("div",{className:"image-gallery-thumbnails",ref:this.thumbnailsWrapper,style:this.getThumbnailBarHeight()},a().createElement("nav",{ref:this.thumbnails,className:"image-gallery-thumbnails-container",style:I,"aria-label":"Thumbnail Navigation"},_))):null,("top"===f||"left"===f)&&M))}}])&&Se(n.prototype,i),l}(a().Component);Pe.propTypes={flickThreshold:te.number,items:(0, te.arrayOf)((0, te.shape)({bulletClass:te.string,bulletOnClick:te.func,description:te.string,original:te.string,originalHeight:te.number,originalWidth:te.number,loading:te.string,thumbnailHeight:te.number,thumbnailWidth:te.number,thumbnailLoading:te.string,fullscreen:te.string,originalAlt:te.string,originalTitle:te.string,thumbnail:te.string,thumbnailAlt:te.string,thumbnailLabel:te.string,thumbnailTitle:te.string,originalClass:te.string,thumbnailClass:te.string,renderItem:te.func,renderThumbInner:te.func,imageSet:_e,srcSet:te.string,sizes:te.string})).isRequired,showNav:te.bool,autoPlay:te.bool,lazyLoad:te.bool,infinite:te.bool,showIndex:te.bool,showBullets:te.bool,showThumbnails:te.bool,showPlayButton:te.bool,showFullscreenButton:te.bool,disableThumbnailScroll:te.bool,disableKeyDown:te.bool,disableSwipe:te.bool,disableThumbnailSwipe:te.bool,useBrowserFullscreen:te.bool,onErrorImageURL:te.string,indexSeparator:te.string,thumbnailPosition:(0, te.oneOf)(["top","bottom","left","right"]),startIndex:te.number,slideDuration:te.number,slideInterval:te.number,slideOnThumbnailOver:te.bool,swipeThreshold:te.number,swipingTransitionDuration:te.number,swipingThumbnailTransitionDuration:te.number,onSlide:te.func,onBeforeSlide:te.func,onScreenChange:te.func,onPause:te.func,onPlay:te.func,onClick:te.func,onImageLoad:te.func,onImageError:te.func,onTouchMove:te.func,onTouchEnd:te.func,onTouchStart:te.func,onMouseOver:te.func,onMouseLeave:te.func,onThumbnailError:te.func,onThumbnailClick:te.func,renderCustomControls:te.func,renderLeftNav:te.func,renderRightNav:te.func,renderPlayPauseButton:te.func,renderFullscreenButton:te.func,renderItem:te.func,renderThumbInner:te.func,stopPropagation:te.bool,additionalClass:te.string,useTranslate3D:te.bool,isRTL:te.bool,useWindowKeyDown:te.bool},Pe.defaultProps={onErrorImageURL:"",additionalClass:"",showNav:!0,autoPlay:!1,lazyLoad:!1,infinite:!0,showIndex:!1,showBullets:!1,showThumbnails:!0,showPlayButton:!0,showFullscreenButton:!0,disableThumbnailScroll:!1,disableKeyDown:!1,disableSwipe:!1,disableThumbnailSwipe:!1,useTranslate3D:!0,isRTL:!1,useBrowserFullscreen:!0,flickThreshold:.4,stopPropagation:!1,indexSeparator:" / ",thumbnailPosition:"bottom",startIndex:0,slideDuration:450,swipingTransitionDuration:0,swipingThumbnailTransitionDuration:0,onSlide:null,onBeforeSlide:null,onScreenChange:null,onPause:null,onPlay:null,onClick:null,onImageLoad:null,onImageError:null,onTouchMove:null,onTouchEnd:null,onTouchStart:null,onMouseOver:null,onMouseLeave:null,onThumbnailError:null,onThumbnailClick:null,renderCustomControls:null,renderThumbInner:null,renderItem:null,slideInterval:3e3,slideOnThumbnailOver:!1,swipeThreshold:30,renderLeftNav:function(e,t){return a().createElement(ce,{onClick:e,disabled:t})},renderRightNav:function(e,t){return a().createElement(de,{onClick:e,disabled:t})},renderPlayPauseButton:function(e,t){return a().createElement(pe,{onClick:e,isPlaying:t})},renderFullscreenButton:function(e,t){return a().createElement(le,{onClick:e,isFullscreen:t})},useWindowKeyDown:!0};const Me=Pe;})(),r})()}));
     });
 
     var ImageGallery = unwrapExports(imageGallery);
@@ -11606,7 +11633,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         return (React__default["default"].createElement("button", { type: "button", "data-testid": "cancel-upload-button", "aria-label": "Cancel upload", className: "rfu-icon-button", onClick: onClick }, children));
     };
 
-    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};/*! *****************************************************************************
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};/******************************************************************************
     Copyright (c) Microsoft Corporation.
 
     Permission to use, copy, modify, and/or distribute this software for any
@@ -12281,9 +12308,9 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
     function _defineProperty$3(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-    function _objectWithoutProperties$1(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose$3(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+    function _objectWithoutProperties$1(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose$2(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
-    function _objectWithoutPropertiesLoose$3(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+    function _objectWithoutPropertiesLoose$2(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
     /**
      * Convenience wrapper component for the `useDropzone` hook
      *
@@ -12695,10 +12722,10 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
           validator = _defaultProps$options.validator;
 
       var onFileDialogOpenCb = React.useMemo(function () {
-        return typeof onFileDialogOpen === "function" ? onFileDialogOpen : noop$3;
+        return typeof onFileDialogOpen === "function" ? onFileDialogOpen : noop$2;
       }, [onFileDialogOpen]);
       var onFileDialogCancelCb = React.useMemo(function () {
-        return typeof onFileDialogCancel === "function" ? onFileDialogCancel : noop$3;
+        return typeof onFileDialogCancel === "function" ? onFileDialogCancel : noop$2;
       }, [onFileDialogCancel]);
       var rootRef = React.useRef(null);
       var inputRef = React.useRef(null);
@@ -13156,7 +13183,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
       }
     }
 
-    function noop$3() {}
+    function noop$2() {}
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};var __assign$2 = (undefined && undefined.__assign) || function () {
         __assign$2 = Object.assign || function(t) {
@@ -13718,7 +13745,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     });
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
-    var defineProperty$1 = createCommonjsModule$1(function (module) {
+    var defineProperty$2 = createCommonjsModule$1(function (module) {
     function _defineProperty(obj, key, value) {
       if (key in obj) {
         Object.defineProperty(obj, key, {
@@ -13737,7 +13764,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     module.exports = _defineProperty, module.exports.__esModule = true, module.exports["default"] = module.exports;
     });
 
-    var _defineProperty$2 = unwrapExports(defineProperty$1);
+    var _defineProperty$2 = unwrapExports(defineProperty$2);
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
     var arrayWithHoles = createCommonjsModule$1(function (module) {
@@ -15499,11 +15526,11 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
      * @typedef {import('unist').Node} Node
      * @typedef {import('unist').Parent} Parent
      * @typedef {import('unist-util-is').Test} Test
-     * @typedef {import('./complex-types').Action} Action
-     * @typedef {import('./complex-types').Index} Index
-     * @typedef {import('./complex-types').ActionTuple} ActionTuple
-     * @typedef {import('./complex-types').VisitorResult} VisitorResult
-     * @typedef {import('./complex-types').Visitor} Visitor
+     * @typedef {import('./complex-types.js').Action} Action
+     * @typedef {import('./complex-types.js').Index} Index
+     * @typedef {import('./complex-types.js').ActionTuple} ActionTuple
+     * @typedef {import('./complex-types.js').VisitorResult} VisitorResult
+     * @typedef {import('./complex-types.js').Visitor} Visitor
      */
 
     /**
@@ -15520,26 +15547,30 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     const EXIT$2 = false;
 
     /**
-     * Visit children of tree which pass a test
+     * Visit children of tree which pass test.
      *
-     * @param tree Abstract syntax tree to walk
-     * @param test Test node, optional
-     * @param visitor Function to run for each node
-     * @param reverse Visit the tree in reverse order, defaults to false
+     * @param tree
+     *   Tree to walk
+     * @param [test]
+     *   `unist-util-is`-compatible test
+     * @param visitor
+     *   Function called for nodes that pass `test`.
+     * @param [reverse=false]
+     *   Traverse in reverse preorder (NRL) instead of preorder (NLR) (default).
      */
     const visitParents$2 =
       /**
        * @type {(
-       *   (<Tree extends Node, Check extends Test>(tree: Tree, test: Check, visitor: import('./complex-types').BuildVisitor<Tree, Check>, reverse?: boolean) => void) &
-       *   (<Tree extends Node>(tree: Tree, visitor: import('./complex-types').BuildVisitor<Tree>, reverse?: boolean) => void)
+       *   (<Tree extends Node, Check extends Test>(tree: Tree, test: Check, visitor: import('./complex-types.js').BuildVisitor<Tree, Check>, reverse?: boolean) => void) &
+       *   (<Tree extends Node>(tree: Tree, visitor: import('./complex-types.js').BuildVisitor<Tree>, reverse?: boolean) => void)
        * )}
        */
       (
         /**
          * @param {Node} tree
          * @param {Test} test
-         * @param {import('./complex-types').Visitor<Node>} visitor
-         * @param {boolean} [reverse]
+         * @param {import('./complex-types.js').Visitor<Node>} visitor
+         * @param {boolean} [reverse=false]
          */
         function (tree, test, visitor, reverse) {
           if (typeof test === 'function' && typeof visitor !== 'function') {
@@ -15557,10 +15588,10 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
           /**
            * @param {Node} node
            * @param {number?} index
-           * @param {Array.<Parent>} parents
+           * @param {Array<Parent>} parents
            */
           function factory(node, index, parents) {
-            /** @type {Object.<string, unknown>} */
+            /** @type {Record<string, unknown>} */
             // @ts-expect-error: hush
             const value = typeof node === 'object' && node !== null ? node : {};
             /** @type {string|undefined} */
@@ -15591,7 +15622,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
               let subresult;
               /** @type {number} */
               let offset;
-              /** @type {Array.<Parent>} */
+              /** @type {Array<Parent>} */
               let grandparents;
 
               if (!test || is(node, index, parents[parents.length - 1] || null)) {
@@ -16082,7 +16113,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
     var hasOwn = Object.prototype.hasOwnProperty;
     var toStr = Object.prototype.toString;
-    var defineProperty = Object.defineProperty;
+    var defineProperty$1 = Object.defineProperty;
     var gOPD = Object.getOwnPropertyDescriptor;
 
     var isArray = function isArray(arr) {
@@ -16115,8 +16146,8 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
     // If name is '__proto__', and Object.defineProperty is available, define __proto__ as an own property on target
     var setProperty = function setProperty(target, options) {
-    	if (defineProperty && options.name === '__proto__') {
-    		defineProperty(target, options.name, {
+    	if (defineProperty$1 && options.name === '__proto__') {
+    		defineProperty$1(target, options.name, {
     			enumerable: true,
     			configurable: true,
     			value: options.newValue,
@@ -16379,7 +16410,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         point = {};
       }
 
-      return index$2(point.line) + ':' + index$2(point.column)
+      return index(point.line) + ':' + index(point.column)
     }
 
     function position(pos) {
@@ -16390,7 +16421,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
       return point(pos.start) + '-' + point(pos.end)
     }
 
-    function index$2(value) {
+    function index(value) {
       return value && typeof value === 'number' ? value : 1
     }
 
@@ -37918,7 +37949,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     };
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
-    var _extends_1 = createCommonjsModule$1(function (module) {
+    var _extends_1$1 = createCommonjsModule$1(function (module) {
     function _extends() {
       module.exports = _extends = Object.assign || function (target) {
         for (var i = 1; i < arguments.length; i++) {
@@ -37939,10 +37970,66 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     module.exports = _extends, module.exports.__esModule = true, module.exports["default"] = module.exports;
     });
 
-    var _extends$2 = unwrapExports(_extends_1);
+    var _extends$1 = unwrapExports(_extends_1$1);
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
-    var assertThisInitialized = createCommonjsModule$1(function (module) {
+    var _typeof_1 = createCommonjsModule$1(function (module) {
+    function _typeof(obj) {
+      "@babel/helpers - typeof";
+
+      return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+        return typeof obj;
+      } : function (obj) {
+        return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+      }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(obj);
+    }
+
+    module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
+    });
+
+    var _typeof = unwrapExports(_typeof_1);
+
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
+    var classCallCheck = createCommonjsModule$1(function (module) {
+    function _classCallCheck(instance, Constructor) {
+      if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+      }
+    }
+
+    module.exports = _classCallCheck, module.exports.__esModule = true, module.exports["default"] = module.exports;
+    });
+
+    var _classCallCheck = unwrapExports(classCallCheck);
+
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
+    var createClass = createCommonjsModule$1(function (module) {
+    function _defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+
+    function _createClass(Constructor, protoProps, staticProps) {
+      if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+      if (staticProps) _defineProperties(Constructor, staticProps);
+      Object.defineProperty(Constructor, "prototype", {
+        writable: false
+      });
+      return Constructor;
+    }
+
+    module.exports = _createClass, module.exports.__esModule = true, module.exports["default"] = module.exports;
+    });
+
+    var _createClass = unwrapExports(createClass);
+
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
+    var assertThisInitialized$1 = createCommonjsModule$1(function (module) {
     function _assertThisInitialized(self) {
       if (self === void 0) {
         throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
@@ -37954,10 +38041,10 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     module.exports = _assertThisInitialized, module.exports.__esModule = true, module.exports["default"] = module.exports;
     });
 
-    var _assertThisInitialized = unwrapExports(assertThisInitialized);
+    var _assertThisInitialized = unwrapExports(assertThisInitialized$1);
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
-    var setPrototypeOf = createCommonjsModule$1(function (module) {
+    var setPrototypeOf$1 = createCommonjsModule$1(function (module) {
     function _setPrototypeOf(o, p) {
       module.exports = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
         o.__proto__ = p;
@@ -37969,10 +38056,10 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     module.exports = _setPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
     });
 
-    unwrapExports(setPrototypeOf);
+    unwrapExports(setPrototypeOf$1);
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
-    var inherits = createCommonjsModule$1(function (module) {
+    var inherits$1 = createCommonjsModule$1(function (module) {
     function _inherits(subClass, superClass) {
       if (typeof superClass !== "function" && superClass !== null) {
         throw new TypeError("Super expression must either be null or a function");
@@ -37988,16 +38075,16 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
       Object.defineProperty(subClass, "prototype", {
         writable: false
       });
-      if (superClass) setPrototypeOf(subClass, superClass);
+      if (superClass) setPrototypeOf$1(subClass, superClass);
     }
 
     module.exports = _inherits, module.exports.__esModule = true, module.exports["default"] = module.exports;
     });
 
-    var _inherits = unwrapExports(inherits);
+    var _inherits = unwrapExports(inherits$1);
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
-    var possibleConstructorReturn = createCommonjsModule$1(function (module) {
+    var possibleConstructorReturn$1 = createCommonjsModule$1(function (module) {
     var _typeof = _typeof_1["default"];
 
 
@@ -38009,16 +38096,16 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         throw new TypeError("Derived constructors may only return object or undefined");
       }
 
-      return assertThisInitialized(self);
+      return assertThisInitialized$1(self);
     }
 
     module.exports = _possibleConstructorReturn, module.exports.__esModule = true, module.exports["default"] = module.exports;
     });
 
-    var _possibleConstructorReturn = unwrapExports(possibleConstructorReturn);
+    var _possibleConstructorReturn = unwrapExports(possibleConstructorReturn$1);
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
-    var getPrototypeOf = createCommonjsModule$1(function (module) {
+    var getPrototypeOf$1 = createCommonjsModule$1(function (module) {
     function _getPrototypeOf(o) {
       module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
         return o.__proto__ || Object.getPrototypeOf(o);
@@ -38029,285 +38116,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     module.exports = _getPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
     });
 
-    var _getPrototypeOf = unwrapExports(getPrototypeOf);
-
-    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};function _extends$1() {
-      _extends$1 = Object.assign || function (target) {
-        for (var i = 1; i < arguments.length; i++) {
-          var source = arguments[i];
-
-          for (var key in source) {
-            if (Object.prototype.hasOwnProperty.call(source, key)) {
-              target[key] = source[key];
-            }
-          }
-        }
-
-        return target;
-      };
-
-      return _extends$1.apply(this, arguments);
-    }
-
-    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};function _objectWithoutPropertiesLoose$2(source, excluded) {
-      if (source == null) return {};
-      var target = {};
-      var sourceKeys = Object.keys(source);
-      var key, i;
-
-      for (i = 0; i < sourceKeys.length; i++) {
-        key = sourceKeys[i];
-        if (excluded.indexOf(key) >= 0) continue;
-        target[key] = source[key];
-      }
-
-      return target;
-    }
-
-    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
-    var index$1 =  React.useLayoutEffect ;
-
-    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
-    var useLatest = function useLatest(value) {
-      var ref = React.useRef(value);
-      index$1(function () {
-        ref.current = value;
-      });
-      return ref;
-    };
-
-    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
-    var updateRef = function updateRef(ref, value) {
-      if (typeof ref === 'function') {
-        ref(value);
-        return;
-      }
-      ref.current = value;
-    };
-
-    var useComposedRef = function useComposedRef(libRef, userRef) {
-      var prevUserRef = React.useRef();
-      return React.useCallback(function (instance) {
-        libRef.current = instance;
-
-        if (prevUserRef.current) {
-          updateRef(prevUserRef.current, null);
-        }
-
-        prevUserRef.current = userRef;
-
-        if (!userRef) {
-          return;
-        }
-
-        updateRef(userRef, instance);
-      }, [userRef]);
-    };
-
-    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
-    var HIDDEN_TEXTAREA_STYLE = {
-      'min-height': '0',
-      'max-height': 'none',
-      height: '0',
-      visibility: 'hidden',
-      overflow: 'hidden',
-      position: 'absolute',
-      'z-index': '-1000',
-      top: '0',
-      right: '0'
-    };
-
-    var forceHiddenStyles = function forceHiddenStyles(node) {
-      Object.keys(HIDDEN_TEXTAREA_STYLE).forEach(function (key) {
-        node.style.setProperty(key, HIDDEN_TEXTAREA_STYLE[key], 'important');
-      });
-    };
-
-    //   export type CalculatedNodeHeights = [height: number, rowHeight: number];
-    // https://github.com/microsoft/TypeScript/issues/28259
-
-    var hiddenTextarea = null;
-
-    var getHeight = function getHeight(node, sizingData) {
-      var height = node.scrollHeight;
-
-      if (sizingData.sizingStyle.boxSizing === 'border-box') {
-        // border-box: add border, since height = content + padding + border
-        return height + sizingData.borderSize;
-      } // remove padding, since height = content
-
-
-      return height - sizingData.paddingSize;
-    };
-
-    function calculateNodeHeight(sizingData, value, minRows, maxRows) {
-      if (minRows === void 0) {
-        minRows = 1;
-      }
-
-      if (maxRows === void 0) {
-        maxRows = Infinity;
-      }
-
-      if (!hiddenTextarea) {
-        hiddenTextarea = document.createElement('textarea');
-        hiddenTextarea.setAttribute('tab-index', '-1');
-        hiddenTextarea.setAttribute('aria-hidden', 'true');
-        forceHiddenStyles(hiddenTextarea);
-      }
-
-      if (hiddenTextarea.parentNode === null) {
-        document.body.appendChild(hiddenTextarea);
-      }
-
-      var paddingSize = sizingData.paddingSize,
-          borderSize = sizingData.borderSize,
-          sizingStyle = sizingData.sizingStyle;
-      var boxSizing = sizingStyle.boxSizing;
-      Object.keys(sizingStyle).forEach(function (_key) {
-        var key = _key;
-        hiddenTextarea.style[key] = sizingStyle[key];
-      });
-      forceHiddenStyles(hiddenTextarea);
-      hiddenTextarea.value = value;
-      var height = getHeight(hiddenTextarea, sizingData); // measure height of a textarea with a single row
-
-      hiddenTextarea.value = 'x';
-      var rowHeight = hiddenTextarea.scrollHeight - paddingSize;
-      var minHeight = rowHeight * minRows;
-
-      if (boxSizing === 'border-box') {
-        minHeight = minHeight + paddingSize + borderSize;
-      }
-
-      height = Math.max(minHeight, height);
-      var maxHeight = rowHeight * maxRows;
-
-      if (boxSizing === 'border-box') {
-        maxHeight = maxHeight + paddingSize + borderSize;
-      }
-
-      height = Math.min(maxHeight, height);
-      return [height, rowHeight];
-    }
-
-    var noop$2 = function noop() {};
-    var pick = function pick(props, obj) {
-      return props.reduce(function (acc, prop) {
-        acc[prop] = obj[prop];
-        return acc;
-      }, {});
-    };
-
-    var SIZING_STYLE = ['borderBottomWidth', 'borderLeftWidth', 'borderRightWidth', 'borderTopWidth', 'boxSizing', 'fontFamily', 'fontSize', 'fontStyle', 'fontWeight', 'letterSpacing', 'lineHeight', 'paddingBottom', 'paddingLeft', 'paddingRight', 'paddingTop', // non-standard
-    'tabSize', 'textIndent', // non-standard
-    'textRendering', 'textTransform', 'width'];
-    var isIE$1 = typeof document !== undefined && !!document.documentElement.currentStyle ;
-
-    var getSizingData = function getSizingData(node) {
-      var style = window.getComputedStyle(node);
-
-      if (style === null) {
-        return null;
-      }
-
-      var sizingStyle = pick(SIZING_STYLE, style);
-      var boxSizing = sizingStyle.boxSizing; // probably node is detached from DOM, can't read computed dimensions
-
-      if (boxSizing === '') {
-        return null;
-      } // IE (Edge has already correct behaviour) returns content width as computed width
-      // so we need to add manually padding and border widths
-
-
-      if (isIE$1 && boxSizing === 'border-box') {
-        sizingStyle.width = parseFloat(sizingStyle.width) + parseFloat(sizingStyle.borderRightWidth) + parseFloat(sizingStyle.borderLeftWidth) + parseFloat(sizingStyle.paddingRight) + parseFloat(sizingStyle.paddingLeft) + 'px';
-      }
-
-      var paddingSize = parseFloat(sizingStyle.paddingBottom) + parseFloat(sizingStyle.paddingTop);
-      var borderSize = parseFloat(sizingStyle.borderBottomWidth) + parseFloat(sizingStyle.borderTopWidth);
-      return {
-        sizingStyle: sizingStyle,
-        paddingSize: paddingSize,
-        borderSize: borderSize
-      };
-    };
-
-    var useWindowResizeListener = function useWindowResizeListener(listener) {
-      var latestListener = useLatest(listener);
-      React.useLayoutEffect(function () {
-        var handler = function handler(event) {
-          latestListener.current(event);
-        };
-
-        window.addEventListener('resize', handler);
-        return function () {
-          window.removeEventListener('resize', handler);
-        };
-      }, []);
-    };
-
-    var TextareaAutosize = function TextareaAutosize(_ref, userRef) {
-      var cacheMeasurements = _ref.cacheMeasurements,
-          maxRows = _ref.maxRows,
-          minRows = _ref.minRows,
-          _ref$onChange = _ref.onChange,
-          onChange = _ref$onChange === void 0 ? noop$2 : _ref$onChange,
-          _ref$onHeightChange = _ref.onHeightChange,
-          onHeightChange = _ref$onHeightChange === void 0 ? noop$2 : _ref$onHeightChange,
-          props = _objectWithoutPropertiesLoose$2(_ref, ["cacheMeasurements", "maxRows", "minRows", "onChange", "onHeightChange"]);
-
-      var isControlled = props.value !== undefined;
-      var libRef = React.useRef(null);
-      var ref = useComposedRef(libRef, userRef);
-      var heightRef = React.useRef(0);
-      var measurementsCacheRef = React.useRef();
-
-      var resizeTextarea = function resizeTextarea() {
-        var node = libRef.current;
-        var nodeSizingData = cacheMeasurements && measurementsCacheRef.current ? measurementsCacheRef.current : getSizingData(node);
-
-        if (!nodeSizingData) {
-          return;
-        }
-
-        measurementsCacheRef.current = nodeSizingData;
-
-        var _calculateNodeHeight = calculateNodeHeight(nodeSizingData, node.value || node.placeholder || 'x', minRows, maxRows),
-            height = _calculateNodeHeight[0],
-            rowHeight = _calculateNodeHeight[1];
-
-        if (heightRef.current !== height) {
-          heightRef.current = height;
-          node.style.setProperty('height', height + "px", 'important');
-          onHeightChange(height, {
-            rowHeight: rowHeight
-          });
-        }
-      };
-
-      var handleChange = function handleChange(event) {
-        if (!isControlled) {
-          resizeTextarea();
-        }
-
-        onChange(event);
-      };
-
-      {
-        React.useLayoutEffect(resizeTextarea);
-        useWindowResizeListener(resizeTextarea);
-      }
-
-      return /*#__PURE__*/React.createElement("textarea", _extends$1({}, props, {
-        onChange: handleChange,
-        ref: ref
-      }));
-    };
-
-    var index = /* #__PURE__ */React.forwardRef(TextareaAutosize);
-
-    var Textarea = index;
+    var _getPrototypeOf = unwrapExports(getPrototypeOf$1);
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
     var textareaCaret = createCommonjsModule$1(function (module) {
@@ -38458,11 +38267,11 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
      * This source code is licensed under the MIT license found in the
      * LICENSE file in the root directory of this source tree.
      */
-    var b$1=Symbol.for("react.element"),c$1=Symbol.for("react.portal"),d$1=Symbol.for("react.fragment"),e$1=Symbol.for("react.strict_mode"),f$1=Symbol.for("react.profiler"),g$1=Symbol.for("react.provider"),h$1=Symbol.for("react.context"),k$2=Symbol.for("react.server_context"),l=Symbol.for("react.forward_ref"),m$1=Symbol.for("react.suspense"),n$1=Symbol.for("react.suspense_list"),p$1=Symbol.for("react.memo"),q$2=Symbol.for("react.lazy"),t$1=Symbol.for("react.offscreen"),u$1;u$1=Symbol.for("react.module.reference");
+    var b$1=Symbol.for("react.element"),c$1=Symbol.for("react.portal"),d$1=Symbol.for("react.fragment"),e$1=Symbol.for("react.strict_mode"),f$1=Symbol.for("react.profiler"),g$1=Symbol.for("react.provider"),h$1=Symbol.for("react.context"),k$2=Symbol.for("react.server_context"),l=Symbol.for("react.forward_ref"),m$1=Symbol.for("react.suspense"),n$1=Symbol.for("react.suspense_list"),p$1=Symbol.for("react.memo"),q$2=Symbol.for("react.lazy"),t$1=Symbol.for("react.offscreen"),u;u=Symbol.for("react.module.reference");
     function v$1(a){if("object"===typeof a&&null!==a){var r=a.$$typeof;switch(r){case b$1:switch(a=a.type,a){case d$1:case f$1:case e$1:case m$1:case n$1:return a;default:switch(a=a&&a.$$typeof,a){case k$2:case h$1:case l:case q$2:case p$1:case g$1:return a;default:return r}}case c$1:return r}}}var ContextConsumer=h$1;var ContextProvider=g$1;var Element$1=b$1;var ForwardRef=l;var Fragment=d$1;var Lazy=q$2;var Memo=p$1;var Portal=c$1;var Profiler=f$1;var StrictMode=e$1;var Suspense=m$1;
     var SuspenseList=n$1;var isAsyncMode=function(){return !1};var isConcurrentMode=function(){return !1};var isContextConsumer=function(a){return v$1(a)===h$1};var isContextProvider=function(a){return v$1(a)===g$1};var isElement$1=function(a){return "object"===typeof a&&null!==a&&a.$$typeof===b$1};var isForwardRef=function(a){return v$1(a)===l};var isFragment=function(a){return v$1(a)===d$1};var isLazy=function(a){return v$1(a)===q$2};var isMemo=function(a){return v$1(a)===p$1};
     var isPortal=function(a){return v$1(a)===c$1};var isProfiler=function(a){return v$1(a)===f$1};var isStrictMode=function(a){return v$1(a)===e$1};var isSuspense=function(a){return v$1(a)===m$1};var isSuspenseList=function(a){return v$1(a)===n$1};
-    var isValidElementType=function(a){return "string"===typeof a||"function"===typeof a||a===d$1||a===f$1||a===e$1||a===m$1||a===n$1||a===t$1||"object"===typeof a&&null!==a&&(a.$$typeof===q$2||a.$$typeof===p$1||a.$$typeof===g$1||a.$$typeof===h$1||a.$$typeof===l||a.$$typeof===u$1||void 0!==a.getModuleId)?!0:!1};var typeOf=v$1;
+    var isValidElementType=function(a){return "string"===typeof a||"function"===typeof a||a===d$1||a===f$1||a===e$1||a===m$1||a===n$1||a===t$1||"object"===typeof a&&null!==a&&(a.$$typeof===q$2||a.$$typeof===p$1||a.$$typeof===g$1||a.$$typeof===h$1||a.$$typeof===l||a.$$typeof===u||void 0!==a.getModuleId)?!0:!1};var typeOf=v$1;
 
     var reactIs_production_min = {
     	ContextConsumer: ContextConsumer,
@@ -38646,7 +38455,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
       function ReactTextareaAutocomplete(_props) {
         var _this;
 
-        _classCallCheck$1(this, ReactTextareaAutocomplete);
+        _classCallCheck(this, ReactTextareaAutocomplete);
 
         _this = _super.call(this, _props);
 
@@ -38847,7 +38656,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
           if (!currentTrigger || !triggerSettings) return null;
           var output = triggerSettings.output;
           return function (item) {
-            if (_typeof$1(item) === 'object' && (!output || typeof output !== 'function')) {
+            if (_typeof(item) === 'object' && (!output || typeof output !== 'function')) {
               throw new Error('Output functor is not defined! If you are using items as object you have to define "output" function. https://github.com/webscopeio/react-textarea-autocomplete#trigger-type');
             }
 
@@ -39196,7 +39005,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         return _this;
       }
 
-      _createClass$1(ReactTextareaAutocomplete, [{
+      _createClass(ReactTextareaAutocomplete, [{
         key: "renderSuggestionListContainer",
         value: function renderSuggestionListContainer() {
           var _this$props7 = this.props,
@@ -39216,7 +39025,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
               className: clsx('rta__autocomplete', 'str-chat__suggestion-list-container', dropdownClassName),
               ref: this.setDropdownRef,
               style: dropdownStyle
-            }, /*#__PURE__*/React__default["default"].createElement(SuggestionList, _extends$2({
+            }, /*#__PURE__*/React__default["default"].createElement(SuggestionList, _extends$1({
               className: clsx('str-chat__suggestion-list', listClassName),
               dropdownScroll: this._dropdownScroll,
               itemClassName: clsx('str-chat__suggestion-list-item', itemClassName),
@@ -39231,18 +39040,16 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
       }, {
         key: "render",
         value: function render() {
-          var _this2 = this;
-
-          var _this$props8 = this.props,
-              className = _this$props8.className,
-              containerClassName = _this$props8.containerClassName,
-              containerStyle = _this$props8.containerStyle,
-              style = _this$props8.style;
-          var maxRows = this.props.maxRows;
+          var _this$props8 = this.props;
+              _this$props8.className;
+              var containerClassName = _this$props8.containerClassName,
+              containerStyle = _this$props8.containerStyle;
+              _this$props8.style;
+          this.props.maxRows;
           var _this$state7 = this.state,
-              dataLoading = _this$state7.dataLoading,
-              value = _this$state7.value;
-          if (!this.props.grow) maxRows = 1; // By setting defaultValue to undefined, avoid error:
+              dataLoading = _this$state7.dataLoading;
+              _this$state7.value;
+          if (!this.props.grow) ; // By setting defaultValue to undefined, avoid error:
           // ForwardRef(TextareaAutosize) contains a textarea with both value and defaultValue props.
           // Textarea elements must be either controlled or uncontrolled
 
@@ -39251,29 +39058,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
               'rta--loading': dataLoading
             }),
             style: containerStyle
-          }, this.renderSuggestionListContainer(), /*#__PURE__*/React__default["default"].createElement(Textarea, _extends$2({
-            "data-testid": "message-input"
-          }, this._cleanUpProps(), {
-            className: clsx('rta__textarea', className),
-            maxRows: maxRows,
-            onBlur: this._onClickAndBlurHandler,
-            onChange: this._changeHandler,
-            onClick: this._onClickAndBlurHandler,
-            onFocus: this.props.onFocus,
-            onKeyDown: this._handleKeyDown,
-            onScroll: this._onScrollHandler,
-            onSelect: this._selectHandler,
-            ref: function ref(_ref) {
-              var _this2$props;
-
-              (_this2$props = _this2.props) === null || _this2$props === void 0 ? void 0 : _this2$props.innerRef(_ref);
-              _this2.textareaRef = _ref;
-            },
-            style: style,
-            value: value
-          }, this.props.additionalTextareaProps, {
-            defaultValue: undefined
-          })));
+          }, this.renderSuggestionListContainer());
         }
       }], [{
         key: "getDerivedStateFromProps",
@@ -49155,7 +48940,8 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
             return;
         for (var _i = 0, _a = Object.entries(customStyles); _i < _a.length; _i++) {
             var _b = _a[_i], key = _b[0], value = _b[1];
-            document.documentElement.style.setProperty(key, value);
+            // eslint-disable-next-line babel/no-unused-expressions
+            typeof document !== undefined && document.documentElement.style.setProperty(key, value);
         }
     };
 
@@ -49167,9 +48953,11 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         var children = props.children, client = props.client, customClasses = props.customClasses, customStyles = props.customStyles, _a = props.darkMode, darkMode = _a === void 0 ? false : _a, defaultLanguage = props.defaultLanguage, i18nInstance = props.i18nInstance, _b = props.initialNavOpen, initialNavOpen = _b === void 0 ? true : _b, _c = props.theme, theme = _c === void 0 ? 'messaging light' : _c, _d = props.useImageFlagEmojisOnWindows, useImageFlagEmojisOnWindows = _d === void 0 ? false : _d;
         var _e = useChat({ client: client, defaultLanguage: defaultLanguage, i18nInstance: i18nInstance, initialNavOpen: initialNavOpen }), channel = _e.channel, closeMobileNav = _e.closeMobileNav, getAppSettings = _e.getAppSettings, latestMessageDatesByChannels = _e.latestMessageDatesByChannels, mutes = _e.mutes, navOpen = _e.navOpen, openMobileNav = _e.openMobileNav, setActiveChannel = _e.setActiveChannel, translators = _e.translators;
         var channelsQueryState = useChannelsQueryState();
-        var themeVersion = (getComputedStyle(document.documentElement)
-            .getPropertyValue('--str-chat__theme-version')
-            .replace(' ', '') || '1');
+        var themeVersion = typeof document == undefined
+            ? '1'
+            : (getComputedStyle(document.documentElement)
+                .getPropertyValue('--str-chat__theme-version')
+                .replace(' ', '') || '1');
         useCustomStyles(darkMode ? darkModeTheme : customStyles);
         var chatContextValue = useCreateChatContext({
             channel: channel,
@@ -51729,7 +51517,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
       };
     }
 
-    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};function u(){return u=Object.assign||function(t){for(var e=1;e<arguments.length;e++){var n=arguments[e];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(t[r]=n[r]);}return t},u.apply(this,arguments)}function c(t,e){if(null==t)return {};var n,r,o={},i=Object.keys(t);for(r=0;r<i.length;r++)e.indexOf(n=i[r])>=0||(o[n]=t[n]);return o}function m(t,e){(null==e||e>t.length)&&(e=t.length);for(var n=0,r=new Array(e);n<e;n++)r[n]=t[n];return r}function d(t,e){var n="undefined"!=typeof Symbol&&t[Symbol.iterator]||t["@@iterator"];if(n)return (n=n.call(t)).next.bind(n);if(Array.isArray(t)||(n=function(t,e){if(t){if("string"==typeof t)return m(t,e);var n=Object.prototype.toString.call(t).slice(8,-1);return "Object"===n&&t.constructor&&(n=t.constructor.name),"Map"===n||"Set"===n?Array.from(t):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?m(t,e):void 0}}(t))||e&&t&&"number"==typeof t.length){n&&(t=n);var r=0;return function(){return r>=t.length?{done:!0}:{done:!1,value:t[r++]}}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var f,p,h="undefined"!=typeof document?React.useLayoutEffect:React.useEffect;!function(t){t[t.DEBUG=0]="DEBUG",t[t.INFO=1]="INFO",t[t.WARN=2]="WARN",t[t.ERROR=3]="ERROR";}(p||(p={}));var g=((f={})[p.DEBUG]="debug",f[p.INFO]="log",f[p.WARN]="warn",f[p.ERROR]="error",f),v=system(function(){var t=statefulStream(p.ERROR);return {log:statefulStream(function(n,r,o){var i;void 0===o&&(o=p.INFO),o>=(null!=(i=("undefined"==typeof globalThis?window:globalThis).VIRTUOSO_LOG_LEVEL)?i:getValue(t))&&console[g[o]]("%creact-virtuoso: %c%s %o","color: #0253b3; font-weight: bold","color: initial",n,r);}),logLevel:t}},[],{singleton:!0});function S(t,e){void 0===e&&(e=!0);var n=React.useRef(null),r=function(t){};if("undefined"!=typeof ResizeObserver){var o=new ResizeObserver(function(e){var n=e[0].target;null!==n.offsetParent&&t(n);});r=function(t){t&&e?(o.observe(t),n.current=t):(n.current&&o.unobserve(n.current),n.current=null);};}return {ref:n,callbackRef:r}}function I(t,e){return void 0===e&&(e=!0),S(t,e).callbackRef}function C(t,e,n,r,o,i,a){return S(function(n){for(var l=function(t,e,n,r){var o=t.length;if(0===o)return null;for(var i=[],a=0;a<o;a++){var l=t.item(a);if(l&&void 0!==l.dataset.index){var s=parseInt(l.dataset.index),u=parseFloat(l.dataset.knownSize),c=e(l,"offsetHeight");if(0===c&&r("Zero-sized element, this should not happen",{child:l},p.ERROR),c!==u){var m=i[i.length-1];0===i.length||m.size!==c||m.endIndex!==s-1?i.push({startIndex:s,endIndex:s,size:c}):i[i.length-1].endIndex++;}}}return i}(n.children,e,0,o),s=n.parentElement;!s.dataset.virtuosoScroller;)s=s.parentElement;var u=a?a.scrollTop:"window"===s.firstElementChild.dataset.viewportType?window.pageYOffset||document.documentElement.scrollTop:s.scrollTop;r({scrollTop:Math.max(u,0),scrollHeight:(null!=a?a:s).scrollHeight,viewportHeight:(null!=a?a:s).offsetHeight}),null==i||i(function(t,e,n){return "normal"===e||e.endsWith("px")||n("row-gap was not resolved to pixel value correctly",e,p.WARN),"normal"===e?0:parseInt(e,10)}(0,getComputedStyle(n).rowGap,o)),null!==l&&t(l);},n)}function T(t,e){return Math.round(t.getBoundingClientRect()[e])}function w(t,e){return Math.abs(t-e)<1.01}function x(t,n,r,l,u){void 0===l&&(l=noop);var c=React.useRef(null),m=React.useRef(null),d=React.useRef(null),f=React.useRef(!1),p=React.useCallback(function(e){var r=e.target,o=r===window||r===document,i=o?window.pageYOffset||document.documentElement.scrollTop:r.scrollTop,a=o?document.documentElement.scrollHeight:r.scrollHeight,l=o?window.innerHeight:r.offsetHeight,u=function(){t({scrollTop:Math.max(i,0),scrollHeight:a,viewportHeight:l});};f.current?ReactDOM.flushSync(u):u(),f.current=!1,null!==m.current&&(i===m.current||i<=0||i===a-l)&&(m.current=null,n(!0),d.current&&(clearTimeout(d.current),d.current=null));},[t,n]);return React.useEffect(function(){var t=u||c.current;return l(u||c.current),p({target:t}),t.addEventListener("scroll",p,{passive:!0}),function(){l(null),t.removeEventListener("scroll",p);}},[c,p,r,l,u]),{scrollerRef:c,scrollByCallback:function(t){f.current=!0,c.current.scrollBy(t);},scrollToCallback:function(e){var r=c.current;if(r&&(!("offsetHeight"in r)||0!==r.offsetHeight)){var o,i,a,l="smooth"===e.behavior;if(r===window?(i=Math.max(T(document.documentElement,"height"),document.documentElement.scrollHeight),o=window.innerHeight,a=document.documentElement.scrollTop):(i=r.scrollHeight,o=T(r,"height"),a=r.scrollTop),e.top=Math.ceil(Math.max(Math.min(i-o,e.top),0)),w(o,i)||e.top===a)return t({scrollTop:a,scrollHeight:i,viewportHeight:o}),void(l&&n(!0));l?(m.current=e.top,d.current&&clearTimeout(d.current),d.current=setTimeout(function(){d.current=null,m.current=null,n(!0);},1e3)):m.current=null,r.scrollTo(e);}}}}var b=system(function(){var t=stream(),n=stream(),r=statefulStream(0),o=stream(),i=statefulStream(0),a=stream(),l=stream(),s=statefulStream(0),u=statefulStream(0),c=statefulStream(0),m=stream(),d=stream(),f=statefulStream(!1),p=statefulStream(!1);return connect(pipe(t,map(function(t){return t.scrollTop})),n),connect(pipe(t,map(function(t){return t.scrollHeight})),l),connect(n,i),{scrollContainerState:t,scrollTop:n,viewportHeight:a,headerHeight:s,fixedHeaderHeight:u,footerHeight:c,scrollHeight:l,smoothScrollTargetReached:o,react18ConcurrentRendering:p,scrollTo:m,scrollBy:d,statefulScrollTop:i,deviation:r,scrollingInProgress:f}},[],{singleton:!0}),y={lvl:0};function E(t,e,n,r,o){return void 0===r&&(r=y),void 0===o&&(o=y),{k:t,v:e,lvl:n,l:r,r:o}}function H$1(t){return t===y}function R$1(){return y}function L$1(t,e){if(H$1(t))return y;var n=t.k,r=t.l,o=t.r;if(e===n){if(H$1(r))return o;if(H$1(o))return r;var i=P$1(r);return U$1(M$1(t,{k:i[0],v:i[1],l:O$1(r)}))}return U$1(M$1(t,e<n?{l:L$1(r,e)}:{r:L$1(o,e)}))}function k$1(t,e,n){if(void 0===n&&(n="k"),H$1(t))return [-Infinity,void 0];if(t[n]===e)return [t.k,t.v];if(t[n]<e){var r=k$1(t.r,e,n);return -Infinity===r[0]?[t.k,t.v]:r}return k$1(t.l,e,n)}function z$1(t,e,n){return H$1(t)?E(e,n,1):e===t.k?M$1(t,{k:e,v:n}):function(t){return N$1(D$1(t))}(M$1(t,e<t.k?{l:z$1(t.l,e,n)}:{r:z$1(t.r,e,n)}))}function B$1(t,e,n){if(H$1(t))return [];var r=t.k,o=t.v,i=t.r,a=[];return r>e&&(a=a.concat(B$1(t.l,e,n))),r>=e&&r<=n&&a.push({k:r,v:o}),r<=n&&(a=a.concat(B$1(i,e,n))),a}function F$1(t){return H$1(t)?[]:[].concat(F$1(t.l),[{k:t.k,v:t.v}],F$1(t.r))}function P$1(t){return H$1(t.r)?[t.k,t.v]:P$1(t.r)}function O$1(t){return H$1(t.r)?t.l:U$1(M$1(t,{r:O$1(t.r)}))}function M$1(t,e){return E(void 0!==e.k?e.k:t.k,void 0!==e.v?e.v:t.v,void 0!==e.lvl?e.lvl:t.lvl,void 0!==e.l?e.l:t.l,void 0!==e.r?e.r:t.r)}function V$1(t){return H$1(t)||t.lvl>t.r.lvl}function U$1(t){var e=t.l,n=t.r,r=t.lvl;if(n.lvl>=r-1&&e.lvl>=r-1)return t;if(r>n.lvl+1){if(V$1(e))return D$1(M$1(t,{lvl:r-1}));if(H$1(e)||H$1(e.r))throw new Error("Unexpected empty nodes");return M$1(e.r,{l:M$1(e,{r:e.r.l}),r:M$1(t,{l:e.r.r,lvl:r-1}),lvl:r})}if(V$1(t))return N$1(M$1(t,{lvl:r-1}));if(H$1(n)||H$1(n.l))throw new Error("Unexpected empty nodes");var o=n.l,i=V$1(o)?n.lvl-1:n.lvl;return M$1(o,{l:M$1(t,{r:o.l,lvl:r-1}),r:N$1(M$1(n,{l:o.r,lvl:i})),lvl:o.lvl+1})}function A$1(t,e,n){return H$1(t)?[]:W$1(B$1(t,k$1(t,e)[0],n),function(t){return {index:t.k,value:t.v}})}function W$1(t,e){var n=t.length;if(0===n)return [];for(var r=e(t[0]),o=r.index,i=r.value,a=[],l=1;l<n;l++){var s=e(t[l]),u=s.index,c=s.value;a.push({start:o,end:u-1,value:i}),o=u,i=c;}return a.push({start:o,end:Infinity,value:i}),a}function N$1(t){var e=t.r,n=t.lvl;return H$1(e)||H$1(e.r)||e.lvl!==n||e.r.lvl!==n?t:M$1(e,{l:M$1(t,{r:e.l}),lvl:n+1})}function D$1(t){var e=t.l;return H$1(e)||e.lvl!==t.lvl?t:M$1(e,{r:M$1(t,{l:e.r})})}function G$1(t,e,n,r){void 0===r&&(r=0);for(var o=t.length-1;r<=o;){var i=Math.floor((r+o)/2),a=n(t[i],e);if(0===a)return i;if(-1===a){if(o-r<2)return i-1;o=i-1;}else {if(o===r)return i;r=i+1;}}throw new Error("Failed binary finding record in array - "+t.join(",")+", searched for "+e)}function _$1(t,e,n){return t[G$1(t,e,n)]}var j$1=system(function(){return {recalcInProgress:statefulStream(!1)}},[],{singleton:!0});function K$1(t){var e=t.size,n=t.startIndex,r=t.endIndex;return function(t){return t.start===n&&(t.end===r||Infinity===t.end)&&t.value===e}}function Y$1(t,e){var n=t.index;return e===n?0:e<n?-1:1}function q$1(t,e){var n=t.offset;return e===n?0:e<n?-1:1}function Z$1(t){return {index:t.index,value:t}}function J$1(t,e,n,r){var o=t,i=0,a=0,l=0,s=0;if(0!==e){l=o[s=G$1(o,e-1,Y$1)].offset;var u=k$1(n,e-1);i=u[0],a=u[1],o.length&&o[s].size===k$1(n,e)[1]&&(s-=1),o=o.slice(0,s+1);}else o=[];for(var c,m=d(A$1(n,e,Infinity));!(c=m()).done;){var f=c.value,p=f.start,h=f.value,g=p-i,v=g*a+l+g*r;o.push({offset:v,size:h,index:p}),i=p,l=v,a=h;}return {offsetTree:o,lastIndex:i,lastOffset:l,lastSize:a}}function $$1(t,e){var n=e[0],r=e[1],o=e[3];n.length>0&&(0, e[2])("received item sizes",n,p.DEBUG);var i=t.sizeTree,a=i,l=0;if(r.length>0&&H$1(i)&&2===n.length){var s=n[0].size,u=n[1].size;a=r.reduce(function(t,e){return z$1(z$1(t,e,s),e+1,u)},a);}else {var c=function(t,e){for(var n,r=H$1(t)?0:Infinity,o=d(e);!(n=o()).done;){var i=n.value,a=i.size,l=i.startIndex,s=i.endIndex;if(r=Math.min(r,l),H$1(t))t=z$1(t,0,a);else {var u=A$1(t,l-1,s+1);if(!u.some(K$1(i))){for(var c,m=!1,f=!1,p=d(u);!(c=p()).done;){var h=c.value,g=h.start,v=h.end,S=h.value;m?(s>=g||a===S)&&(t=L$1(t,g)):(f=S!==a,m=!0),v>s&&s>=g&&S!==a&&(t=z$1(t,s+1,S));}f&&(t=z$1(t,l,a));}}}return [t,r]}(a,n);a=c[0],l=c[1];}if(a===i)return t;var m=J$1(t.offsetTree,l,a,o),f=m.offsetTree;return {sizeTree:a,offsetTree:f,lastIndex:m.lastIndex,lastOffset:m.lastOffset,lastSize:m.lastSize,groupOffsetTree:r.reduce(function(t,e){return z$1(t,e,Q$1(e,f,o))},R$1()),groupIndices:r}}function Q$1(t,e,n){if(0===e.length)return 0;var r=_$1(e,t,Y$1),o=t-r.index,i=r.size*o+(o-1)*n+r.offset;return i>0?i+n:i}function X$1(t,e,n){if(function(t){return void 0!==t.groupIndex}(t))return e.groupIndices[t.groupIndex]+1;var r=tt$1("LAST"===t.index?n:t.index,e);return Math.max(0,r,Math.min(n,r))}function tt$1(t,e){if(!et$1(e))return t;for(var n=0;e.groupIndices[n]<=t+n;)n++;return t+n}function et$1(t){return !H$1(t.groupOffsetTree)}var nt$1={offsetHeight:"height",offsetWidth:"width"},rt$1=system(function(t){var n=t[0].log,r=t[1].recalcInProgress,o=stream(),i=stream(),a=statefulStreamFromEmitter(i,0),l=stream(),s=stream(),c=statefulStream(0),m=statefulStream([]),d=statefulStream(void 0),f=statefulStream(void 0),h=statefulStream(function(t,e){return T(t,nt$1[e])}),g=statefulStream(void 0),v=statefulStream(0),S={offsetTree:[],sizeTree:R$1(),groupOffsetTree:R$1(),lastIndex:0,lastOffset:0,lastSize:0,groupIndices:[]},I=statefulStreamFromEmitter(pipe(o,withLatestFrom(m,n,v),scan($$1,S),distinctUntilChanged()),S);connect(pipe(m,filter(function(t){return t.length>0}),withLatestFrom(I,v),map(function(t){var e=t[0],n=t[1],r=t[2],o=e.reduce(function(t,e,o){return z$1(t,e,Q$1(e,n.offsetTree,r)||o)},R$1());return u({},n,{groupIndices:e,groupOffsetTree:o})})),I),connect(pipe(i,withLatestFrom(I),filter(function(t){return t[0]<t[1].lastIndex}),map(function(t){var e=t[1];return [{startIndex:t[0],endIndex:e.lastIndex,size:e.lastSize}]})),o),connect(d,f);var C=statefulStreamFromEmitter(pipe(d,map(function(t){return void 0===t})),!0);connect(pipe(f,filter(function(t){return void 0!==t&&H$1(getValue(I).sizeTree)}),map(function(t){return [{startIndex:0,endIndex:0,size:t}]})),o);var w=streamFromEmitter(pipe(o,withLatestFrom(I),scan(function(t,e){var n=e[1];return {changed:n!==t.sizes,sizes:n}},{changed:!1,sizes:S}),map(function(t){return t.changed})));subscribe(pipe(c,scan(function(t,e){return {diff:t.prev-e,prev:e}},{diff:0,prev:0}),map(function(t){return t.diff})),function(t){t>0?(publish(r,!0),publish(l,t)):t<0&&publish(s,t);}),subscribe(pipe(c,withLatestFrom(n)),function(t){t[0]<0&&(0, t[1])("`firstItemIndex` prop should not be set to less than zero. If you don't know the total count, just use a very high value",{firstItemIndex:c},p.ERROR);});var x=streamFromEmitter(l);connect(pipe(l,withLatestFrom(I),map(function(t){var e=t[0],n=t[1];if(n.groupIndices.length>0)throw new Error("Virtuoso: prepending items does not work with groups");return F$1(n.sizeTree).reduce(function(t,n){var r=n.k,o=n.v;return {ranges:[].concat(t.ranges,[{startIndex:t.prevIndex,endIndex:r+e-1,size:t.prevSize}]),prevIndex:r+e,prevSize:o}},{ranges:[],prevIndex:0,prevSize:n.lastSize}).ranges})),o);var b=streamFromEmitter(pipe(s,withLatestFrom(I,v),map(function(t){return Q$1(-t[0],t[1].offsetTree,t[2])})));return connect(pipe(s,withLatestFrom(I,v),map(function(t){var e=t[0],n=t[1],r=t[2];if(n.groupIndices.length>0)throw new Error("Virtuoso: shifting items does not work with groups");var o=F$1(n.sizeTree).reduce(function(t,n){var r=n.v;return z$1(t,Math.max(0,n.k+e),r)},R$1());return u({},n,{sizeTree:o},J$1(n.offsetTree,0,o,r))})),I),{data:g,totalCount:i,sizeRanges:o,groupIndices:m,defaultItemSize:f,fixedItemSize:d,unshiftWith:l,shiftWith:s,shiftWithOffset:b,beforeUnshiftWith:x,firstItemIndex:c,gap:v,sizes:I,listRefresh:w,statefulTotalCount:a,trackItemSizes:C,itemSize:h}},tup(v,j$1),{singleton:!0}),ot$1="undefined"!=typeof document&&"scrollBehavior"in document.documentElement.style;function it$1(t){var e="number"==typeof t?{index:t}:t;return e.align||(e.align="start"),e.behavior&&ot$1||(e.behavior="auto"),e.offset||(e.offset=0),e}var at$1=system(function(t){var n=t[0],r=n.sizes,o=n.totalCount,i=n.listRefresh,a=n.gap,l=t[1],s=l.scrollingInProgress,u=l.viewportHeight,c=l.scrollTo,m=l.smoothScrollTargetReached,d=l.headerHeight,f=l.footerHeight,h=t[2].log,g=stream(),v=statefulStream(0),S=null,I=null,C=null;function T(){S&&(S(),S=null),C&&(C(),C=null),I&&(clearTimeout(I),I=null),publish(s,!1);}return connect(pipe(g,withLatestFrom(r,u,o,v,d,f,h),withLatestFrom(a),map(function(t){var n=t[0],r=n[0],o=n[1],a=n[2],l=n[3],u=n[4],c=n[5],d=n[6],f=n[7],h=t[1],v=it$1(r),w=v.align,x=v.behavior,b=v.offset,y=l-1,E=X$1(v,o,y),H=Q$1(E,o.offsetTree,h)+c;"end"===w?(H=H-a+k$1(o.sizeTree,E)[1],E===y&&(H+=d)):"center"===w?H=H-a/2+k$1(o.sizeTree,E)[1]/2:H-=u,b&&(H+=b);var R=function(t){T(),t?(f("retrying to scroll to",{location:r},p.DEBUG),publish(g,r)):f("list did not change, scroll successful",{},p.DEBUG);};if(T(),"smooth"===x){var L=!1;C=subscribe(i,function(t){L=L||t;}),S=handleNext(m,function(){R(L);});}else S=handleNext(pipe(i,function(t){var e=setTimeout(function(){t(!1);},150);return function(n){n&&(t(!0),clearTimeout(e));}}),R);return I=setTimeout(function(){T();},1200),publish(s,!0),f("scrolling from index to",{index:E,top:H,behavior:x},p.DEBUG),{top:H,behavior:x}})),c),{scrollToIndex:g,topListHeight:v}},tup(rt$1,b,v),{singleton:!0}),lt$1="up",st$1={atBottom:!1,notAtBottomBecause:"NOT_SHOWING_LAST_ITEM",state:{offsetBottom:0,scrollTop:0,viewportHeight:0,scrollHeight:0}},ut$1=system(function(t){var n=t[0],r=n.scrollContainerState,o=n.scrollTop,i=n.viewportHeight,a=n.headerHeight,l=n.footerHeight,s=n.scrollBy,u=statefulStream(!1),c=statefulStream(!0),m=stream(),d=stream(),f=statefulStream(4),p=statefulStream(0),h=statefulStreamFromEmitter(pipe(merge(pipe(duc(o),skip(1),mapTo(!0)),pipe(duc(o),skip(1),mapTo(!1),debounceTime(100))),distinctUntilChanged()),!1),g=statefulStreamFromEmitter(pipe(merge(pipe(s,mapTo(!0)),pipe(s,mapTo(!1),debounceTime(200))),distinctUntilChanged()),!1);connect(pipe(combineLatest(duc(o),duc(p)),map(function(t){return t[0]<=t[1]}),distinctUntilChanged()),c),connect(pipe(c,throttleTime(50)),d);var v=streamFromEmitter(pipe(combineLatest(r,duc(i),duc(a),duc(l),duc(f)),scan(function(t,e){var n,r,o=e[0],i=o.scrollTop,a=o.scrollHeight,l=e[1],s={viewportHeight:l,scrollTop:i,scrollHeight:a};return i+l-a>-e[4]?(i>t.state.scrollTop?(n="SCROLLED_DOWN",r=t.state.scrollTop-i):(n="SIZE_DECREASED",r=t.state.scrollTop-i||t.scrollTopDelta),{atBottom:!0,state:s,atBottomBecause:n,scrollTopDelta:r}):{atBottom:!1,notAtBottomBecause:s.scrollHeight>t.state.scrollHeight?"SIZE_INCREASED":l<t.state.viewportHeight?"VIEWPORT_HEIGHT_DECREASING":i<t.state.scrollTop?"SCROLLING_UPWARDS":"NOT_FULLY_SCROLLED_TO_LAST_ITEM_BOTTOM",state:s}},st$1),distinctUntilChanged(function(t,e){return t&&t.atBottom===e.atBottom}))),S=statefulStreamFromEmitter(pipe(r,scan(function(t,e){var n=e.scrollTop,r=e.scrollHeight,o=e.viewportHeight;return w(t.scrollHeight,r)?{scrollTop:n,scrollHeight:r,jump:0,changed:!1}:t.scrollTop!==n&&r-(n+o)<1?{scrollHeight:r,scrollTop:n,jump:t.scrollTop-n,changed:!0}:{scrollHeight:r,scrollTop:n,jump:0,changed:!0}},{scrollHeight:0,jump:0,scrollTop:0,changed:!1}),filter(function(t){return t.changed}),map(function(t){return t.jump})),0);connect(pipe(v,map(function(t){return t.atBottom})),u),connect(pipe(u,throttleTime(50)),m);var I=statefulStream("down");connect(pipe(r,map(function(t){return t.scrollTop}),distinctUntilChanged(),scan(function(t,n){return getValue(g)?{direction:t.direction,prevScrollTop:n}:{direction:n<t.prevScrollTop?lt$1:"down",prevScrollTop:n}},{direction:"down",prevScrollTop:0}),map(function(t){return t.direction})),I),connect(pipe(r,throttleTime(50),mapTo("none")),I);var C=statefulStream(0);return connect(pipe(h,filter(function(t){return !t}),mapTo(0)),C),connect(pipe(o,throttleTime(100),withLatestFrom(h),filter(function(t){return !!t[1]}),scan(function(t,e){return [t[1],e[0]]},[0,0]),map(function(t){return t[1]-t[0]})),C),{isScrolling:h,isAtTop:c,isAtBottom:u,atBottomState:v,atTopStateChange:d,atBottomStateChange:m,scrollDirection:I,atBottomThreshold:f,atTopThreshold:p,scrollVelocity:C,lastJumpDueToItemResize:S}},tup(b)),ct$1=system(function(t){var n=t[0].log,r=statefulStream(!1),o=streamFromEmitter(pipe(r,filter(function(t){return t}),distinctUntilChanged()));return subscribe(r,function(t){t&&getValue(n)("props updated",{},p.DEBUG);}),{propsReady:r,didMount:o}},tup(v),{singleton:!0}),mt$1=system(function(t){var n=t[0],r=n.sizes,o=n.listRefresh,i=n.defaultItemSize,a=t[1].scrollTop,l=t[2].scrollToIndex,s=t[3].didMount,u=statefulStream(!0),c=statefulStream(0);return connect(pipe(s,withLatestFrom(c),filter(function(t){return !!t[1]}),mapTo(!1)),u),subscribe(pipe(combineLatest(o,s),withLatestFrom(u,r,i),filter(function(t){var e=t[1],n=t[3];return t[0][1]&&(!H$1(t[2].sizeTree)||void 0!==n)&&!e}),withLatestFrom(c)),function(t){var n=t[1];setTimeout(function(){handleNext(a,function(){publish(u,!0);}),publish(l,n);});}),{scrolledToInitialItem:u,initialTopMostItemIndex:c}},tup(rt$1,b,at$1,ct$1),{singleton:!0});function dt$1(t){return !!t&&("smooth"===t?"smooth":"auto")}var ft$1=system(function(t){var n=t[0],r=n.totalCount,o=n.listRefresh,i=t[1],a=i.isAtBottom,l=i.atBottomState,s=t[2].scrollToIndex,u=t[3].scrolledToInitialItem,c=t[4],m=c.propsReady,d=c.didMount,f=t[5].log,h=t[6].scrollingInProgress,g=statefulStream(!1),v=stream(),S=null;function I(t){publish(s,{index:"LAST",align:"end",behavior:t});}function C(t){var n=handleNext(l,function(n){!t||n.atBottom||"SIZE_INCREASED"!==n.notAtBottomBecause||S||(getValue(f)("scrolling to bottom due to increased size",{},p.DEBUG),I("auto"));});setTimeout(n,100);}return subscribe(pipe(combineLatest(pipe(duc(r),skip(1)),d),withLatestFrom(duc(g),a,u,h),map(function(t){var e=t[0],n=e[0],r=e[1]&&t[3],o="auto";return r&&(o=function(t,e){return "function"==typeof t?dt$1(t(e)):e&&dt$1(t)}(t[1],t[2]||t[4]),r=r&&!!o),{totalCount:n,shouldFollow:r,followOutputBehavior:o}}),filter(function(t){return t.shouldFollow})),function(t){var n=t.totalCount,r=t.followOutputBehavior;S&&(S(),S=null),S=handleNext(o,function(){getValue(f)("following output to ",{totalCount:n},p.DEBUG),I(r),S=null;});}),subscribe(pipe(combineLatest(duc(g),r,m),filter(function(t){return t[0]&&t[2]}),scan(function(t,e){var n=e[1];return {refreshed:t.value===n,value:n}},{refreshed:!1,value:0}),filter(function(t){return t.refreshed}),withLatestFrom(g,r)),function(t){C(!1!==t[1]);}),subscribe(v,function(){C(!1!==getValue(g));}),subscribe(combineLatest(duc(g),l),function(t){var e=t[1];t[0]&&!e.atBottom&&"VIEWPORT_HEIGHT_DECREASING"===e.notAtBottomBecause&&I("auto");}),{followOutput:g,autoscrollToBottom:v}},tup(rt$1,ut$1,at$1,mt$1,ct$1,v,b));function pt$1(t){return t.reduce(function(t,e){return t.groupIndices.push(t.totalCount),t.totalCount+=e+1,t},{totalCount:0,groupIndices:[]})}var ht$1=system(function(t){var n=t[0],r=n.totalCount,o=n.groupIndices,i=n.sizes,a=t[1],l=a.scrollTop,s=a.headerHeight,u=stream(),c=stream(),m=streamFromEmitter(pipe(u,map(pt$1)));return connect(pipe(m,map(function(t){return t.totalCount})),r),connect(pipe(m,map(function(t){return t.groupIndices})),o),connect(pipe(combineLatest(l,i,s),filter(function(t){return et$1(t[1])}),map(function(t){return k$1(t[1].groupOffsetTree,Math.max(t[0]-t[2],0),"v")[0]}),distinctUntilChanged(),map(function(t){return [t]})),c),{groupCounts:u,topItemsIndexes:c}},tup(rt$1,b));function gt$1(t,e){return !(!t||t[0]!==e[0]||t[1]!==e[1])}function vt$1(t,e){return !(!t||t.startIndex!==e.startIndex||t.endIndex!==e.endIndex)}function St$1(t,e,n){return "number"==typeof t?n===lt$1&&"top"===e||"down"===n&&"bottom"===e?t:0:n===lt$1?"top"===e?t.main:t.reverse:"bottom"===e?t.main:t.reverse}function It$1(t,e){return "number"==typeof t?t:t[e]||0}var Ct$1=system(function(t){var n=t[0],r=n.scrollTop,o=n.viewportHeight,i=n.deviation,a=n.headerHeight,l=n.fixedHeaderHeight,s=stream(),u=statefulStream(0),c=statefulStream(0),m=statefulStream(0),d=statefulStreamFromEmitter(pipe(combineLatest(duc(r),duc(o),duc(a),duc(s,gt$1),duc(m),duc(u),duc(l),duc(i),duc(c)),map(function(t){var e=t[0],n=t[1],r=t[2],o=t[3],i=o[0],a=o[1],l=t[4],s=t[6],u=t[7],c=t[8],m=e-u,d=t[5]+s,f=Math.max(r-m,0),p="none",h=It$1(c,"top"),g=It$1(c,"bottom");return i-=u,a+=r+s,(i+=r+s)>e+d-h&&(p=lt$1),(a-=u)<e-f+n+g&&(p="down"),"none"!==p?[Math.max(m-r-St$1(l,"top",p)-h,0),m-f-s+n+St$1(l,"bottom",p)+g]:null}),filter(function(t){return null!=t}),distinctUntilChanged(gt$1)),[0,0]);return {listBoundary:s,overscan:m,topListHeight:u,increaseViewportBy:c,visibleRange:d}},tup(b),{singleton:!0}),Tt$1={items:[],topItems:[],offsetTop:0,offsetBottom:0,top:0,bottom:0,topListHeight:0,totalCount:0,firstItemIndex:0};function wt$1(t,e,n){if(0===t.length)return [];if(!et$1(e))return t.map(function(t){return u({},t,{index:t.index+n,originalIndex:t.index})});for(var r,o=[],i=A$1(e.groupOffsetTree,t[0].index,t[t.length-1].index),a=void 0,l=0,s=d(t);!(r=s()).done;){var c=r.value;(!a||a.end<c.index)&&(a=i.shift(),l=e.groupIndices.indexOf(a.start)),o.push(u({},c.index===a.start?{type:"group",index:l}:{index:c.index-(l+1)+n,groupIndex:l},{size:c.size,offset:c.offset,originalIndex:c.index,data:c.data}));}return o}function xt$1(t,e,n,r,o,i){var a=0,l=0;if(t.length>0){a=t[0].offset;var s=t[t.length-1];l=s.offset+s.size;}var u=n-o.lastIndex,c=a,m=o.lastOffset+u*o.lastSize+(u-1)*r-l;return {items:wt$1(t,o,i),topItems:wt$1(e,o,i),topListHeight:e.reduce(function(t,e){return e.size+t},0),offsetTop:a,offsetBottom:m,top:c,bottom:l,totalCount:n,firstItemIndex:i}}var bt$1=system(function(t){var n=t[0],r=n.sizes,o=n.totalCount,i=n.data,a=n.firstItemIndex,l=n.gap,s=t[1],c=t[2],m=c.visibleRange,f=c.listBoundary,p=c.topListHeight,h=t[3],g=h.scrolledToInitialItem,v=h.initialTopMostItemIndex,S=t[4].topListHeight,I=t[5],C=t[6].didMount,T=t[7].recalcInProgress,w=statefulStream([]),x=stream();connect(s.topItemsIndexes,w);var b=statefulStreamFromEmitter(pipe(combineLatest(C,T,duc(m,gt$1),duc(o),duc(r),duc(v),g,duc(w),duc(a),duc(l),i),filter(function(t){return t[0]&&!t[1]}),map(function(t){var n=t[2],r=n[0],o=n[1],i=t[3],a=t[5],l=t[6],s=t[7],u=t[8],c=t[9],m=t[10],f=t[4],p=f.sizeTree,h=f.offsetTree;if(0===i||0===r&&0===o)return Tt$1;if(H$1(p))return xt$1(function(t,e,n){if(et$1(e)){var r=tt$1(t,e);return [{index:k$1(e.groupOffsetTree,r)[0],size:0,offset:0},{index:r,size:0,offset:0,data:n&&n[0]}]}return [{index:t,size:0,offset:0,data:n&&n[0]}]}(function(t,e){return "number"==typeof t?t:"LAST"===t.index?e-1:t.index}(a,i),f,m),[],i,c,f,u);var g=[];if(s.length>0)for(var v,S=s[0],I=s[s.length-1],C=0,T=d(A$1(p,S,I));!(v=T()).done;)for(var w=v.value,x=w.value,b=Math.max(w.start,S),y=Math.min(w.end,I),E=b;E<=y;E++)g.push({index:E,size:x,offset:C,data:m&&m[E]}),C+=x;if(!l)return xt$1([],g,i,c,f,u);var R=s.length>0?s[s.length-1]+1:0,L=function(t,e,n,r){return void 0===r&&(r=0),r>0&&(e=Math.max(e,_$1(t,r,Y$1).offset)),W$1((i=n,l=G$1(o=t,e,a=q$1),s=G$1(o,i,a,l),o.slice(l,s+1)),Z$1);var o,i,a,l,s;}(h,r,o,R);if(0===L.length)return null;var z=i-1;return xt$1(tap([],function(t){for(var e,n=d(L);!(e=n()).done;){var i=e.value,a=i.value,l=a.offset,s=i.start,u=a.size;if(a.offset<r){var f=(s+=Math.floor((r-a.offset+c)/(u+c)))-i.start;l+=f*u+f*c;}s<R&&(l+=(R-s)*u,s=R);for(var p=Math.min(i.end,z),h=s;h<=p&&!(l>=o);h++)t.push({index:h,size:u,offset:l,data:m&&m[h]}),l+=u+c;}}),g,i,c,f,u)}),filter(function(t){return null!==t}),distinctUntilChanged()),Tt$1);return connect(pipe(i,filter(function(t){return void 0!==t}),map(function(t){return t.length})),o),connect(pipe(b,map(function(t){return t.topListHeight})),S),connect(S,p),connect(pipe(b,map(function(t){return [t.top,t.bottom]})),f),connect(pipe(b,map(function(t){return t.items})),x),u({listState:b,topItemsIndexes:w,endReached:streamFromEmitter(pipe(b,filter(function(t){return t.items.length>0}),withLatestFrom(o,i),filter(function(t){var e=t[0].items;return e[e.length-1].originalIndex===t[1]-1}),map(function(t){return [t[1]-1,t[2]]}),distinctUntilChanged(gt$1),map(function(t){return t[0]}))),startReached:streamFromEmitter(pipe(b,throttleTime(200),filter(function(t){var e=t.items;return e.length>0&&e[0].originalIndex===t.topItems.length}),map(function(t){return t.items[0].index}),distinctUntilChanged())),rangeChanged:streamFromEmitter(pipe(b,filter(function(t){return t.items.length>0}),map(function(t){for(var e=t.items,n=0,r=e.length-1;"group"===e[n].type&&n<r;)n++;for(;"group"===e[r].type&&r>n;)r--;return {startIndex:e[n].index,endIndex:e[r].index}}),distinctUntilChanged(vt$1))),itemsRendered:x},I)},tup(rt$1,ht$1,Ct$1,mt$1,at$1,ut$1,ct$1,j$1),{singleton:!0}),yt$1=system(function(t){var n=t[0],r=n.sizes,o=n.firstItemIndex,i=n.data,a=n.gap,l=t[1].listState,s=t[2].didMount,u=statefulStream(0);return connect(pipe(s,withLatestFrom(u),filter(function(t){return 0!==t[1]}),withLatestFrom(r,o,a,i),map(function(t){var e=t[0][1],n=t[1],r=t[2],o=t[3],i=t[4],a=void 0===i?[]:i,l=0;if(n.groupIndices.length>0)for(var s,u=d(n.groupIndices);!((s=u()).done||s.value-l>=e);)l++;var c=e+l;return xt$1(Array.from({length:c}).map(function(t,e){return {index:e,size:0,offset:0,data:a[e]}}),[],c,o,n,r)})),l),{initialItemCount:u}},tup(rt$1,bt$1,ct$1),{singleton:!0}),Et$1=system(function(t){var n=t[0].scrollVelocity,r=statefulStream(!1),o=stream(),i=statefulStream(!1);return connect(pipe(n,withLatestFrom(i,r,o),filter(function(t){return !!t[1]}),map(function(t){var e=t[0],n=t[1],r=t[2],o=t[3],i=n.enter;if(r){if((0, n.exit)(e,o))return !1}else if(i(e,o))return !0;return r}),distinctUntilChanged()),r),subscribe(pipe(combineLatest(r,n,o),withLatestFrom(i)),function(t){var e=t[0],n=t[1];return e[0]&&n&&n.change&&n.change(e[1],e[2])}),{isSeeking:r,scrollSeekConfiguration:i,scrollVelocity:n,scrollSeekRangeChanged:o}},tup(ut$1),{singleton:!0}),Ht$1=system(function(t){var n=t[0].topItemsIndexes,r=statefulStream(0);return connect(pipe(r,filter(function(t){return t>0}),map(function(t){return Array.from({length:t}).map(function(t,e){return e})})),n),{topItemCount:r}},tup(bt$1)),Rt$1=system(function(t){var n=t[0],r=n.footerHeight,o=n.headerHeight,i=n.fixedHeaderHeight,a=t[1].listState,l=stream(),s=statefulStreamFromEmitter(pipe(combineLatest(r,o,i,a),map(function(t){var e=t[3];return t[0]+t[1]+t[2]+e.offsetBottom+e.bottom})),0);return connect(duc(s),l),{totalListHeight:s,totalListHeightChanged:l}},tup(b,bt$1),{singleton:!0});function Lt$1(t){var e,n=!1;return function(){return n||(n=!0,e=t()),e}}var kt$1=Lt$1(function(){return /iP(ad|hone|od).+Version\/[\d.]+.*Safari/i.test(navigator.userAgent)}),zt$1=system(function(t){var n=t[0],r=n.scrollBy,o=n.scrollTop,i=n.deviation,a=n.scrollingInProgress,l=t[1],s=l.isScrolling,u=l.isAtBottom,c=l.scrollDirection,m=t[3],d=m.beforeUnshiftWith,f=m.shiftWithOffset,h=m.sizes,g=m.gap,v=t[4].log,S=t[5].recalcInProgress,I=streamFromEmitter(pipe(t[2].listState,withLatestFrom(l.lastJumpDueToItemResize),scan(function(t,e){var n=t[1],r=e[0],o=r.items,i=r.totalCount,a=r.bottom+r.offsetBottom,l=0;return t[2]===i&&n.length>0&&o.length>0&&(0===o[0].originalIndex&&0===n[0].originalIndex||0!=(l=a-t[3])&&(l+=e[1])),[l,o,i,a]},[0,[],0,0]),filter(function(t){return 0!==t[0]}),withLatestFrom(o,c,a,u,v),filter(function(t){return !t[3]&&0!==t[1]&&t[2]===lt$1}),map(function(t){var e=t[0][0];return (0, t[5])("Upward scrolling compensation",{amount:e},p.DEBUG),e})));function C(t){t>0?(publish(r,{top:-t,behavior:"auto"}),publish(i,0)):(publish(i,0),publish(r,{top:-t,behavior:"auto"}));}return subscribe(pipe(I,withLatestFrom(i,s)),function(t){var n=t[0],r=t[1];t[2]&&kt$1()?publish(i,r-n):C(-n);}),subscribe(pipe(combineLatest(statefulStreamFromEmitter(s,!1),i,S),filter(function(t){return !t[0]&&!t[2]&&0!==t[1]}),map(function(t){return t[1]}),throttleTime(1)),C),connect(pipe(f,map(function(t){return {top:-t}})),r),subscribe(pipe(d,withLatestFrom(h,g),map(function(t){var e=t[0];return e*t[1].lastSize+e*t[2]})),function(t){publish(i,t),requestAnimationFrame(function(){publish(r,{top:t}),requestAnimationFrame(function(){publish(i,0),publish(S,!1);});});}),{deviation:i}},tup(b,ut$1,bt$1,rt$1,v,j$1)),Bt$1=system(function(t){var n=t[0].totalListHeight,r=t[1].didMount,o=t[2].scrollTo,i=statefulStream(0);return subscribe(pipe(r,withLatestFrom(i),filter(function(t){return 0!==t[1]}),map(function(t){return {top:t[1]}})),function(t){handleNext(pipe(n,filter(function(t){return 0!==t})),function(){setTimeout(function(){publish(o,t);});});}),{initialScrollTop:i}},tup(Rt$1,ct$1,b),{singleton:!0}),Ft$1=system(function(t){var n=t[0].viewportHeight,r=t[1].totalListHeight,o=statefulStream(!1);return {alignToBottom:o,paddingTopAddition:statefulStreamFromEmitter(pipe(combineLatest(o,n,r),filter(function(t){return t[0]}),map(function(t){return Math.max(0,t[1]-t[2])}),distinctUntilChanged()),0)}},tup(b,Rt$1),{singleton:!0}),Pt$1=system(function(t){var n=t[0],r=n.scrollTo,o=n.scrollContainerState,i=stream(),a=stream(),l=stream(),s=statefulStream(!1),c=statefulStream(void 0);return connect(pipe(combineLatest(i,a),map(function(t){var e=t[0],n=e.viewportHeight,r=e.scrollHeight;return {scrollTop:Math.max(0,e.scrollTop-t[1].offsetTop),scrollHeight:r,viewportHeight:n}})),o),connect(pipe(r,withLatestFrom(a),map(function(t){var e=t[0];return u({},e,{top:e.top+t[1].offsetTop})})),l),{useWindowScroll:s,customScrollParent:c,windowScrollContainerState:i,windowViewportRect:a,windowScrollTo:l}},tup(b)),Ot$1=["done","behavior"],Mt$1=system(function(t){var n=t[0],r=n.sizes,o=n.totalCount,i=n.gap,a=t[1],l=a.scrollTop,s=a.viewportHeight,m=a.headerHeight,d=a.scrollingInProgress,f=t[2].scrollToIndex,p=stream();return connect(pipe(p,withLatestFrom(r,s,o,m,l,i),map(function(t){var n=t[0],r=t[1],o=t[2],i=t[3],a=t[4],l=t[5],s=t[6],m=n.done,f=n.behavior,p=c(n,Ot$1),h=null,g=X$1(n,r,i-1),v=Q$1(g,r.offsetTree,s)+a;return v<l?h=u({},p,{behavior:f,align:"start"}):v+k$1(r.sizeTree,g)[1]>l+o&&(h=u({},p,{behavior:f,align:"end"})),h?m&&handleNext(pipe(d,skip(1),filter(function(t){return !1===t})),m):m&&m(),h}),filter(function(t){return null!==t})),f),{scrollIntoView:p}},tup(rt$1,b,at$1,bt$1,v),{singleton:!0}),Vt$1=["listState","topItemsIndexes"],Ut$1=system(function(t){return u({},t[0],t[1],t[2],t[3],t[4],t[5],t[6],t[7],t[8])},tup(Ct$1,yt$1,ct$1,Et$1,Rt$1,Bt$1,Ft$1,Pt$1,Mt$1)),At$1=system(function(t){var n=t[0],r=n.totalCount,o=n.sizeRanges,i=n.fixedItemSize,a=n.defaultItemSize,l=n.trackItemSizes,s=n.itemSize,m=n.data,d=n.firstItemIndex,f=n.groupIndices,p=n.statefulTotalCount,h=n.gap,g=t[1],v=g.initialTopMostItemIndex,S=g.scrolledToInitialItem,I=t[2],C=t[3],T=t[4],w=T.listState,x=T.topItemsIndexes,b=c(T,Vt$1),y=t[5].scrollToIndex,E=t[7].topItemCount,H=t[8].groupCounts,R=t[9],L=t[10];return connect(b.rangeChanged,R.scrollSeekRangeChanged),connect(pipe(R.windowViewportRect,map(function(t){return t.visibleHeight})),I.viewportHeight),u({totalCount:r,data:m,firstItemIndex:d,sizeRanges:o,initialTopMostItemIndex:v,scrolledToInitialItem:S,topItemsIndexes:x,topItemCount:E,groupCounts:H,fixedItemHeight:i,defaultItemHeight:a,gap:h},C,{statefulTotalCount:p,listState:w,scrollToIndex:y,trackItemSizes:l,itemSize:s,groupIndices:f},b,R,I,L)},tup(rt$1,mt$1,b,ft$1,bt$1,at$1,zt$1,Ht$1,ht$1,Ut$1,v)),Wt$1=Lt$1(function(){if("undefined"==typeof document)return "sticky";var t=document.createElement("div");return t.style.position="-webkit-sticky","-webkit-sticky"===t.style.position?"-webkit-sticky":"sticky"});function Nt$1(t,e){var n=React.useRef(null),r=React.useCallback(function(r){if(null!==r&&r.offsetParent){var o,i,a=r.getBoundingClientRect(),l=a.width;if(e){var s=e.getBoundingClientRect(),u=a.top-s.top;o=s.height-Math.max(0,u),i=u+e.scrollTop;}else o=window.innerHeight-Math.max(0,a.top),i=a.top+window.pageYOffset;n.current={offsetTop:i,visibleHeight:o,visibleWidth:l},t(n.current);}},[t,e]),l=S(r),s=l.callbackRef,u=l.ref,c=React.useCallback(function(){r(u.current);},[r,u]);return React.useEffect(function(){if(e){e.addEventListener("scroll",c);var t=new ResizeObserver(c);return t.observe(e),function(){e.removeEventListener("scroll",c),t.unobserve(e);}}return window.addEventListener("scroll",c),window.addEventListener("resize",c),function(){window.removeEventListener("scroll",c),window.removeEventListener("resize",c);}},[c,e]),s}var Dt$1=["placeholder"],Gt$1=["style","children"],_t$1=["style","children"];function jt$1(t){return t}var Kt$1=system(function(){var t=statefulStream(function(t){return "Item "+t}),n=statefulStream(null),r=statefulStream(function(t){return "Group "+t}),o=statefulStream({}),i=statefulStream(jt$1),a=statefulStream("div"),l=statefulStream(noop),s=function(t,n){return void 0===n&&(n=null),statefulStreamFromEmitter(pipe(o,map(function(e){return e[t]}),distinctUntilChanged()),n)};return {context:n,itemContent:t,groupContent:r,components:o,computeItemKey:i,headerFooterTag:a,scrollerRef:l,FooterComponent:s("Footer"),HeaderComponent:s("Header"),TopItemListComponent:s("TopItemList"),ListComponent:s("List","div"),ItemComponent:s("Item","div"),GroupComponent:s("Group","div"),ScrollerComponent:s("Scroller","div"),EmptyPlaceholder:s("EmptyPlaceholder"),ScrollSeekPlaceholder:s("ScrollSeekPlaceholder")}});function Yt$1(t,n){var r=stream();return subscribe(r,function(){return console.warn("react-virtuoso: You are using a deprecated property. "+n,"color: red;","color: inherit;","color: blue;")}),connect(r,t),r}var qt$1=system(function(t){var n=t[0],r=t[1],o={item:Yt$1(r.itemContent,"Rename the %citem%c prop to %citemContent."),group:Yt$1(r.groupContent,"Rename the %cgroup%c prop to %cgroupContent."),topItems:Yt$1(n.topItemCount,"Rename the %ctopItems%c prop to %ctopItemCount."),itemHeight:Yt$1(n.fixedItemHeight,"Rename the %citemHeight%c prop to %cfixedItemHeight."),scrollingStateChange:Yt$1(n.isScrolling,"Rename the %cscrollingStateChange%c prop to %cisScrolling."),adjustForPrependedItems:stream(),maxHeightCacheSize:stream(),footer:stream(),header:stream(),HeaderContainer:stream(),FooterContainer:stream(),ItemContainer:stream(),ScrollContainer:stream(),GroupContainer:stream(),ListContainer:stream(),emptyComponent:stream(),scrollSeek:stream()};function i(t,n,o){connect(pipe(t,withLatestFrom(r.components),map(function(t){var e,r=t[0],i=t[1];return console.warn("react-virtuoso: "+o+" property is deprecated. Pass components."+n+" instead."),u({},i,((e={})[n]=r,e))})),r.components);}return subscribe(o.adjustForPrependedItems,function(){console.warn("react-virtuoso: adjustForPrependedItems is no longer supported. Use the firstItemIndex property instead - https://virtuoso.dev/prepend-items.","color: red;","color: inherit;","color: blue;");}),subscribe(o.maxHeightCacheSize,function(){console.warn("react-virtuoso: maxHeightCacheSize is no longer necessary. Setting it has no effect - remove it from your code.");}),subscribe(o.HeaderContainer,function(){console.warn("react-virtuoso: HeaderContainer is deprecated. Use headerFooterTag if you want to change the wrapper of the header component and pass components.Header to change its contents.");}),subscribe(o.FooterContainer,function(){console.warn("react-virtuoso: FooterContainer is deprecated. Use headerFooterTag if you want to change the wrapper of the footer component and pass components.Footer to change its contents.");}),subscribe(o.scrollSeek,function(t){var o=t.placeholder,i=c(t,Dt$1);console.warn("react-virtuoso: scrollSeek property is deprecated. Pass scrollSeekConfiguration and specify the placeholder in components.ScrollSeekPlaceholder instead."),publish(r.components,u({},getValue(r.components),{ScrollSeekPlaceholder:o})),publish(n.scrollSeekConfiguration,i);}),i(o.footer,"Footer","footer"),i(o.header,"Header","header"),i(o.ItemContainer,"Item","ItemContainer"),i(o.ListContainer,"List","ListContainer"),i(o.ScrollContainer,"Scroller","ScrollContainer"),i(o.emptyComponent,"EmptyPlaceholder","emptyComponent"),i(o.GroupContainer,"Group","GroupContainer"),u({},n,r,o)},tup(At$1,Kt$1)),Zt$1=function(t){return React__namespace.createElement("div",{style:{height:t.height}})},Jt$1={position:Wt$1(),zIndex:1,overflowAnchor:"none"},$t$1={overflowAnchor:"none"},Qt$1=React__namespace.memo(function(t){var r=t.showTopList,o=void 0!==r&&r,i=fe$1("listState"),a=de$1("sizeRanges"),s=fe$1("useWindowScroll"),c=fe$1("customScrollParent"),m=de$1("windowScrollContainerState"),d=de$1("scrollContainerState"),f=c||s?m:d,p=fe$1("itemContent"),h=fe$1("context"),g=fe$1("groupContent"),v=fe$1("trackItemSizes"),S=fe$1("itemSize"),I=fe$1("log"),T=de$1("gap"),w=C(a,S,v,o?noop:f,I,T,c).callbackRef,x=React__namespace.useState(0),b=x[0],y=x[1];pe$1("deviation",function(t){b!==t&&y(t);});var E=fe$1("EmptyPlaceholder"),H=fe$1("ScrollSeekPlaceholder")||Zt$1,R=fe$1("ListComponent"),L=fe$1("ItemComponent"),k=fe$1("GroupComponent"),z=fe$1("computeItemKey"),B=fe$1("isSeeking"),F=fe$1("groupIndices").length>0,P=fe$1("paddingTopAddition"),O=o?{}:{boxSizing:"border-box",paddingTop:i.offsetTop+P,paddingBottom:i.offsetBottom,marginTop:b};return !o&&0===i.totalCount&&E?React.createElement(E,ne$1(E,h)):React.createElement(R,u({},ne$1(R,h),{ref:w,style:O,"data-test-id":o?"virtuoso-top-item-list":"virtuoso-item-list"}),(o?i.topItems:i.items).map(function(t){var e=t.originalIndex,n=z(e+i.firstItemIndex,t.data,h);return B?React.createElement(H,u({},ne$1(H,h),{key:n,index:t.index,height:t.size,type:t.type||"item"},"group"===t.type?{}:{groupIndex:t.groupIndex})):"group"===t.type?React.createElement(k,u({},ne$1(k,h),{key:n,"data-index":e,"data-known-size":t.size,"data-item-index":t.index,style:Jt$1}),g(t.index)):React.createElement(L,u({},ne$1(L,h),{key:n,"data-index":e,"data-known-size":t.size,"data-item-index":t.index,"data-item-group-index":t.groupIndex,style:$t$1}),F?p(t.index,t.groupIndex,t.data,h):p(t.index,t.data,h))}))}),Xt$1={height:"100%",outline:"none",overflowY:"auto",position:"relative",WebkitOverflowScrolling:"touch"},te$1={width:"100%",height:"100%",position:"absolute",top:0},ee$1={width:"100%",position:Wt$1(),top:0};function ne$1(t,e){if("string"!=typeof t)return {context:e}}var re$1=React__namespace.memo(function(){var t=fe$1("HeaderComponent"),e=de$1("headerHeight"),n=fe$1("headerFooterTag"),r=I(function(t){return e(T(t,"height"))}),o=fe$1("context");return t?React.createElement(n,{ref:r},React.createElement(t,ne$1(t,o))):null}),oe$1=React__namespace.memo(function(){var t=fe$1("FooterComponent"),e=de$1("footerHeight"),n=fe$1("headerFooterTag"),r=I(function(t){return e(T(t,"height"))}),o=fe$1("context");return t?React.createElement(n,{ref:r},React.createElement(t,ne$1(t,o))):null});function ie$1(t){var e=t.usePublisher,r=t.useEmitter,o=t.useEmitterValue;return React__namespace.memo(function(t){var n=t.style,i=t.children,a=c(t,Gt$1),s=e("scrollContainerState"),m=o("ScrollerComponent"),d=e("smoothScrollTargetReached"),f=o("scrollerRef"),p=o("context"),h=x(s,d,m,f),g=h.scrollerRef,v=h.scrollByCallback;return r("scrollTo",h.scrollToCallback),r("scrollBy",v),React.createElement(m,u({ref:g,style:u({},Xt$1,n),"data-test-id":"virtuoso-scroller","data-virtuoso-scroller":!0,tabIndex:0},a,ne$1(m,p)),i)})}function ae$1(t){var r=t.usePublisher,o=t.useEmitter,i=t.useEmitterValue;return React__namespace.memo(function(t){var n=t.style,a=t.children,s=c(t,_t$1),m=r("windowScrollContainerState"),d=i("ScrollerComponent"),f=r("smoothScrollTargetReached"),p=i("totalListHeight"),g=i("deviation"),v=i("customScrollParent"),S=i("context"),I=x(m,f,d,noop,v),C=I.scrollerRef,T=I.scrollByCallback,w=I.scrollToCallback;return h(function(){return C.current=v||window,function(){C.current=null;}},[C,v]),o("windowScrollTo",w),o("scrollBy",T),React.createElement(d,u({style:u({position:"relative"},n,0!==p?{height:p+g}:{}),"data-virtuoso-scroller":!0},s,ne$1(d,S)),a)})}var le$1=function(t){var r=t.children,o=de$1("viewportHeight"),i=I(compose(o,function(t){return T(t,"height")}));return React__namespace.createElement("div",{style:te$1,ref:i,"data-viewport-type":"element"},r)},se$1=function(t){var e=t.children,r=Nt$1(de$1("windowViewportRect"),fe$1("customScrollParent"));return React__namespace.createElement("div",{ref:r,style:te$1,"data-viewport-type":"window"},e)},ue$1=function(t){var e=t.children,n=fe$1("TopItemListComponent"),r=fe$1("headerHeight"),o=u({},ee$1,{marginTop:r+"px"}),i=fe$1("context");return React.createElement(n||"div",{style:o,context:i},e)},ce$1=systemToComponent(qt$1,{required:{},optional:{context:"context",followOutput:"followOutput",firstItemIndex:"firstItemIndex",itemContent:"itemContent",groupContent:"groupContent",overscan:"overscan",increaseViewportBy:"increaseViewportBy",totalCount:"totalCount",topItemCount:"topItemCount",initialTopMostItemIndex:"initialTopMostItemIndex",components:"components",groupCounts:"groupCounts",atBottomThreshold:"atBottomThreshold",atTopThreshold:"atTopThreshold",computeItemKey:"computeItemKey",defaultItemHeight:"defaultItemHeight",fixedItemHeight:"fixedItemHeight",itemSize:"itemSize",scrollSeekConfiguration:"scrollSeekConfiguration",headerFooterTag:"headerFooterTag",data:"data",initialItemCount:"initialItemCount",initialScrollTop:"initialScrollTop",alignToBottom:"alignToBottom",useWindowScroll:"useWindowScroll",customScrollParent:"customScrollParent",scrollerRef:"scrollerRef",logLevel:"logLevel",react18ConcurrentRendering:"react18ConcurrentRendering",item:"item",group:"group",topItems:"topItems",itemHeight:"itemHeight",scrollingStateChange:"scrollingStateChange",maxHeightCacheSize:"maxHeightCacheSize",footer:"footer",header:"header",ItemContainer:"ItemContainer",ScrollContainer:"ScrollContainer",ListContainer:"ListContainer",GroupContainer:"GroupContainer",emptyComponent:"emptyComponent",HeaderContainer:"HeaderContainer",FooterContainer:"FooterContainer",scrollSeek:"scrollSeek"},methods:{scrollToIndex:"scrollToIndex",scrollIntoView:"scrollIntoView",scrollTo:"scrollTo",scrollBy:"scrollBy",adjustForPrependedItems:"adjustForPrependedItems",autoscrollToBottom:"autoscrollToBottom"},events:{isScrolling:"isScrolling",endReached:"endReached",startReached:"startReached",rangeChanged:"rangeChanged",atBottomStateChange:"atBottomStateChange",atTopStateChange:"atTopStateChange",totalListHeightChanged:"totalListHeightChanged",itemsRendered:"itemsRendered",groupIndices:"groupIndices"}},React__namespace.memo(function(t){var e=fe$1("useWindowScroll"),r=fe$1("topItemsIndexes").length>0,o=fe$1("customScrollParent"),i=o||e?se$1:le$1;return React__namespace.createElement(o||e?ge$1:he$1,u({},t),React__namespace.createElement(i,null,React__namespace.createElement(re$1,null),React__namespace.createElement(Qt$1,null),React__namespace.createElement(oe$1,null)),r&&React__namespace.createElement(ue$1,null,React__namespace.createElement(Qt$1,{showTopList:!0})))})),me$1=ce$1.Component,de$1=ce$1.usePublisher,fe$1=ce$1.useEmitterValue,pe$1=ce$1.useEmitter,he$1=ie$1({usePublisher:de$1,useEmitterValue:fe$1,useEmitter:pe$1}),ge$1=ae$1({usePublisher:de$1,useEmitterValue:fe$1,useEmitter:pe$1}),ve$1={items:[],offsetBottom:0,offsetTop:0,top:0,bottom:0,itemHeight:0,itemWidth:0},Se$1={items:[{index:0}],offsetBottom:0,offsetTop:0,top:0,bottom:0,itemHeight:0,itemWidth:0},Ie$1=Math.round,Ce$1=Math.ceil,Te$1=Math.floor,we$1=Math.min,xe$1=Math.max;function be$1(t,e){return Array.from({length:e-t+1}).map(function(e,n){return {index:n+t}})}function ye$1(t,e){return t&&t.column===e.column&&t.row===e.row}var Ee$1=system(function(t){var n=t[0],r=n.overscan,o=n.visibleRange,i=n.listBoundary,a=t[1],l=a.scrollTop,s=a.viewportHeight,c=a.scrollBy,m=a.scrollTo,d=a.smoothScrollTargetReached,f=a.scrollContainerState,p=t[2],h=t[3],g=t[4],v=g.propsReady,S=g.didMount,I=t[5],C=I.windowViewportRect,T=I.windowScrollTo,w=I.useWindowScroll,x=I.customScrollParent,b=I.windowScrollContainerState,y=t[6],E=statefulStream(0),H=statefulStream(0),R=statefulStream(ve$1),L=statefulStream({height:0,width:0}),k=statefulStream({height:0,width:0}),z=stream(),B=stream(),F=statefulStream(0),P=statefulStream({row:0,column:0});connect(pipe(S,withLatestFrom(H),filter(function(t){return 0!==t[1]}),map(function(t){return {items:be$1(0,t[1]-1),top:0,bottom:0,offsetBottom:0,offsetTop:0,itemHeight:0,itemWidth:0}})),R),connect(pipe(combineLatest(duc(E),o,duc(P,ye$1),duc(k,function(t,e){return t&&t.width===e.width&&t.height===e.height})),withLatestFrom(L),map(function(t){var e=t[0],n=e[0],r=e[1],o=r[0],i=r[1],a=e[2],l=e[3],s=t[1],u=a.row,c=l.height,m=l.width,d=s.width;if(0===n||0===d)return ve$1;if(0===m)return Se$1;var f=Le$1(d,m,a.column),p=f*Te$1((o+u)/(c+u)),h=f*Ce$1((i+u)/(c+u))-1;h=xe$1(0,we$1(n-1,h));var g=be$1(p=we$1(h,xe$1(0,p)),h),v=He$1(s,a,l,g),S=v.top,I=v.bottom,C=Ce$1(n/f);return {items:g,offsetTop:S,offsetBottom:C*c+(C-1)*u-I,top:S,bottom:I,itemHeight:c,itemWidth:m}})),R),connect(pipe(L,map(function(t){return t.height})),s),connect(pipe(combineLatest(L,k,R,P),map(function(t){var e=He$1(t[0],t[3],t[1],t[2].items);return [e.top,e.bottom]}),distinctUntilChanged(gt$1)),i);var O=streamFromEmitter(pipe(duc(R),filter(function(t){return t.items.length>0}),withLatestFrom(E),filter(function(t){var e=t[0].items;return e[e.length-1].index===t[1]-1}),map(function(t){return t[1]-1}),distinctUntilChanged())),M=streamFromEmitter(pipe(duc(R),filter(function(t){var e=t.items;return e.length>0&&0===e[0].index}),mapTo(0),distinctUntilChanged())),V=streamFromEmitter(pipe(duc(R),filter(function(t){return t.items.length>0}),map(function(t){var e=t.items;return {startIndex:e[0].index,endIndex:e[e.length-1].index}}),distinctUntilChanged(vt$1)));connect(V,h.scrollSeekRangeChanged),connect(pipe(z,withLatestFrom(L,k,E,P),map(function(t){var e=t[1],n=t[2],r=t[3],o=t[4],i=it$1(t[0]),a=i.align,l=i.behavior,s=i.offset,u=i.index;"LAST"===u&&(u=r-1);var c=Re$1(e,o,n,u=xe$1(0,u,we$1(r-1,u)));return "end"===a?c=Ie$1(c-e.height+n.height):"center"===a&&(c=Ie$1(c-e.height/2+n.height/2)),s&&(c+=s),{top:c,behavior:l}})),m);var U=statefulStreamFromEmitter(pipe(R,map(function(t){return t.offsetBottom+t.bottom})),0);return connect(pipe(C,map(function(t){return {width:t.visibleWidth,height:t.visibleHeight}})),L),u({totalCount:E,viewportDimensions:L,itemDimensions:k,scrollTop:l,scrollHeight:B,overscan:r,scrollBy:c,scrollTo:m,scrollToIndex:z,smoothScrollTargetReached:d,windowViewportRect:C,windowScrollTo:T,useWindowScroll:w,customScrollParent:x,windowScrollContainerState:b,deviation:F,scrollContainerState:f,initialItemCount:H,gap:P},h,{gridState:R,totalListHeight:U},p,{startReached:M,endReached:O,rangeChanged:V,propsReady:v},y)},tup(Ct$1,b,ut$1,Et$1,ct$1,Pt$1,v));function He$1(t,e,n,r){var o=n.height;return void 0===o||0===r.length?{top:0,bottom:0}:{top:Re$1(t,e,n,r[0].index),bottom:Re$1(t,e,n,r[r.length-1].index)+o}}function Re$1(t,e,n,r){var o=Le$1(t.width,n.width,e.column),i=Te$1(r/o),a=i*n.height+xe$1(0,i-1)*e.row;return a>0?a+e.row:a}function Le$1(t,e,n){return xe$1(1,Te$1((t+n)/(e+n)))}var ke$1=["placeholder"],ze$1=system(function(){var t=statefulStream(function(t){return "Item "+t}),n=statefulStream({}),r=statefulStream(null),o=statefulStream("virtuoso-grid-item"),i=statefulStream("virtuoso-grid-list"),a=statefulStream(jt$1),l=statefulStream(noop),s=function(t,r){return void 0===r&&(r=null),statefulStreamFromEmitter(pipe(n,map(function(e){return e[t]}),distinctUntilChanged()),r)};return {context:r,itemContent:t,components:n,computeItemKey:a,itemClassName:o,listClassName:i,scrollerRef:l,ListComponent:s("List","div"),ItemComponent:s("Item","div"),ScrollerComponent:s("Scroller","div"),ScrollSeekPlaceholder:s("ScrollSeekPlaceholder","div")}}),Be$1=system(function(t){var n=t[0],r=t[1],o={item:Yt$1(r.itemContent,"Rename the %citem%c prop to %citemContent."),ItemContainer:stream(),ScrollContainer:stream(),ListContainer:stream(),emptyComponent:stream(),scrollSeek:stream()};function i(t,n,o){connect(pipe(t,withLatestFrom(r.components),map(function(t){var e,r=t[0],i=t[1];return console.warn("react-virtuoso: "+o+" property is deprecated. Pass components."+n+" instead."),u({},i,((e={})[n]=r,e))})),r.components);}return subscribe(o.scrollSeek,function(t){var o=t.placeholder,i=c(t,ke$1);console.warn("react-virtuoso: scrollSeek property is deprecated. Pass scrollSeekConfiguration and specify the placeholder in components.ScrollSeekPlaceholder instead."),publish(r.components,u({},getValue(r.components),{ScrollSeekPlaceholder:o})),publish(n.scrollSeekConfiguration,i);}),i(o.ItemContainer,"Item","ItemContainer"),i(o.ListContainer,"List","ListContainer"),i(o.ScrollContainer,"Scroller","ScrollContainer"),u({},n,r,o)},tup(Ee$1,ze$1)),Fe$1=React__namespace.memo(function(){var t=Ae$1("gridState"),e=Ae$1("listClassName"),n=Ae$1("itemClassName"),r=Ae$1("itemContent"),o=Ae$1("computeItemKey"),i=Ae$1("isSeeking"),a=Ue$1("scrollHeight"),s=Ae$1("ItemComponent"),c=Ae$1("ListComponent"),m=Ae$1("ScrollSeekPlaceholder"),d=Ae$1("context"),f=Ue$1("itemDimensions"),p=Ue$1("gap"),h=Ae$1("log"),g=I(function(t){a(t.parentElement.parentElement.scrollHeight);var e=t.firstChild;e&&f(e.getBoundingClientRect()),p({row:Ge$1("row-gap",getComputedStyle(t).rowGap,h),column:Ge$1("column-gap",getComputedStyle(t).columnGap,h)});});return React.createElement(c,u({ref:g,className:e},ne$1(c,d),{style:{paddingTop:t.offsetTop,paddingBottom:t.offsetBottom}}),t.items.map(function(e){var a=o(e.index);return i?React.createElement(m,u({key:a},ne$1(m,d),{index:e.index,height:t.itemHeight,width:t.itemWidth})):React.createElement(s,u({},ne$1(s,d),{className:n,"data-index":e.index,key:a}),r(e.index,d))}))}),Pe$1=function(t){var e=t.children,r=Ue$1("viewportDimensions"),o=I(function(t){r(t.getBoundingClientRect());});return React__namespace.createElement("div",{style:te$1,ref:o},e)},Oe$1=function(t){var e=t.children,r=Nt$1(Ue$1("windowViewportRect"),Ae$1("customScrollParent"));return React__namespace.createElement("div",{ref:r,style:te$1},e)},Me$1=systemToComponent(Be$1,{optional:{totalCount:"totalCount",overscan:"overscan",itemContent:"itemContent",components:"components",computeItemKey:"computeItemKey",initialItemCount:"initialItemCount",scrollSeekConfiguration:"scrollSeekConfiguration",listClassName:"listClassName",itemClassName:"itemClassName",useWindowScroll:"useWindowScroll",customScrollParent:"customScrollParent",scrollerRef:"scrollerRef",item:"item",ItemContainer:"ItemContainer",ScrollContainer:"ScrollContainer",ListContainer:"ListContainer",scrollSeek:"scrollSeek"},methods:{scrollTo:"scrollTo",scrollBy:"scrollBy",scrollToIndex:"scrollToIndex"},events:{isScrolling:"isScrolling",endReached:"endReached",startReached:"startReached",rangeChanged:"rangeChanged",atBottomStateChange:"atBottomStateChange",atTopStateChange:"atTopStateChange"}},React__namespace.memo(function(t){var e=u({},t),r=Ae$1("useWindowScroll"),o=Ae$1("customScrollParent"),i=o||r?Oe$1:Pe$1;return React__namespace.createElement(o||r?De$1:Ne$1,u({},e),React__namespace.createElement(i,null,React__namespace.createElement(Fe$1,null)))})),Ue$1=Me$1.usePublisher,Ae$1=Me$1.useEmitterValue,We$1=Me$1.useEmitter,Ne$1=ie$1({usePublisher:Ue$1,useEmitterValue:Ae$1,useEmitter:We$1}),De$1=ae$1({usePublisher:Ue$1,useEmitterValue:Ae$1,useEmitter:We$1});function Ge$1(t,e,n){return "normal"===e||null!=e&&e.endsWith("px")||n(t+" was not resolved to pixel value correctly",e,p.WARN),"normal"===e?0:parseInt(null!=e?e:"0",10)}var _e$1=system(function(){var t=statefulStream(function(t){return React__namespace.createElement("td",null,"Item $",t)}),r=statefulStream(null),o=statefulStream(null),i=statefulStream({}),a=statefulStream(jt$1),l=statefulStream(noop),s=function(t,n){return void 0===n&&(n=null),statefulStreamFromEmitter(pipe(i,map(function(e){return e[t]}),distinctUntilChanged()),n)};return {context:r,itemContent:t,fixedHeaderContent:o,components:i,computeItemKey:a,scrollerRef:l,TableComponent:s("Table","table"),TableHeadComponent:s("TableHead","thead"),TableBodyComponent:s("TableBody","tbody"),TableRowComponent:s("TableRow","tr"),ScrollerComponent:s("Scroller","div"),EmptyPlaceholder:s("EmptyPlaceholder"),ScrollSeekPlaceholder:s("ScrollSeekPlaceholder"),FillerRow:s("FillerRow")}}),je$1=system(function(t){return u({},t[0],t[1])},tup(At$1,_e$1)),Ke$1=function(t){return React__namespace.createElement("tr",null,React__namespace.createElement("td",{style:{height:t.height}}))},Ye$1=function(t){return React__namespace.createElement("tr",null,React__namespace.createElement("td",{style:{height:t.height,padding:0,border:0}}))},qe$1=React__namespace.memo(function(){var t=tn$1("listState"),e=Xe$1("sizeRanges"),r=tn$1("useWindowScroll"),o=tn$1("customScrollParent"),i=Xe$1("windowScrollContainerState"),a=Xe$1("scrollContainerState"),s=o||r?i:a,c=tn$1("itemContent"),m=tn$1("trackItemSizes"),d=C(e,tn$1("itemSize"),m,s,tn$1("log"),void 0,o),f=d.callbackRef,p=d.ref,h=React__namespace.useState(0),g=h[0],v=h[1];en$1("deviation",function(t){g!==t&&(p.current.style.marginTop=t+"px",v(t));});var S=tn$1("EmptyPlaceholder"),I=tn$1("ScrollSeekPlaceholder")||Ke$1,T=tn$1("FillerRow")||Ye$1,w=tn$1("TableBodyComponent"),x=tn$1("TableRowComponent"),b=tn$1("computeItemKey"),y=tn$1("isSeeking"),E=tn$1("paddingTopAddition"),H=tn$1("firstItemIndex"),R=tn$1("statefulTotalCount"),L=tn$1("context");if(0===R&&S)return React.createElement(S,ne$1(S,L));var k=t.offsetTop+E+g,z=t.offsetBottom,B=k>0?React__namespace.createElement(T,{height:k,key:"padding-top"}):null,F=z>0?React__namespace.createElement(T,{height:z,key:"padding-bottom"}):null,P=t.items.map(function(t){var e=t.originalIndex,n=b(e+H,t.data,L);return y?React.createElement(I,u({},ne$1(I,L),{key:n,index:t.index,height:t.size,type:t.type||"item"})):React.createElement(x,u({},ne$1(x,L),{key:n,"data-index":e,"data-known-size":t.size,"data-item-index":t.index,style:{overflowAnchor:"none"}}),c(t.index,t.data,L))});return React.createElement(w,u({ref:f,"data-test-id":"virtuoso-item-list"},ne$1(w,L)),[B].concat(P,[F]))}),Ze$1=function(t){var r=t.children,o=Xe$1("viewportHeight"),i=I(compose(o,function(t){return T(t,"height")}));return React__namespace.createElement("div",{style:te$1,ref:i,"data-viewport-type":"element"},r)},Je$1=function(t){var e=t.children,r=Nt$1(Xe$1("windowViewportRect"),tn$1("customScrollParent"));return React__namespace.createElement("div",{ref:r,style:te$1,"data-viewport-type":"window"},e)},$e=systemToComponent(je$1,{required:{},optional:{context:"context",followOutput:"followOutput",firstItemIndex:"firstItemIndex",itemContent:"itemContent",fixedHeaderContent:"fixedHeaderContent",overscan:"overscan",increaseViewportBy:"increaseViewportBy",totalCount:"totalCount",topItemCount:"topItemCount",initialTopMostItemIndex:"initialTopMostItemIndex",components:"components",groupCounts:"groupCounts",atBottomThreshold:"atBottomThreshold",atTopThreshold:"atTopThreshold",computeItemKey:"computeItemKey",defaultItemHeight:"defaultItemHeight",fixedItemHeight:"fixedItemHeight",itemSize:"itemSize",scrollSeekConfiguration:"scrollSeekConfiguration",data:"data",initialItemCount:"initialItemCount",initialScrollTop:"initialScrollTop",alignToBottom:"alignToBottom",useWindowScroll:"useWindowScroll",customScrollParent:"customScrollParent",scrollerRef:"scrollerRef",logLevel:"logLevel",react18ConcurrentRendering:"react18ConcurrentRendering"},methods:{scrollToIndex:"scrollToIndex",scrollIntoView:"scrollIntoView",scrollTo:"scrollTo",scrollBy:"scrollBy"},events:{isScrolling:"isScrolling",endReached:"endReached",startReached:"startReached",rangeChanged:"rangeChanged",atBottomStateChange:"atBottomStateChange",atTopStateChange:"atTopStateChange",totalListHeightChanged:"totalListHeightChanged",itemsRendered:"itemsRendered",groupIndices:"groupIndices"}},React__namespace.memo(function(t){var r=tn$1("useWindowScroll"),o=tn$1("customScrollParent"),i=Xe$1("fixedHeaderHeight"),a=tn$1("fixedHeaderContent"),l=tn$1("context"),s=I(compose(i,function(t){return T(t,"height")})),c=o||r?rn$1:nn$1,m=o||r?Je$1:Ze$1,d=tn$1("TableComponent"),f=tn$1("TableHeadComponent"),p=a?React__namespace.createElement(f,u({key:"TableHead",style:{zIndex:1,position:"sticky",top:0},ref:s},ne$1(f,l)),a()):null;return React__namespace.createElement(c,u({},t),React__namespace.createElement(m,null,React__namespace.createElement(d,u({style:{borderSpacing:0}},ne$1(d,l)),[p,React__namespace.createElement(qe$1,{key:"TableBody"})])))})),Xe$1=$e.usePublisher,tn$1=$e.useEmitterValue,en$1=$e.useEmitter,nn$1=ie$1({usePublisher:Xe$1,useEmitterValue:tn$1,useEmitter:en$1}),rn$1=ae$1({usePublisher:Xe$1,useEmitterValue:tn$1,useEmitter:en$1}),on$1=me$1;
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};function c(){return c=Object.assign||function(t){for(var e=1;e<arguments.length;e++){var n=arguments[e];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(t[r]=n[r]);}return t},c.apply(this,arguments)}function m(t,e){if(null==t)return {};var n,r,o={},i=Object.keys(t);for(r=0;r<i.length;r++)e.indexOf(n=i[r])>=0||(o[n]=t[n]);return o}function d(t,e){(null==e||e>t.length)&&(e=t.length);for(var n=0,r=new Array(e);n<e;n++)r[n]=t[n];return r}function f(t,e){var n="undefined"!=typeof Symbol&&t[Symbol.iterator]||t["@@iterator"];if(n)return (n=n.call(t)).next.bind(n);if(Array.isArray(t)||(n=function(t,e){if(t){if("string"==typeof t)return d(t,e);var n=Object.prototype.toString.call(t).slice(8,-1);return "Object"===n&&t.constructor&&(n=t.constructor.name),"Map"===n||"Set"===n?Array.from(t):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?d(t,e):void 0}}(t))||e&&t&&"number"==typeof t.length){n&&(t=n);var r=0;return function(){return r>=t.length?{done:!0}:{done:!1,value:t[r++]}}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var p,h,g="undefined"!=typeof document?React.useLayoutEffect:React.useEffect;!function(t){t[t.DEBUG=0]="DEBUG",t[t.INFO=1]="INFO",t[t.WARN=2]="WARN",t[t.ERROR=3]="ERROR";}(h||(h={}));var v=((p={})[h.DEBUG]="debug",p[h.INFO]="log",p[h.WARN]="warn",p[h.ERROR]="error",p),S=system(function(){var t=statefulStream(h.ERROR);return {log:statefulStream(function(n,r,o){var i;void 0===o&&(o=h.INFO),o>=(null!=(i=("undefined"==typeof globalThis?window:globalThis).VIRTUOSO_LOG_LEVEL)?i:getValue(t))&&console[v[o]]("%creact-virtuoso: %c%s %o","color: #0253b3; font-weight: bold","color: initial",n,r);}),logLevel:t}},[],{singleton:!0});function I(t,e){void 0===e&&(e=!0);var n=React.useRef(null),r=function(t){};if("undefined"!=typeof ResizeObserver){var o=new ResizeObserver(function(e){var n=e[0].target;null!==n.offsetParent&&t(n);});r=function(t){t&&e?(o.observe(t),n.current=t):(n.current&&o.unobserve(n.current),n.current=null);};}return {ref:n,callbackRef:r}}function C(t,e){return void 0===e&&(e=!0),I(t,e).callbackRef}function T(t,e,n,r,o,i,a){return I(function(n){for(var l=function(t,e,n,r){var o=t.length;if(0===o)return null;for(var i=[],a=0;a<o;a++){var l=t.item(a);if(l&&void 0!==l.dataset.index){var s=parseInt(l.dataset.index),u=parseFloat(l.dataset.knownSize),c=e(l,"offsetHeight");if(0===c&&r("Zero-sized element, this should not happen",{child:l},h.ERROR),c!==u){var m=i[i.length-1];0===i.length||m.size!==c||m.endIndex!==s-1?i.push({startIndex:s,endIndex:s,size:c}):i[i.length-1].endIndex++;}}}return i}(n.children,e,0,o),s=n.parentElement;!s.dataset.virtuosoScroller;)s=s.parentElement;var u="window"===s.firstElementChild.dataset.viewportType,c=a?a.scrollTop:u?window.pageYOffset||document.documentElement.scrollTop:s.scrollTop,m=a?a.scrollHeight:u?document.documentElement.scrollHeight:s.scrollHeight,d=a?a.offsetHeight:u?window.innerHeight:s.offsetHeight;r({scrollTop:Math.max(c,0),scrollHeight:m,viewportHeight:d}),null==i||i(function(t,e,n){return "normal"===e||null!=e&&e.endsWith("px")||n("row-gap was not resolved to pixel value correctly",e,h.WARN),"normal"===e?0:parseInt(null!=e?e:"0",10)}(0,getComputedStyle(n).rowGap,o)),null!==l&&t(l);},n)}function w(t,e){return Math.round(t.getBoundingClientRect()[e])}function x(t,e){return Math.abs(t-e)<1.01}function b(t,n,r,l,s){void 0===l&&(l=noop);var c=React.useRef(null),m=React.useRef(null),d=React.useRef(null),f=React.useRef(!1),p=React.useCallback(function(e){var r=e.target,o=r===window||r===document,i=o?window.pageYOffset||document.documentElement.scrollTop:r.scrollTop,a=o?document.documentElement.scrollHeight:r.scrollHeight,l=o?window.innerHeight:r.offsetHeight,s=function(){t({scrollTop:Math.max(i,0),scrollHeight:a,viewportHeight:l});};f.current?ReactDOM.flushSync(s):s(),f.current=!1,null!==m.current&&(i===m.current||i<=0||i===a-l)&&(m.current=null,n(!0),d.current&&(clearTimeout(d.current),d.current=null));},[t,n]);return React.useEffect(function(){var t=s||c.current;return l(s||c.current),p({target:t}),t.addEventListener("scroll",p,{passive:!0}),function(){l(null),t.removeEventListener("scroll",p);}},[c,p,r,l,s]),{scrollerRef:c,scrollByCallback:function(t){f.current=!0,c.current.scrollBy(t);},scrollToCallback:function(e){var r=c.current;if(r&&(!("offsetHeight"in r)||0!==r.offsetHeight)){var o,i,a,l="smooth"===e.behavior;if(r===window?(i=Math.max(w(document.documentElement,"height"),document.documentElement.scrollHeight),o=window.innerHeight,a=document.documentElement.scrollTop):(i=r.scrollHeight,o=w(r,"height"),a=r.scrollTop),e.top=Math.ceil(Math.max(Math.min(i-o,e.top),0)),x(o,i)||e.top===a)return t({scrollTop:a,scrollHeight:i,viewportHeight:o}),void(l&&n(!0));l?(m.current=e.top,d.current&&clearTimeout(d.current),d.current=setTimeout(function(){d.current=null,m.current=null,n(!0);},1e3)):m.current=null,r.scrollTo(e);}}}}var y=system(function(){var t=stream(),n=stream(),r=statefulStream(0),o=stream(),i=statefulStream(0),a=stream(),l=stream(),s=statefulStream(0),u=statefulStream(0),c=statefulStream(0),m=stream(),d=stream(),f=statefulStream(!1),p=statefulStream(!1);return connect(pipe(t,map(function(t){return t.scrollTop})),n),connect(pipe(t,map(function(t){return t.scrollHeight})),l),connect(n,i),{scrollContainerState:t,scrollTop:n,viewportHeight:a,headerHeight:s,fixedHeaderHeight:u,footerHeight:c,scrollHeight:l,smoothScrollTargetReached:o,react18ConcurrentRendering:p,scrollTo:m,scrollBy:d,statefulScrollTop:i,deviation:r,scrollingInProgress:f}},[],{singleton:!0}),H$1={lvl:0};function E(t,e,n,r,o){return void 0===r&&(r=H$1),void 0===o&&(o=H$1),{k:t,v:e,lvl:n,l:r,r:o}}function R$1(t){return t===H$1}function L$1(){return H$1}function k$1(t,e){if(R$1(t))return H$1;var n=t.k,r=t.l,o=t.r;if(e===n){if(R$1(r))return o;if(R$1(o))return r;var i=O$1(r);return A$1(V$1(t,{k:i[0],v:i[1],l:M$1(r)}))}return A$1(V$1(t,e<n?{l:k$1(r,e)}:{r:k$1(o,e)}))}function z$1(t,e,n){if(void 0===n&&(n="k"),R$1(t))return [-Infinity,void 0];if(t[n]===e)return [t.k,t.v];if(t[n]<e){var r=z$1(t.r,e,n);return -Infinity===r[0]?[t.k,t.v]:r}return z$1(t.l,e,n)}function B$1(t,e,n){return R$1(t)?E(e,n,1):e===t.k?V$1(t,{k:e,v:n}):function(t){return D$1(G$1(t))}(V$1(t,e<t.k?{l:B$1(t.l,e,n)}:{r:B$1(t.r,e,n)}))}function F$1(t,e,n){if(R$1(t))return [];var r=t.k,o=t.v,i=t.r,a=[];return r>e&&(a=a.concat(F$1(t.l,e,n))),r>=e&&r<=n&&a.push({k:r,v:o}),r<=n&&(a=a.concat(F$1(i,e,n))),a}function P$1(t){return R$1(t)?[]:[].concat(P$1(t.l),[{k:t.k,v:t.v}],P$1(t.r))}function O$1(t){return R$1(t.r)?[t.k,t.v]:O$1(t.r)}function M$1(t){return R$1(t.r)?t.l:A$1(V$1(t,{r:M$1(t.r)}))}function V$1(t,e){return E(void 0!==e.k?e.k:t.k,void 0!==e.v?e.v:t.v,void 0!==e.lvl?e.lvl:t.lvl,void 0!==e.l?e.l:t.l,void 0!==e.r?e.r:t.r)}function U$1(t){return R$1(t)||t.lvl>t.r.lvl}function A$1(t){var e=t.l,n=t.r,r=t.lvl;if(n.lvl>=r-1&&e.lvl>=r-1)return t;if(r>n.lvl+1){if(U$1(e))return G$1(V$1(t,{lvl:r-1}));if(R$1(e)||R$1(e.r))throw new Error("Unexpected empty nodes");return V$1(e.r,{l:V$1(e,{r:e.r.l}),r:V$1(t,{l:e.r.r,lvl:r-1}),lvl:r})}if(U$1(t))return D$1(V$1(t,{lvl:r-1}));if(R$1(n)||R$1(n.l))throw new Error("Unexpected empty nodes");var o=n.l,i=U$1(o)?n.lvl-1:n.lvl;return V$1(o,{l:V$1(t,{r:o.l,lvl:r-1}),r:D$1(V$1(n,{l:o.r,lvl:i})),lvl:o.lvl+1})}function W$1(t,e,n){return R$1(t)?[]:N$1(F$1(t,z$1(t,e)[0],n),function(t){return {index:t.k,value:t.v}})}function N$1(t,e){var n=t.length;if(0===n)return [];for(var r=e(t[0]),o=r.index,i=r.value,a=[],l=1;l<n;l++){var s=e(t[l]),u=s.index,c=s.value;a.push({start:o,end:u-1,value:i}),o=u,i=c;}return a.push({start:o,end:Infinity,value:i}),a}function D$1(t){var e=t.r,n=t.lvl;return R$1(e)||R$1(e.r)||e.lvl!==n||e.r.lvl!==n?t:V$1(e,{l:V$1(t,{r:e.l}),lvl:n+1})}function G$1(t){var e=t.l;return R$1(e)||e.lvl!==t.lvl?t:V$1(e,{r:V$1(t,{l:e.r})})}function _$1(t,e,n,r){void 0===r&&(r=0);for(var o=t.length-1;r<=o;){var i=Math.floor((r+o)/2),a=n(t[i],e);if(0===a)return i;if(-1===a){if(o-r<2)return i-1;o=i-1;}else {if(o===r)return i;r=i+1;}}throw new Error("Failed binary finding record in array - "+t.join(",")+", searched for "+e)}function j$1(t,e,n){return t[_$1(t,e,n)]}var K$1=system(function(){return {recalcInProgress:statefulStream(!1)}},[],{singleton:!0});function Y$1(t){var e=t.size,n=t.startIndex,r=t.endIndex;return function(t){return t.start===n&&(t.end===r||Infinity===t.end)&&t.value===e}}function q$1(t,e){var n=t.index;return e===n?0:e<n?-1:1}function Z$1(t,e){var n=t.offset;return e===n?0:e<n?-1:1}function J$1(t){return {index:t.index,value:t}}function $$1(t,e,n,r){var o=t,i=0,a=0,l=0,s=0;if(0!==e){l=o[s=_$1(o,e-1,q$1)].offset;var u=z$1(n,e-1);i=u[0],a=u[1],o.length&&o[s].size===z$1(n,e)[1]&&(s-=1),o=o.slice(0,s+1);}else o=[];for(var c,m=f(W$1(n,e,Infinity));!(c=m()).done;){var d=c.value,p=d.start,h=d.value,g=p-i,v=g*a+l+g*r;o.push({offset:v,size:h,index:p}),i=p,l=v,a=h;}return {offsetTree:o,lastIndex:i,lastOffset:l,lastSize:a}}function Q$1(t,e){var n=e[0],r=e[1],o=e[3];n.length>0&&(0, e[2])("received item sizes",n,h.DEBUG);var i=t.sizeTree,a=i,l=0;if(r.length>0&&R$1(i)&&2===n.length){var s=n[0].size,u=n[1].size;a=r.reduce(function(t,e){return B$1(B$1(t,e,s),e+1,u)},a);}else {var c=function(t,e){for(var n,r=R$1(t)?0:Infinity,o=f(e);!(n=o()).done;){var i=n.value,a=i.size,l=i.startIndex,s=i.endIndex;if(r=Math.min(r,l),R$1(t))t=B$1(t,0,a);else {var u=W$1(t,l-1,s+1);if(!u.some(Y$1(i))){for(var c,m=!1,d=!1,p=f(u);!(c=p()).done;){var h=c.value,g=h.start,v=h.end,S=h.value;m?(s>=g||a===S)&&(t=k$1(t,g)):(d=S!==a,m=!0),v>s&&s>=g&&S!==a&&(t=B$1(t,s+1,S));}d&&(t=B$1(t,l,a));}}}return [t,r]}(a,n);a=c[0],l=c[1];}if(a===i)return t;var m=$$1(t.offsetTree,l,a,o),d=m.offsetTree;return {sizeTree:a,offsetTree:d,lastIndex:m.lastIndex,lastOffset:m.lastOffset,lastSize:m.lastSize,groupOffsetTree:r.reduce(function(t,e){return B$1(t,e,X$1(e,d,o))},L$1()),groupIndices:r}}function X$1(t,e,n){if(0===e.length)return 0;var r=j$1(e,t,q$1),o=t-r.index,i=r.size*o+(o-1)*n+r.offset;return i>0?i+n:i}function tt$1(t,e,n){if(function(t){return void 0!==t.groupIndex}(t))return e.groupIndices[t.groupIndex]+1;var r=et$1("LAST"===t.index?n:t.index,e);return Math.max(0,r,Math.min(n,r))}function et$1(t,e){if(!nt$1(e))return t;for(var n=0;e.groupIndices[n]<=t+n;)n++;return t+n}function nt$1(t){return !R$1(t.groupOffsetTree)}var rt$1={offsetHeight:"height",offsetWidth:"width"},ot$1=system(function(t){var n=t[0].log,r=t[1].recalcInProgress,o=stream(),i=stream(),a=statefulStreamFromEmitter(i,0),l=stream(),s=stream(),u=statefulStream(0),m=statefulStream([]),d=statefulStream(void 0),f=statefulStream(void 0),p=statefulStream(function(t,e){return w(t,rt$1[e])}),g=statefulStream(void 0),v=statefulStream(0),S={offsetTree:[],sizeTree:L$1(),groupOffsetTree:L$1(),lastIndex:0,lastOffset:0,lastSize:0,groupIndices:[]},I=statefulStreamFromEmitter(pipe(o,withLatestFrom(m,n,v),scan(Q$1,S),distinctUntilChanged()),S);connect(pipe(m,filter(function(t){return t.length>0}),withLatestFrom(I,v),map(function(t){var e=t[0],n=t[1],r=t[2],o=e.reduce(function(t,e,o){return B$1(t,e,X$1(e,n.offsetTree,r)||o)},L$1());return c({},n,{groupIndices:e,groupOffsetTree:o})})),I),connect(pipe(i,withLatestFrom(I),filter(function(t){return t[0]<t[1].lastIndex}),map(function(t){var e=t[1];return [{startIndex:t[0],endIndex:e.lastIndex,size:e.lastSize}]})),o),connect(d,f);var C=statefulStreamFromEmitter(pipe(d,map(function(t){return void 0===t})),!0);connect(pipe(f,filter(function(t){return void 0!==t&&R$1(getValue(I).sizeTree)}),map(function(t){return [{startIndex:0,endIndex:0,size:t}]})),o);var T=streamFromEmitter(pipe(o,withLatestFrom(I),scan(function(t,e){var n=e[1];return {changed:n!==t.sizes,sizes:n}},{changed:!1,sizes:S}),map(function(t){return t.changed})));subscribe(pipe(u,scan(function(t,e){return {diff:t.prev-e,prev:e}},{diff:0,prev:0}),map(function(t){return t.diff})),function(t){t>0?(publish(r,!0),publish(l,t)):t<0&&publish(s,t);}),subscribe(pipe(u,withLatestFrom(n)),function(t){t[0]<0&&(0, t[1])("`firstItemIndex` prop should not be set to less than zero. If you don't know the total count, just use a very high value",{firstItemIndex:u},h.ERROR);});var x=streamFromEmitter(l);connect(pipe(l,withLatestFrom(I),map(function(t){var e=t[0],n=t[1];if(n.groupIndices.length>0)throw new Error("Virtuoso: prepending items does not work with groups");return P$1(n.sizeTree).reduce(function(t,n){var r=n.k,o=n.v;return {ranges:[].concat(t.ranges,[{startIndex:t.prevIndex,endIndex:r+e-1,size:t.prevSize}]),prevIndex:r+e,prevSize:o}},{ranges:[],prevIndex:0,prevSize:n.lastSize}).ranges})),o);var b=streamFromEmitter(pipe(s,withLatestFrom(I,v),map(function(t){return X$1(-t[0],t[1].offsetTree,t[2])})));return connect(pipe(s,withLatestFrom(I,v),map(function(t){var e=t[0],n=t[1],r=t[2];if(n.groupIndices.length>0)throw new Error("Virtuoso: shifting items does not work with groups");var o=P$1(n.sizeTree).reduce(function(t,n){var r=n.v;return B$1(t,Math.max(0,n.k+e),r)},L$1());return c({},n,{sizeTree:o},$$1(n.offsetTree,0,o,r))})),I),{data:g,totalCount:i,sizeRanges:o,groupIndices:m,defaultItemSize:f,fixedItemSize:d,unshiftWith:l,shiftWith:s,shiftWithOffset:b,beforeUnshiftWith:x,firstItemIndex:u,gap:v,sizes:I,listRefresh:T,statefulTotalCount:a,trackItemSizes:C,itemSize:p}},tup(S,K$1),{singleton:!0}),it$1="undefined"!=typeof document&&"scrollBehavior"in document.documentElement.style;function at$1(t){var e="number"==typeof t?{index:t}:t;return e.align||(e.align="start"),e.behavior&&it$1||(e.behavior="auto"),e.offset||(e.offset=0),e}var lt$1=system(function(t){var n=t[0],r=n.sizes,o=n.totalCount,i=n.listRefresh,a=n.gap,l=t[1],s=l.scrollingInProgress,u=l.viewportHeight,c=l.scrollTo,m=l.smoothScrollTargetReached,d=l.headerHeight,f=l.footerHeight,p=l.fixedHeaderHeight,g=t[2].log,v=stream(),S=statefulStream(0),I=null,C=null,T=null;function w(){I&&(I(),I=null),T&&(T(),T=null),C&&(clearTimeout(C),C=null),publish(s,!1);}return connect(pipe(v,withLatestFrom(r,u,o,S,d,f,g),withLatestFrom(a,p),map(function(t){var n=t[0],r=n[0],o=n[1],a=n[2],l=n[3],u=n[4],c=n[5],d=n[6],f=n[7],p=t[1],g=t[2],S=at$1(r),x=S.align,b=S.behavior,y=S.offset,H=l-1,E=tt$1(S,o,H),R=X$1(E,o.offsetTree,p)+c;"end"===x?(R+=g+z$1(o.sizeTree,E)[1]-a,E===H&&(R+=d)):"center"===x?R+=(g+z$1(o.sizeTree,E)[1]-a)/2:R-=u,y&&(R+=y);var L=function(t){w(),t?(f("retrying to scroll to",{location:r},h.DEBUG),publish(v,r)):f("list did not change, scroll successful",{},h.DEBUG);};if(w(),"smooth"===b){var k=!1;T=subscribe(i,function(t){k=k||t;}),I=handleNext(m,function(){L(k);});}else I=handleNext(pipe(i,function(t){var e=setTimeout(function(){t(!1);},150);return function(n){n&&(t(!0),clearTimeout(e));}}),L);return C=setTimeout(function(){w();},1200),publish(s,!0),f("scrolling from index to",{index:E,top:R,behavior:b},h.DEBUG),{top:R,behavior:b}})),c),{scrollToIndex:v,topListHeight:S}},tup(ot$1,y,S),{singleton:!0}),st$1="up",ut$1={atBottom:!1,notAtBottomBecause:"NOT_SHOWING_LAST_ITEM",state:{offsetBottom:0,scrollTop:0,viewportHeight:0,scrollHeight:0}},ct$1=system(function(t){var n=t[0],r=n.scrollContainerState,o=n.scrollTop,i=n.viewportHeight,a=n.headerHeight,l=n.footerHeight,s=n.scrollBy,u=statefulStream(!1),c=statefulStream(!0),m=stream(),d=stream(),f=statefulStream(4),p=statefulStream(0),h=statefulStreamFromEmitter(pipe(merge(pipe(duc(o),skip(1),mapTo(!0)),pipe(duc(o),skip(1),mapTo(!1),debounceTime(100))),distinctUntilChanged()),!1),g=statefulStreamFromEmitter(pipe(merge(pipe(s,mapTo(!0)),pipe(s,mapTo(!1),debounceTime(200))),distinctUntilChanged()),!1);connect(pipe(combineLatest(duc(o),duc(p)),map(function(t){return t[0]<=t[1]}),distinctUntilChanged()),c),connect(pipe(c,throttleTime(50)),d);var v=streamFromEmitter(pipe(combineLatest(r,duc(i),duc(a),duc(l),duc(f)),scan(function(t,e){var n,r,o=e[0],i=o.scrollTop,a=o.scrollHeight,l=e[1],s={viewportHeight:l,scrollTop:i,scrollHeight:a};return i+l-a>-e[4]?(i>t.state.scrollTop?(n="SCROLLED_DOWN",r=t.state.scrollTop-i):(n="SIZE_DECREASED",r=t.state.scrollTop-i||t.scrollTopDelta),{atBottom:!0,state:s,atBottomBecause:n,scrollTopDelta:r}):{atBottom:!1,notAtBottomBecause:s.scrollHeight>t.state.scrollHeight?"SIZE_INCREASED":l<t.state.viewportHeight?"VIEWPORT_HEIGHT_DECREASING":i<t.state.scrollTop?"SCROLLING_UPWARDS":"NOT_FULLY_SCROLLED_TO_LAST_ITEM_BOTTOM",state:s}},ut$1),distinctUntilChanged(function(t,e){return t&&t.atBottom===e.atBottom}))),S=statefulStreamFromEmitter(pipe(r,scan(function(t,e){var n=e.scrollTop,r=e.scrollHeight,o=e.viewportHeight;return x(t.scrollHeight,r)?{scrollTop:n,scrollHeight:r,jump:0,changed:!1}:t.scrollTop!==n&&r-(n+o)<1?{scrollHeight:r,scrollTop:n,jump:t.scrollTop-n,changed:!0}:{scrollHeight:r,scrollTop:n,jump:0,changed:!0}},{scrollHeight:0,jump:0,scrollTop:0,changed:!1}),filter(function(t){return t.changed}),map(function(t){return t.jump})),0);connect(pipe(v,map(function(t){return t.atBottom})),u),connect(pipe(u,throttleTime(50)),m);var I=statefulStream("down");connect(pipe(r,map(function(t){return t.scrollTop}),distinctUntilChanged(),scan(function(t,n){return getValue(g)?{direction:t.direction,prevScrollTop:n}:{direction:n<t.prevScrollTop?st$1:"down",prevScrollTop:n}},{direction:"down",prevScrollTop:0}),map(function(t){return t.direction})),I),connect(pipe(r,throttleTime(50),mapTo("none")),I);var C=statefulStream(0);return connect(pipe(h,filter(function(t){return !t}),mapTo(0)),C),connect(pipe(o,throttleTime(100),withLatestFrom(h),filter(function(t){return !!t[1]}),scan(function(t,e){return [t[1],e[0]]},[0,0]),map(function(t){return t[1]-t[0]})),C),{isScrolling:h,isAtTop:c,isAtBottom:u,atBottomState:v,atTopStateChange:d,atBottomStateChange:m,scrollDirection:I,atBottomThreshold:f,atTopThreshold:p,scrollVelocity:C,lastJumpDueToItemResize:S}},tup(y)),mt$1=system(function(t){var n=t[0].log,r=statefulStream(!1),o=streamFromEmitter(pipe(r,filter(function(t){return t}),distinctUntilChanged()));return subscribe(r,function(t){t&&getValue(n)("props updated",{},h.DEBUG);}),{propsReady:r,didMount:o}},tup(S),{singleton:!0}),dt$1=system(function(t){var n=t[0],r=n.sizes,o=n.listRefresh,i=n.defaultItemSize,a=t[1].scrollTop,l=t[2].scrollToIndex,s=t[3].didMount,u=statefulStream(!0),c=statefulStream(0);return connect(pipe(s,withLatestFrom(c),filter(function(t){return !!t[1]}),mapTo(!1)),u),subscribe(pipe(combineLatest(o,s),withLatestFrom(u,r,i),filter(function(t){var e=t[1],n=t[3];return t[0][1]&&(!R$1(t[2].sizeTree)||void 0!==n)&&!e}),withLatestFrom(c)),function(t){var n=t[1];setTimeout(function(){handleNext(a,function(){publish(u,!0);}),publish(l,n);});}),{scrolledToInitialItem:u,initialTopMostItemIndex:c}},tup(ot$1,y,lt$1,mt$1),{singleton:!0});function ft$1(t){return !!t&&("smooth"===t?"smooth":"auto")}var pt$1=system(function(t){var n=t[0],r=n.totalCount,o=n.listRefresh,i=t[1],a=i.isAtBottom,l=i.atBottomState,s=t[2].scrollToIndex,u=t[3].scrolledToInitialItem,c=t[4],m=c.propsReady,d=c.didMount,f=t[5].log,p=t[6].scrollingInProgress,g=statefulStream(!1),v=stream(),S=null;function I(t){publish(s,{index:"LAST",align:"end",behavior:t});}function C(t){var n=handleNext(l,function(n){!t||n.atBottom||"SIZE_INCREASED"!==n.notAtBottomBecause||S||(getValue(f)("scrolling to bottom due to increased size",{},h.DEBUG),I("auto"));});setTimeout(n,100);}return subscribe(pipe(combineLatest(pipe(duc(r),skip(1)),d),withLatestFrom(duc(g),a,u,p),map(function(t){var e=t[0],n=e[0],r=e[1]&&t[3],o="auto";return r&&(o=function(t,e){return "function"==typeof t?ft$1(t(e)):e&&ft$1(t)}(t[1],t[2]||t[4]),r=r&&!!o),{totalCount:n,shouldFollow:r,followOutputBehavior:o}}),filter(function(t){return t.shouldFollow})),function(t){var n=t.totalCount,r=t.followOutputBehavior;S&&(S(),S=null),S=handleNext(o,function(){getValue(f)("following output to ",{totalCount:n},h.DEBUG),I(r),S=null;});}),subscribe(pipe(combineLatest(duc(g),r,m),filter(function(t){return t[0]&&t[2]}),scan(function(t,e){var n=e[1];return {refreshed:t.value===n,value:n}},{refreshed:!1,value:0}),filter(function(t){return t.refreshed}),withLatestFrom(g,r)),function(t){C(!1!==t[1]);}),subscribe(v,function(){C(!1!==getValue(g));}),subscribe(combineLatest(duc(g),l),function(t){var e=t[1];t[0]&&!e.atBottom&&"VIEWPORT_HEIGHT_DECREASING"===e.notAtBottomBecause&&I("auto");}),{followOutput:g,autoscrollToBottom:v}},tup(ot$1,ct$1,lt$1,dt$1,mt$1,S,y));function ht$1(t){return t.reduce(function(t,e){return t.groupIndices.push(t.totalCount),t.totalCount+=e+1,t},{totalCount:0,groupIndices:[]})}var gt$1=system(function(t){var n=t[0],r=n.totalCount,o=n.groupIndices,i=n.sizes,a=t[1],l=a.scrollTop,s=a.headerHeight,u=stream(),c=stream(),m=streamFromEmitter(pipe(u,map(ht$1)));return connect(pipe(m,map(function(t){return t.totalCount})),r),connect(pipe(m,map(function(t){return t.groupIndices})),o),connect(pipe(combineLatest(l,i,s),filter(function(t){return nt$1(t[1])}),map(function(t){return z$1(t[1].groupOffsetTree,Math.max(t[0]-t[2],0),"v")[0]}),distinctUntilChanged(),map(function(t){return [t]})),c),{groupCounts:u,topItemsIndexes:c}},tup(ot$1,y));function vt$1(t,e){return !(!t||t[0]!==e[0]||t[1]!==e[1])}function St$1(t,e){return !(!t||t.startIndex!==e.startIndex||t.endIndex!==e.endIndex)}function It$1(t,e,n){return "number"==typeof t?n===st$1&&"top"===e||"down"===n&&"bottom"===e?t:0:n===st$1?"top"===e?t.main:t.reverse:"bottom"===e?t.main:t.reverse}function Ct$1(t,e){return "number"==typeof t?t:t[e]||0}var Tt$1=system(function(t){var n=t[0],r=n.scrollTop,o=n.viewportHeight,i=n.deviation,a=n.headerHeight,l=n.fixedHeaderHeight,s=stream(),u=statefulStream(0),c=statefulStream(0),m=statefulStream(0),d=statefulStreamFromEmitter(pipe(combineLatest(duc(r),duc(o),duc(a),duc(s,vt$1),duc(m),duc(u),duc(l),duc(i),duc(c)),map(function(t){var e=t[0],n=t[1],r=t[2],o=t[3],i=o[0],a=o[1],l=t[4],s=t[6],u=t[7],c=t[8],m=e-u,d=t[5]+s,f=Math.max(r-m,0),p="none",h=Ct$1(c,"top"),g=Ct$1(c,"bottom");return i-=u,a+=r+s,(i+=r+s)>e+d-h&&(p=st$1),(a-=u)<e-f+n+g&&(p="down"),"none"!==p?[Math.max(m-r-It$1(l,"top",p)-h,0),m-f-s+n+It$1(l,"bottom",p)+g]:null}),filter(function(t){return null!=t}),distinctUntilChanged(vt$1)),[0,0]);return {listBoundary:s,overscan:m,topListHeight:u,increaseViewportBy:c,visibleRange:d}},tup(y),{singleton:!0}),wt$1={items:[],topItems:[],offsetTop:0,offsetBottom:0,top:0,bottom:0,topListHeight:0,totalCount:0,firstItemIndex:0};function xt$1(t,e,n){if(0===t.length)return [];if(!nt$1(e))return t.map(function(t){return c({},t,{index:t.index+n,originalIndex:t.index})});for(var r,o=[],i=W$1(e.groupOffsetTree,t[0].index,t[t.length-1].index),a=void 0,l=0,s=f(t);!(r=s()).done;){var u=r.value;(!a||a.end<u.index)&&(a=i.shift(),l=e.groupIndices.indexOf(a.start)),o.push(c({},u.index===a.start?{type:"group",index:l}:{index:u.index-(l+1)+n,groupIndex:l},{size:u.size,offset:u.offset,originalIndex:u.index,data:u.data}));}return o}function bt$1(t,e,n,r,o,i){var a=0,l=0;if(t.length>0){a=t[0].offset;var s=t[t.length-1];l=s.offset+s.size;}var u=n-o.lastIndex,c=a,m=o.lastOffset+u*o.lastSize+(u-1)*r-l;return {items:xt$1(t,o,i),topItems:xt$1(e,o,i),topListHeight:e.reduce(function(t,e){return e.size+t},0),offsetTop:a,offsetBottom:m,top:c,bottom:l,totalCount:n,firstItemIndex:i}}var yt$1=system(function(t){var n=t[0],r=n.sizes,o=n.totalCount,i=n.data,a=n.firstItemIndex,l=n.gap,s=t[1],u=t[2],m=u.visibleRange,d=u.listBoundary,p=u.topListHeight,h=t[3],g=h.scrolledToInitialItem,v=h.initialTopMostItemIndex,S=t[4].topListHeight,I=t[5],C=t[6].didMount,T=t[7].recalcInProgress,w=statefulStream([]),x=stream();connect(s.topItemsIndexes,w);var b=statefulStreamFromEmitter(pipe(combineLatest(C,T,duc(m,vt$1),duc(o),duc(r),duc(v),g,duc(w),duc(a),duc(l),i),filter(function(t){return t[0]&&!t[1]}),map(function(t){var n=t[2],r=n[0],o=n[1],i=t[3],a=t[5],l=t[6],s=t[7],u=t[8],m=t[9],d=t[10],p=t[4],h=p.sizeTree,g=p.offsetTree;if(0===i||0===r&&0===o)return c({},wt$1,{totalCount:i});if(R$1(h))return bt$1(function(t,e,n){if(nt$1(e)){var r=et$1(t,e);return [{index:z$1(e.groupOffsetTree,r)[0],size:0,offset:0},{index:r,size:0,offset:0,data:n&&n[0]}]}return [{index:t,size:0,offset:0,data:n&&n[0]}]}(function(t,e){return "number"==typeof t?t:"LAST"===t.index?e-1:t.index}(a,i),p,d),[],i,m,p,u);var v=[];if(s.length>0)for(var S,I=s[0],C=s[s.length-1],T=0,w=f(W$1(h,I,C));!(S=w()).done;)for(var x=S.value,b=x.value,y=Math.max(x.start,I),H=Math.min(x.end,C),E=y;E<=H;E++)v.push({index:E,size:b,offset:T,data:d&&d[E]}),T+=b;if(!l)return bt$1([],v,i,m,p,u);var L=s.length>0?s[s.length-1]+1:0,k=function(t,e,n,r){return void 0===r&&(r=0),r>0&&(e=Math.max(e,j$1(t,r,q$1).offset)),N$1((i=n,l=_$1(o=t,e,a=Z$1),s=_$1(o,i,a,l),o.slice(l,s+1)),J$1);var o,i,a,l,s;}(g,r,o,L);if(0===k.length)return null;var B=i-1;return bt$1(tap([],function(t){for(var e,n=f(k);!(e=n()).done;){var i=e.value,a=i.value,l=a.offset,s=i.start,u=a.size;if(a.offset<r){var c=(s+=Math.floor((r-a.offset+m)/(u+m)))-i.start;l+=c*u+c*m;}s<L&&(l+=(L-s)*u,s=L);for(var p=Math.min(i.end,B),h=s;h<=p&&!(l>=o);h++)t.push({index:h,size:u,offset:l,data:d&&d[h]}),l+=u+m;}}),v,i,m,p,u)}),filter(function(t){return null!==t}),distinctUntilChanged()),wt$1);return connect(pipe(i,filter(function(t){return void 0!==t}),map(function(t){return t.length})),o),connect(pipe(b,map(function(t){return t.topListHeight})),S),connect(S,p),connect(pipe(b,map(function(t){return [t.top,t.bottom]})),d),connect(pipe(b,map(function(t){return t.items})),x),c({listState:b,topItemsIndexes:w,endReached:streamFromEmitter(pipe(b,filter(function(t){return t.items.length>0}),withLatestFrom(o,i),filter(function(t){var e=t[0].items;return e[e.length-1].originalIndex===t[1]-1}),map(function(t){return [t[1]-1,t[2]]}),distinctUntilChanged(vt$1),map(function(t){return t[0]}))),startReached:streamFromEmitter(pipe(b,throttleTime(200),filter(function(t){var e=t.items;return e.length>0&&e[0].originalIndex===t.topItems.length}),map(function(t){return t.items[0].index}),distinctUntilChanged())),rangeChanged:streamFromEmitter(pipe(b,filter(function(t){return t.items.length>0}),map(function(t){for(var e=t.items,n=0,r=e.length-1;"group"===e[n].type&&n<r;)n++;for(;"group"===e[r].type&&r>n;)r--;return {startIndex:e[n].index,endIndex:e[r].index}}),distinctUntilChanged(St$1))),itemsRendered:x},I)},tup(ot$1,gt$1,Tt$1,dt$1,lt$1,ct$1,mt$1,K$1),{singleton:!0}),Ht$1=system(function(t){var n=t[0],r=n.sizes,o=n.firstItemIndex,i=n.data,a=n.gap,l=t[1].listState,s=t[2].didMount,u=statefulStream(0);return connect(pipe(s,withLatestFrom(u),filter(function(t){return 0!==t[1]}),withLatestFrom(r,o,a,i),map(function(t){var e=t[0][1],n=t[1],r=t[2],o=t[3],i=t[4],a=void 0===i?[]:i,l=0;if(n.groupIndices.length>0)for(var s,u=f(n.groupIndices);!((s=u()).done||s.value-l>=e);)l++;var c=e+l;return bt$1(Array.from({length:c}).map(function(t,e){return {index:e,size:0,offset:0,data:a[e]}}),[],c,o,n,r)})),l),{initialItemCount:u}},tup(ot$1,yt$1,mt$1),{singleton:!0}),Et$1=system(function(t){var n=t[0].scrollVelocity,r=statefulStream(!1),o=stream(),i=statefulStream(!1);return connect(pipe(n,withLatestFrom(i,r,o),filter(function(t){return !!t[1]}),map(function(t){var e=t[0],n=t[1],r=t[2],o=t[3],i=n.enter;if(r){if((0, n.exit)(e,o))return !1}else if(i(e,o))return !0;return r}),distinctUntilChanged()),r),subscribe(pipe(combineLatest(r,n,o),withLatestFrom(i)),function(t){var e=t[0],n=t[1];return e[0]&&n&&n.change&&n.change(e[1],e[2])}),{isSeeking:r,scrollSeekConfiguration:i,scrollVelocity:n,scrollSeekRangeChanged:o}},tup(ct$1),{singleton:!0}),Rt$1=system(function(t){var n=t[0].topItemsIndexes,r=statefulStream(0);return connect(pipe(r,filter(function(t){return t>0}),map(function(t){return Array.from({length:t}).map(function(t,e){return e})})),n),{topItemCount:r}},tup(yt$1)),Lt$1=system(function(t){var n=t[0],r=n.footerHeight,o=n.headerHeight,i=n.fixedHeaderHeight,a=t[1].listState,l=stream(),s=statefulStreamFromEmitter(pipe(combineLatest(r,o,i,a),map(function(t){var e=t[3];return t[0]+t[1]+t[2]+e.offsetBottom+e.bottom})),0);return connect(duc(s),l),{totalListHeight:s,totalListHeightChanged:l}},tup(y,yt$1),{singleton:!0});function kt$1(t){var e,n=!1;return function(){return n||(n=!0,e=t()),e}}var zt$1=kt$1(function(){return /iP(ad|hone|od).+Version\/[\d.]+.*Safari/i.test(navigator.userAgent)}),Bt$1=system(function(t){var n=t[0],r=n.scrollBy,o=n.scrollTop,i=n.deviation,a=n.scrollingInProgress,l=t[1],s=l.isScrolling,u=l.isAtBottom,c=l.scrollDirection,m=t[3],d=m.beforeUnshiftWith,f=m.shiftWithOffset,p=m.sizes,g=m.gap,v=t[4].log,S=t[5].recalcInProgress,I=streamFromEmitter(pipe(t[2].listState,withLatestFrom(l.lastJumpDueToItemResize),scan(function(t,e){var n=t[1],r=e[0],o=r.items,i=r.totalCount,a=r.bottom+r.offsetBottom,l=0;return t[2]===i&&n.length>0&&o.length>0&&(0===o[0].originalIndex&&0===n[0].originalIndex||0!=(l=a-t[3])&&(l+=e[1])),[l,o,i,a]},[0,[],0,0]),filter(function(t){return 0!==t[0]}),withLatestFrom(o,c,a,u,v),filter(function(t){return !t[3]&&0!==t[1]&&t[2]===st$1}),map(function(t){var e=t[0][0];return (0, t[5])("Upward scrolling compensation",{amount:e},h.DEBUG),e})));function C(t){t>0?(publish(r,{top:-t,behavior:"auto"}),publish(i,0)):(publish(i,0),publish(r,{top:-t,behavior:"auto"}));}return subscribe(pipe(I,withLatestFrom(i,s)),function(t){var n=t[0],r=t[1];t[2]&&zt$1()?publish(i,r-n):C(-n);}),subscribe(pipe(combineLatest(statefulStreamFromEmitter(s,!1),i,S),filter(function(t){return !t[0]&&!t[2]&&0!==t[1]}),map(function(t){return t[1]}),throttleTime(1)),C),connect(pipe(f,map(function(t){return {top:-t}})),r),subscribe(pipe(d,withLatestFrom(p,g),map(function(t){var e=t[0];return e*t[1].lastSize+e*t[2]})),function(t){publish(i,t),requestAnimationFrame(function(){publish(r,{top:t}),requestAnimationFrame(function(){publish(i,0),publish(S,!1);});});}),{deviation:i}},tup(y,ct$1,yt$1,ot$1,S,K$1)),Ft$1=system(function(t){var n=t[0].totalListHeight,r=t[1].didMount,o=t[2].scrollTo,i=statefulStream(0);return subscribe(pipe(r,withLatestFrom(i),filter(function(t){return 0!==t[1]}),map(function(t){return {top:t[1]}})),function(t){handleNext(pipe(n,filter(function(t){return 0!==t})),function(){setTimeout(function(){publish(o,t);});});}),{initialScrollTop:i}},tup(Lt$1,mt$1,y),{singleton:!0}),Pt$1=system(function(t){var n=t[0].viewportHeight,r=t[1].totalListHeight,o=statefulStream(!1);return {alignToBottom:o,paddingTopAddition:statefulStreamFromEmitter(pipe(combineLatest(o,n,r),filter(function(t){return t[0]}),map(function(t){return Math.max(0,t[1]-t[2])}),distinctUntilChanged()),0)}},tup(y,Lt$1),{singleton:!0}),Ot$1=system(function(t){var n=t[0],r=n.scrollTo,o=n.scrollContainerState,i=stream(),a=stream(),l=stream(),s=statefulStream(!1),u=statefulStream(void 0);return connect(pipe(combineLatest(i,a),map(function(t){var e=t[0],n=e.viewportHeight,r=e.scrollHeight;return {scrollTop:Math.max(0,e.scrollTop-t[1].offsetTop),scrollHeight:r,viewportHeight:n}})),o),connect(pipe(r,withLatestFrom(a),map(function(t){var e=t[0];return c({},e,{top:e.top+t[1].offsetTop})})),l),{useWindowScroll:s,customScrollParent:u,windowScrollContainerState:i,windowViewportRect:a,windowScrollTo:l}},tup(y)),Mt$1=["done","behavior","align"],Vt$1=system(function(t){var n=t[0],r=n.sizes,o=n.totalCount,i=n.gap,a=t[1],l=a.scrollTop,s=a.viewportHeight,u=a.headerHeight,d=a.scrollingInProgress,f=t[2].scrollToIndex,p=stream();return connect(pipe(p,withLatestFrom(r,s,o,u,l,i),map(function(t){var n=t[0],r=t[1],o=t[2],i=t[3],a=t[4],l=t[5],s=t[6],u=n.done,f=n.behavior,p=n.align,h=m(n,Mt$1),g=null,v=tt$1(n,r,i-1),S=X$1(v,r.offsetTree,s)+a;return S<l?g=c({},h,{behavior:f,align:null!=p?p:"start"}):S+z$1(r.sizeTree,v)[1]>l+o&&(g=c({},h,{behavior:f,align:null!=p?p:"end"})),g?u&&handleNext(pipe(d,skip(1),filter(function(t){return !1===t})),u):u&&u(),g}),filter(function(t){return null!==t})),f),{scrollIntoView:p}},tup(ot$1,y,lt$1,yt$1,S),{singleton:!0}),Ut$1=["listState","topItemsIndexes"],At$1=system(function(t){return c({},t[0],t[1],t[2],t[3],t[4],t[5],t[6],t[7],t[8])},tup(Tt$1,Ht$1,mt$1,Et$1,Lt$1,Ft$1,Pt$1,Ot$1,Vt$1)),Wt$1=system(function(t){var n=t[0],r=n.totalCount,o=n.sizeRanges,i=n.fixedItemSize,a=n.defaultItemSize,l=n.trackItemSizes,s=n.itemSize,u=n.data,d=n.firstItemIndex,f=n.groupIndices,p=n.statefulTotalCount,h=n.gap,g=t[1],v=g.initialTopMostItemIndex,S=g.scrolledToInitialItem,I=t[2],C=t[3],T=t[4],w=T.listState,x=T.topItemsIndexes,b=m(T,Ut$1),y=t[5].scrollToIndex,H=t[7].topItemCount,E=t[8].groupCounts,R=t[9],L=t[10];return connect(b.rangeChanged,R.scrollSeekRangeChanged),connect(pipe(R.windowViewportRect,map(function(t){return t.visibleHeight})),I.viewportHeight),c({totalCount:r,data:u,firstItemIndex:d,sizeRanges:o,initialTopMostItemIndex:v,scrolledToInitialItem:S,topItemsIndexes:x,topItemCount:H,groupCounts:E,fixedItemHeight:i,defaultItemHeight:a,gap:h},C,{statefulTotalCount:p,listState:w,scrollToIndex:y,trackItemSizes:l,itemSize:s,groupIndices:f},b,R,I,L)},tup(ot$1,dt$1,y,pt$1,yt$1,lt$1,Bt$1,Rt$1,gt$1,At$1,S)),Nt$1=kt$1(function(){if("undefined"==typeof document)return "sticky";var t=document.createElement("div");return t.style.position="-webkit-sticky","-webkit-sticky"===t.style.position?"-webkit-sticky":"sticky"});function Dt$1(t,e){var n=React.useRef(null),r=React.useCallback(function(r){if(null!==r&&r.offsetParent){var o,i,a=r.getBoundingClientRect(),l=a.width;if(e){var s=e.getBoundingClientRect(),u=a.top-s.top;o=s.height-Math.max(0,u),i=u+e.scrollTop;}else o=window.innerHeight-Math.max(0,a.top),i=a.top+window.pageYOffset;n.current={offsetTop:i,visibleHeight:o,visibleWidth:l},t(n.current);}},[t,e]),l=I(r),s=l.callbackRef,u=l.ref,c=React.useCallback(function(){r(u.current);},[r,u]);return React.useEffect(function(){if(e){e.addEventListener("scroll",c);var t=new ResizeObserver(c);return t.observe(e),function(){e.removeEventListener("scroll",c),t.unobserve(e);}}return window.addEventListener("scroll",c),window.addEventListener("resize",c),function(){window.removeEventListener("scroll",c),window.removeEventListener("resize",c);}},[c,e]),s}var Gt$1=React__namespace.createContext(void 0),_t$1=["placeholder"],jt$1=["style","children"],Kt$1=["style","children"];function Yt$1(t){return t}var qt$1=system(function(){var t=statefulStream(function(t){return "Item "+t}),n=statefulStream(null),r=statefulStream(function(t){return "Group "+t}),o=statefulStream({}),i=statefulStream(Yt$1),a=statefulStream("div"),l=statefulStream(noop),s=function(t,n){return void 0===n&&(n=null),statefulStreamFromEmitter(pipe(o,map(function(e){return e[t]}),distinctUntilChanged()),n)};return {context:n,itemContent:t,groupContent:r,components:o,computeItemKey:i,headerFooterTag:a,scrollerRef:l,FooterComponent:s("Footer"),HeaderComponent:s("Header"),TopItemListComponent:s("TopItemList"),ListComponent:s("List","div"),ItemComponent:s("Item","div"),GroupComponent:s("Group","div"),ScrollerComponent:s("Scroller","div"),EmptyPlaceholder:s("EmptyPlaceholder"),ScrollSeekPlaceholder:s("ScrollSeekPlaceholder")}});function Zt$1(t,n){var r=stream();return subscribe(r,function(){return console.warn("react-virtuoso: You are using a deprecated property. "+n,"color: red;","color: inherit;","color: blue;")}),connect(r,t),r}var Jt$1=system(function(t){var n=t[0],r=t[1],o={item:Zt$1(r.itemContent,"Rename the %citem%c prop to %citemContent."),group:Zt$1(r.groupContent,"Rename the %cgroup%c prop to %cgroupContent."),topItems:Zt$1(n.topItemCount,"Rename the %ctopItems%c prop to %ctopItemCount."),itemHeight:Zt$1(n.fixedItemHeight,"Rename the %citemHeight%c prop to %cfixedItemHeight."),scrollingStateChange:Zt$1(n.isScrolling,"Rename the %cscrollingStateChange%c prop to %cisScrolling."),adjustForPrependedItems:stream(),maxHeightCacheSize:stream(),footer:stream(),header:stream(),HeaderContainer:stream(),FooterContainer:stream(),ItemContainer:stream(),ScrollContainer:stream(),GroupContainer:stream(),ListContainer:stream(),emptyComponent:stream(),scrollSeek:stream()};function i(t,n,o){connect(pipe(t,withLatestFrom(r.components),map(function(t){var e,r=t[0],i=t[1];return console.warn("react-virtuoso: "+o+" property is deprecated. Pass components."+n+" instead."),c({},i,((e={})[n]=r,e))})),r.components);}return subscribe(o.adjustForPrependedItems,function(){console.warn("react-virtuoso: adjustForPrependedItems is no longer supported. Use the firstItemIndex property instead - https://virtuoso.dev/prepend-items.","color: red;","color: inherit;","color: blue;");}),subscribe(o.maxHeightCacheSize,function(){console.warn("react-virtuoso: maxHeightCacheSize is no longer necessary. Setting it has no effect - remove it from your code.");}),subscribe(o.HeaderContainer,function(){console.warn("react-virtuoso: HeaderContainer is deprecated. Use headerFooterTag if you want to change the wrapper of the header component and pass components.Header to change its contents.");}),subscribe(o.FooterContainer,function(){console.warn("react-virtuoso: FooterContainer is deprecated. Use headerFooterTag if you want to change the wrapper of the footer component and pass components.Footer to change its contents.");}),subscribe(o.scrollSeek,function(t){var o=t.placeholder,i=m(t,_t$1);console.warn("react-virtuoso: scrollSeek property is deprecated. Pass scrollSeekConfiguration and specify the placeholder in components.ScrollSeekPlaceholder instead."),publish(r.components,c({},getValue(r.components),{ScrollSeekPlaceholder:o})),publish(n.scrollSeekConfiguration,i);}),i(o.footer,"Footer","footer"),i(o.header,"Header","header"),i(o.ItemContainer,"Item","ItemContainer"),i(o.ListContainer,"List","ListContainer"),i(o.ScrollContainer,"Scroller","ScrollContainer"),i(o.emptyComponent,"EmptyPlaceholder","emptyComponent"),i(o.GroupContainer,"Group","GroupContainer"),c({},n,r,o)},tup(Wt$1,qt$1)),$t$1=function(t){return React__namespace.createElement("div",{style:{height:t.height}})},Qt$1={position:Nt$1(),zIndex:1,overflowAnchor:"none"},Xt$1={overflowAnchor:"none"},te$1=React__namespace.memo(function(t){var r=t.showTopList,o=void 0!==r&&r,i=he$1("listState"),a=pe$1("sizeRanges"),s=he$1("useWindowScroll"),u=he$1("customScrollParent"),m=pe$1("windowScrollContainerState"),d=pe$1("scrollContainerState"),f=u||s?m:d,p=he$1("itemContent"),h=he$1("context"),g=he$1("groupContent"),v=he$1("trackItemSizes"),S=he$1("itemSize"),I=he$1("log"),C=pe$1("gap"),w=T(a,S,v,o?noop:f,I,C,u).callbackRef,x=React__namespace.useState(0),b=x[0],y=x[1];ge$1("deviation",function(t){b!==t&&y(t);});var H=he$1("EmptyPlaceholder"),E=he$1("ScrollSeekPlaceholder")||$t$1,R=he$1("ListComponent"),L=he$1("ItemComponent"),k=he$1("GroupComponent"),z=he$1("computeItemKey"),B=he$1("isSeeking"),F=he$1("groupIndices").length>0,P=he$1("paddingTopAddition"),O=o?{}:{boxSizing:"border-box",paddingTop:i.offsetTop+P,paddingBottom:i.offsetBottom,marginTop:b};return !o&&0===i.totalCount&&H?React.createElement(H,oe$1(H,h)):React.createElement(R,c({},oe$1(R,h),{ref:w,style:O,"data-test-id":o?"virtuoso-top-item-list":"virtuoso-item-list"}),(o?i.topItems:i.items).map(function(t){var e=t.originalIndex,n=z(e+i.firstItemIndex,t.data,h);return B?React.createElement(E,c({},oe$1(E,h),{key:n,index:t.index,height:t.size,type:t.type||"item"},"group"===t.type?{}:{groupIndex:t.groupIndex})):"group"===t.type?React.createElement(k,c({},oe$1(k,h),{key:n,"data-index":e,"data-known-size":t.size,"data-item-index":t.index,style:Qt$1}),g(t.index)):React.createElement(L,c({},oe$1(L,h),{key:n,"data-index":e,"data-known-size":t.size,"data-item-index":t.index,"data-item-group-index":t.groupIndex,style:Xt$1}),F?p(t.index,t.groupIndex,t.data,h):p(t.index,t.data,h))}))}),ee$1={height:"100%",outline:"none",overflowY:"auto",position:"relative",WebkitOverflowScrolling:"touch"},ne$1={width:"100%",height:"100%",position:"absolute",top:0},re$1={width:"100%",position:Nt$1(),top:0};function oe$1(t,e){if("string"!=typeof t)return {context:e}}var ie$1=React__namespace.memo(function(){var t=he$1("HeaderComponent"),e=pe$1("headerHeight"),n=he$1("headerFooterTag"),r=C(function(t){return e(w(t,"height"))}),o=he$1("context");return t?React.createElement(n,{ref:r},React.createElement(t,oe$1(t,o))):null}),ae$1=React__namespace.memo(function(){var t=he$1("FooterComponent"),e=pe$1("footerHeight"),n=he$1("headerFooterTag"),r=C(function(t){return e(w(t,"height"))}),o=he$1("context");return t?React.createElement(n,{ref:r},React.createElement(t,oe$1(t,o))):null});function le$1(t){var e=t.usePublisher,r=t.useEmitter,o=t.useEmitterValue;return React__namespace.memo(function(t){var n=t.style,i=t.children,a=m(t,jt$1),s=e("scrollContainerState"),u=o("ScrollerComponent"),d=e("smoothScrollTargetReached"),f=o("scrollerRef"),p=o("context"),h=b(s,d,u,f),g=h.scrollerRef,v=h.scrollByCallback;return r("scrollTo",h.scrollToCallback),r("scrollBy",v),React.createElement(u,c({ref:g,style:c({},ee$1,n),"data-test-id":"virtuoso-scroller","data-virtuoso-scroller":!0,tabIndex:0},a,oe$1(u,p)),i)})}function se$1(t){var r=t.usePublisher,o=t.useEmitter,i=t.useEmitterValue;return React__namespace.memo(function(t){var n=t.style,a=t.children,s=m(t,Kt$1),u=r("windowScrollContainerState"),d=i("ScrollerComponent"),f=r("smoothScrollTargetReached"),p=i("totalListHeight"),h=i("deviation"),v=i("customScrollParent"),S=i("context"),I=b(u,f,d,noop,v),C=I.scrollerRef,T=I.scrollByCallback,w=I.scrollToCallback;return g(function(){return C.current=v||window,function(){C.current=null;}},[C,v]),o("windowScrollTo",w),o("scrollBy",T),React.createElement(d,c({style:c({position:"relative"},n,0!==p?{height:p+h}:{}),"data-virtuoso-scroller":!0},s,oe$1(d,S)),a)})}var ue$1=function(t){var r=t.children,o=React.useContext(Gt$1),i=pe$1("viewportHeight"),a=pe$1("fixedItemHeight"),l=C(compose(i,function(t){return w(t,"height")}));return React__namespace.useEffect(function(){o&&(i(o.viewportHeight),a(o.itemHeight));},[o,i,a]),React__namespace.createElement("div",{style:ne$1,ref:l,"data-viewport-type":"element"},r)},ce$1=function(t){var e=t.children,r=React.useContext(Gt$1),o=pe$1("windowViewportRect"),i=pe$1("fixedItemHeight"),a=he$1("customScrollParent"),l=Dt$1(o,a);return React__namespace.useEffect(function(){r&&(i(r.itemHeight),o({offsetTop:0,visibleHeight:r.viewportHeight,visibleWidth:100}));},[r,o,i]),React__namespace.createElement("div",{ref:l,style:ne$1,"data-viewport-type":"window"},e)},me$1=function(t){var e=t.children,n=he$1("TopItemListComponent"),r=he$1("headerHeight"),o=c({},re$1,{marginTop:r+"px"}),i=he$1("context");return React.createElement(n||"div",{style:o,context:i},e)},de$1=systemToComponent(Jt$1,{required:{},optional:{context:"context",followOutput:"followOutput",firstItemIndex:"firstItemIndex",itemContent:"itemContent",groupContent:"groupContent",overscan:"overscan",increaseViewportBy:"increaseViewportBy",totalCount:"totalCount",topItemCount:"topItemCount",initialTopMostItemIndex:"initialTopMostItemIndex",components:"components",groupCounts:"groupCounts",atBottomThreshold:"atBottomThreshold",atTopThreshold:"atTopThreshold",computeItemKey:"computeItemKey",defaultItemHeight:"defaultItemHeight",fixedItemHeight:"fixedItemHeight",itemSize:"itemSize",scrollSeekConfiguration:"scrollSeekConfiguration",headerFooterTag:"headerFooterTag",data:"data",initialItemCount:"initialItemCount",initialScrollTop:"initialScrollTop",alignToBottom:"alignToBottom",useWindowScroll:"useWindowScroll",customScrollParent:"customScrollParent",scrollerRef:"scrollerRef",logLevel:"logLevel",react18ConcurrentRendering:"react18ConcurrentRendering",item:"item",group:"group",topItems:"topItems",itemHeight:"itemHeight",scrollingStateChange:"scrollingStateChange",maxHeightCacheSize:"maxHeightCacheSize",footer:"footer",header:"header",ItemContainer:"ItemContainer",ScrollContainer:"ScrollContainer",ListContainer:"ListContainer",GroupContainer:"GroupContainer",emptyComponent:"emptyComponent",HeaderContainer:"HeaderContainer",FooterContainer:"FooterContainer",scrollSeek:"scrollSeek"},methods:{scrollToIndex:"scrollToIndex",scrollIntoView:"scrollIntoView",scrollTo:"scrollTo",scrollBy:"scrollBy",adjustForPrependedItems:"adjustForPrependedItems",autoscrollToBottom:"autoscrollToBottom"},events:{isScrolling:"isScrolling",endReached:"endReached",startReached:"startReached",rangeChanged:"rangeChanged",atBottomStateChange:"atBottomStateChange",atTopStateChange:"atTopStateChange",totalListHeightChanged:"totalListHeightChanged",itemsRendered:"itemsRendered",groupIndices:"groupIndices"}},React__namespace.memo(function(t){var e=he$1("useWindowScroll"),r=he$1("topItemsIndexes").length>0,o=he$1("customScrollParent"),i=o||e?ce$1:ue$1;return React__namespace.createElement(o||e?Se$1:ve$1,c({},t),React__namespace.createElement(i,null,React__namespace.createElement(ie$1,null),React__namespace.createElement(te$1,null),React__namespace.createElement(ae$1,null)),r&&React__namespace.createElement(me$1,null,React__namespace.createElement(te$1,{showTopList:!0})))})),fe$1=de$1.Component,pe$1=de$1.usePublisher,he$1=de$1.useEmitterValue,ge$1=de$1.useEmitter,ve$1=le$1({usePublisher:pe$1,useEmitterValue:he$1,useEmitter:ge$1}),Se$1=se$1({usePublisher:pe$1,useEmitterValue:he$1,useEmitter:ge$1}),Ie$1={items:[],offsetBottom:0,offsetTop:0,top:0,bottom:0,itemHeight:0,itemWidth:0},Ce$1={items:[{index:0}],offsetBottom:0,offsetTop:0,top:0,bottom:0,itemHeight:0,itemWidth:0},Te$1=Math.round,we$1=Math.ceil,xe$1=Math.floor,be$1=Math.min,ye$1=Math.max;function He$1(t,e){return Array.from({length:e-t+1}).map(function(e,n){return {index:n+t}})}function Ee$1(t,e){return t&&t.column===e.column&&t.row===e.row}var Re$1=system(function(t){var n=t[0],r=n.overscan,o=n.visibleRange,i=n.listBoundary,a=t[1],l=a.scrollTop,s=a.viewportHeight,u=a.scrollBy,m=a.scrollTo,d=a.smoothScrollTargetReached,f=a.scrollContainerState,p=t[2],h=t[3],g=t[4],v=g.propsReady,S=g.didMount,I=t[5],C=I.windowViewportRect,T=I.windowScrollTo,w=I.useWindowScroll,x=I.customScrollParent,b=I.windowScrollContainerState,y=t[6],H=statefulStream(0),E=statefulStream(0),R=statefulStream(Ie$1),L=statefulStream({height:0,width:0}),k=statefulStream({height:0,width:0}),z=stream(),B=stream(),F=statefulStream(0),P=statefulStream({row:0,column:0});connect(pipe(S,withLatestFrom(E),filter(function(t){return 0!==t[1]}),map(function(t){return {items:He$1(0,t[1]-1),top:0,bottom:0,offsetBottom:0,offsetTop:0,itemHeight:0,itemWidth:0}})),R),connect(pipe(combineLatest(duc(H),o,duc(P,Ee$1),duc(k,function(t,e){return t&&t.width===e.width&&t.height===e.height})),withLatestFrom(L),map(function(t){var e=t[0],n=e[0],r=e[1],o=r[0],i=r[1],a=e[2],l=e[3],s=t[1],u=a.row,c=l.height,m=l.width,d=s.width;if(0===n||0===d)return Ie$1;if(0===m)return Ce$1;var f=ze$1(d,m,a.column),p=f*xe$1((o+u)/(c+u)),h=f*we$1((i+u)/(c+u))-1;h=ye$1(0,be$1(n-1,h));var g=He$1(p=be$1(h,ye$1(0,p)),h),v=Le$1(s,a,l,g),S=v.top,I=v.bottom,C=we$1(n/f);return {items:g,offsetTop:S,offsetBottom:C*c+(C-1)*u-I,top:S,bottom:I,itemHeight:c,itemWidth:m}})),R),connect(pipe(L,map(function(t){return t.height})),s),connect(pipe(combineLatest(L,k,R,P),map(function(t){var e=Le$1(t[0],t[3],t[1],t[2].items);return [e.top,e.bottom]}),distinctUntilChanged(vt$1)),i);var O=streamFromEmitter(pipe(duc(R),filter(function(t){return t.items.length>0}),withLatestFrom(H),filter(function(t){var e=t[0].items;return e[e.length-1].index===t[1]-1}),map(function(t){return t[1]-1}),distinctUntilChanged())),M=streamFromEmitter(pipe(duc(R),filter(function(t){var e=t.items;return e.length>0&&0===e[0].index}),mapTo(0),distinctUntilChanged())),V=streamFromEmitter(pipe(duc(R),filter(function(t){return t.items.length>0}),map(function(t){var e=t.items;return {startIndex:e[0].index,endIndex:e[e.length-1].index}}),distinctUntilChanged(St$1)));connect(V,h.scrollSeekRangeChanged),connect(pipe(z,withLatestFrom(L,k,H,P),map(function(t){var e=t[1],n=t[2],r=t[3],o=t[4],i=at$1(t[0]),a=i.align,l=i.behavior,s=i.offset,u=i.index;"LAST"===u&&(u=r-1);var c=ke$1(e,o,n,u=ye$1(0,u,be$1(r-1,u)));return "end"===a?c=Te$1(c-e.height+n.height):"center"===a&&(c=Te$1(c-e.height/2+n.height/2)),s&&(c+=s),{top:c,behavior:l}})),m);var U=statefulStreamFromEmitter(pipe(R,map(function(t){return t.offsetBottom+t.bottom})),0);return connect(pipe(C,map(function(t){return {width:t.visibleWidth,height:t.visibleHeight}})),L),c({totalCount:H,viewportDimensions:L,itemDimensions:k,scrollTop:l,scrollHeight:B,overscan:r,scrollBy:u,scrollTo:m,scrollToIndex:z,smoothScrollTargetReached:d,windowViewportRect:C,windowScrollTo:T,useWindowScroll:w,customScrollParent:x,windowScrollContainerState:b,deviation:F,scrollContainerState:f,initialItemCount:E,gap:P},h,{gridState:R,totalListHeight:U},p,{startReached:M,endReached:O,rangeChanged:V,propsReady:v},y)},tup(Tt$1,y,ct$1,Et$1,mt$1,Ot$1,S));function Le$1(t,e,n,r){var o=n.height;return void 0===o||0===r.length?{top:0,bottom:0}:{top:ke$1(t,e,n,r[0].index),bottom:ke$1(t,e,n,r[r.length-1].index)+o}}function ke$1(t,e,n,r){var o=ze$1(t.width,n.width,e.column),i=xe$1(r/o),a=i*n.height+ye$1(0,i-1)*e.row;return a>0?a+e.row:a}function ze$1(t,e,n){return ye$1(1,xe$1((t+n)/(e+n)))}var Be$1=["placeholder"],Fe$1=system(function(){var t=statefulStream(function(t){return "Item "+t}),n=statefulStream({}),r=statefulStream(null),o=statefulStream("virtuoso-grid-item"),i=statefulStream("virtuoso-grid-list"),a=statefulStream(Yt$1),l=statefulStream(noop),s=function(t,r){return void 0===r&&(r=null),statefulStreamFromEmitter(pipe(n,map(function(e){return e[t]}),distinctUntilChanged()),r)};return {context:r,itemContent:t,components:n,computeItemKey:a,itemClassName:o,listClassName:i,scrollerRef:l,ListComponent:s("List","div"),ItemComponent:s("Item","div"),ScrollerComponent:s("Scroller","div"),ScrollSeekPlaceholder:s("ScrollSeekPlaceholder","div")}}),Pe$1=system(function(t){var n=t[0],r=t[1],o={item:Zt$1(r.itemContent,"Rename the %citem%c prop to %citemContent."),ItemContainer:stream(),ScrollContainer:stream(),ListContainer:stream(),emptyComponent:stream(),scrollSeek:stream()};function i(t,n,o){connect(pipe(t,withLatestFrom(r.components),map(function(t){var e,r=t[0],i=t[1];return console.warn("react-virtuoso: "+o+" property is deprecated. Pass components."+n+" instead."),c({},i,((e={})[n]=r,e))})),r.components);}return subscribe(o.scrollSeek,function(t){var o=t.placeholder,i=m(t,Be$1);console.warn("react-virtuoso: scrollSeek property is deprecated. Pass scrollSeekConfiguration and specify the placeholder in components.ScrollSeekPlaceholder instead."),publish(r.components,c({},getValue(r.components),{ScrollSeekPlaceholder:o})),publish(n.scrollSeekConfiguration,i);}),i(o.ItemContainer,"Item","ItemContainer"),i(o.ListContainer,"List","ListContainer"),i(o.ScrollContainer,"Scroller","ScrollContainer"),c({},n,r,o)},tup(Re$1,Fe$1)),Oe$1=React__namespace.memo(function(){var t=Ne$1("gridState"),e=Ne$1("listClassName"),n=Ne$1("itemClassName"),r=Ne$1("itemContent"),o=Ne$1("computeItemKey"),i=Ne$1("isSeeking"),a=We$1("scrollHeight"),s=Ne$1("ItemComponent"),u=Ne$1("ListComponent"),m=Ne$1("ScrollSeekPlaceholder"),d=Ne$1("context"),f=We$1("itemDimensions"),p=We$1("gap"),h=Ne$1("log"),g=C(function(t){a(t.parentElement.parentElement.scrollHeight);var e=t.firstChild;e&&f(e.getBoundingClientRect()),p({row:je$1("row-gap",getComputedStyle(t).rowGap,h),column:je$1("column-gap",getComputedStyle(t).columnGap,h)});});return React.createElement(u,c({ref:g,className:e},oe$1(u,d),{style:{paddingTop:t.offsetTop,paddingBottom:t.offsetBottom}}),t.items.map(function(e){var a=o(e.index);return i?React.createElement(m,c({key:a},oe$1(m,d),{index:e.index,height:t.itemHeight,width:t.itemWidth})):React.createElement(s,c({},oe$1(s,d),{className:n,"data-index":e.index,key:a}),r(e.index,d))}))}),Me$1=function(t){var e=t.children,r=We$1("viewportDimensions"),o=C(function(t){r(t.getBoundingClientRect());});return React__namespace.createElement("div",{style:ne$1,ref:o},e)},Ve$1=function(t){var e=t.children,r=Dt$1(We$1("windowViewportRect"),Ne$1("customScrollParent"));return React__namespace.createElement("div",{ref:r,style:ne$1},e)},Ue$1=systemToComponent(Pe$1,{optional:{context:"context",totalCount:"totalCount",overscan:"overscan",itemContent:"itemContent",components:"components",computeItemKey:"computeItemKey",initialItemCount:"initialItemCount",scrollSeekConfiguration:"scrollSeekConfiguration",listClassName:"listClassName",itemClassName:"itemClassName",useWindowScroll:"useWindowScroll",customScrollParent:"customScrollParent",scrollerRef:"scrollerRef",item:"item",ItemContainer:"ItemContainer",ScrollContainer:"ScrollContainer",ListContainer:"ListContainer",scrollSeek:"scrollSeek"},methods:{scrollTo:"scrollTo",scrollBy:"scrollBy",scrollToIndex:"scrollToIndex"},events:{isScrolling:"isScrolling",endReached:"endReached",startReached:"startReached",rangeChanged:"rangeChanged",atBottomStateChange:"atBottomStateChange",atTopStateChange:"atTopStateChange"}},React__namespace.memo(function(t){var e=c({},t),r=Ne$1("useWindowScroll"),o=Ne$1("customScrollParent"),i=o||r?Ve$1:Me$1;return React__namespace.createElement(o||r?_e$1:Ge$1,c({},e),React__namespace.createElement(i,null,React__namespace.createElement(Oe$1,null)))})),We$1=Ue$1.usePublisher,Ne$1=Ue$1.useEmitterValue,De$1=Ue$1.useEmitter,Ge$1=le$1({usePublisher:We$1,useEmitterValue:Ne$1,useEmitter:De$1}),_e$1=se$1({usePublisher:We$1,useEmitterValue:Ne$1,useEmitter:De$1});function je$1(t,e,n){return "normal"===e||null!=e&&e.endsWith("px")||n(t+" was not resolved to pixel value correctly",e,h.WARN),"normal"===e?0:parseInt(null!=e?e:"0",10)}var Ke$1=system(function(){var t=statefulStream(function(t){return React__namespace.createElement("td",null,"Item $",t)}),r=statefulStream(null),o=statefulStream(null),i=statefulStream({}),a=statefulStream(Yt$1),l=statefulStream(noop),s=function(t,n){return void 0===n&&(n=null),statefulStreamFromEmitter(pipe(i,map(function(e){return e[t]}),distinctUntilChanged()),n)};return {context:r,itemContent:t,fixedHeaderContent:o,components:i,computeItemKey:a,scrollerRef:l,TableComponent:s("Table","table"),TableHeadComponent:s("TableHead","thead"),TableBodyComponent:s("TableBody","tbody"),TableRowComponent:s("TableRow","tr"),ScrollerComponent:s("Scroller","div"),EmptyPlaceholder:s("EmptyPlaceholder"),ScrollSeekPlaceholder:s("ScrollSeekPlaceholder"),FillerRow:s("FillerRow")}}),Ye$1=system(function(t){return c({},t[0],t[1])},tup(Wt$1,Ke$1)),qe$1=function(t){return React__namespace.createElement("tr",null,React__namespace.createElement("td",{style:{height:t.height}}))},Ze$1=function(t){return React__namespace.createElement("tr",null,React__namespace.createElement("td",{style:{height:t.height,padding:0,border:0}}))},Je$1=React__namespace.memo(function(){var t=nn$1("listState"),e=en$1("sizeRanges"),r=nn$1("useWindowScroll"),o=nn$1("customScrollParent"),i=en$1("windowScrollContainerState"),a=en$1("scrollContainerState"),s=o||r?i:a,u=nn$1("itemContent"),m=nn$1("trackItemSizes"),d=T(e,nn$1("itemSize"),m,s,nn$1("log"),void 0,o),f=d.callbackRef,p=d.ref,h=React__namespace.useState(0),g=h[0],v=h[1];rn$1("deviation",function(t){g!==t&&(p.current.style.marginTop=t+"px",v(t));});var S=nn$1("EmptyPlaceholder"),I=nn$1("ScrollSeekPlaceholder")||qe$1,C=nn$1("FillerRow")||Ze$1,w=nn$1("TableBodyComponent"),x=nn$1("TableRowComponent"),b=nn$1("computeItemKey"),y=nn$1("isSeeking"),H=nn$1("paddingTopAddition"),E=nn$1("firstItemIndex"),R=nn$1("statefulTotalCount"),L=nn$1("context");if(0===R&&S)return React.createElement(S,oe$1(S,L));var k=t.offsetTop+H+g,z=t.offsetBottom,B=k>0?React__namespace.createElement(C,{height:k,key:"padding-top"}):null,F=z>0?React__namespace.createElement(C,{height:z,key:"padding-bottom"}):null,P=t.items.map(function(t){var e=t.originalIndex,n=b(e+E,t.data,L);return y?React.createElement(I,c({},oe$1(I,L),{key:n,index:t.index,height:t.size,type:t.type||"item"})):React.createElement(x,c({},oe$1(x,L),{key:n,"data-index":e,"data-known-size":t.size,"data-item-index":t.index,style:{overflowAnchor:"none"}}),u(t.index,t.data,L))});return React.createElement(w,c({ref:f,"data-test-id":"virtuoso-item-list"},oe$1(w,L)),[B].concat(P,[F]))}),$e=function(t){var r=t.children,o=React.useContext(Gt$1),i=en$1("viewportHeight"),a=en$1("fixedItemHeight"),l=C(compose(i,function(t){return w(t,"height")}));return React__namespace.useEffect(function(){o&&(i(o.viewportHeight),a(o.itemHeight));},[o,i,a]),React__namespace.createElement("div",{style:ne$1,ref:l,"data-viewport-type":"element"},r)},Qe$1=function(t){var e=t.children,r=React.useContext(Gt$1),o=en$1("windowViewportRect"),i=en$1("fixedItemHeight"),a=nn$1("customScrollParent"),l=Dt$1(o,a);return React__namespace.useEffect(function(){r&&(i(r.itemHeight),o({offsetTop:0,visibleHeight:r.viewportHeight,visibleWidth:100}));},[r,o,i]),React__namespace.createElement("div",{ref:l,style:ne$1,"data-viewport-type":"window"},e)},Xe$1=systemToComponent(Ye$1,{required:{},optional:{context:"context",followOutput:"followOutput",firstItemIndex:"firstItemIndex",itemContent:"itemContent",fixedHeaderContent:"fixedHeaderContent",overscan:"overscan",increaseViewportBy:"increaseViewportBy",totalCount:"totalCount",topItemCount:"topItemCount",initialTopMostItemIndex:"initialTopMostItemIndex",components:"components",groupCounts:"groupCounts",atBottomThreshold:"atBottomThreshold",atTopThreshold:"atTopThreshold",computeItemKey:"computeItemKey",defaultItemHeight:"defaultItemHeight",fixedItemHeight:"fixedItemHeight",itemSize:"itemSize",scrollSeekConfiguration:"scrollSeekConfiguration",data:"data",initialItemCount:"initialItemCount",initialScrollTop:"initialScrollTop",alignToBottom:"alignToBottom",useWindowScroll:"useWindowScroll",customScrollParent:"customScrollParent",scrollerRef:"scrollerRef",logLevel:"logLevel",react18ConcurrentRendering:"react18ConcurrentRendering"},methods:{scrollToIndex:"scrollToIndex",scrollIntoView:"scrollIntoView",scrollTo:"scrollTo",scrollBy:"scrollBy"},events:{isScrolling:"isScrolling",endReached:"endReached",startReached:"startReached",rangeChanged:"rangeChanged",atBottomStateChange:"atBottomStateChange",atTopStateChange:"atTopStateChange",totalListHeightChanged:"totalListHeightChanged",itemsRendered:"itemsRendered",groupIndices:"groupIndices"}},React__namespace.memo(function(t){var r=nn$1("useWindowScroll"),o=nn$1("customScrollParent"),i=en$1("fixedHeaderHeight"),a=nn$1("fixedHeaderContent"),l=nn$1("context"),s=C(compose(i,function(t){return w(t,"height")})),u=o||r?an$1:on$1,m=o||r?Qe$1:$e,d=nn$1("TableComponent"),f=nn$1("TableHeadComponent"),p=a?React__namespace.createElement(f,c({key:"TableHead",style:{zIndex:1,position:"sticky",top:0},ref:s},oe$1(f,l)),a()):null;return React__namespace.createElement(u,c({},t),React__namespace.createElement(m,null,React__namespace.createElement(d,c({style:{borderSpacing:0}},oe$1(d,l)),[p,React__namespace.createElement(Je$1,{key:"TableBody"})])))})),en$1=Xe$1.usePublisher,nn$1=Xe$1.useEmitterValue,rn$1=Xe$1.useEmitter,on$1=le$1({usePublisher:en$1,useEmitterValue:nn$1,useEmitter:rn$1}),an$1=se$1({usePublisher:en$1,useEmitterValue:nn$1,useEmitter:rn$1}),ln$1=fe$1;
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};var useGiphyPreview = function (separateGiphyPreview) {
         var _a = React.useState(), giphyPreviewMessage = _a[0], setGiphyPreviewMessage = _a[1];
@@ -52098,7 +51886,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
         return (React__default["default"].createElement(React__default["default"].Fragment, null,
             React__default["default"].createElement(MessageListMainPanel, null,
                 React__default["default"].createElement("div", { className: (customClasses === null || customClasses === void 0 ? void 0 : customClasses.virtualizedMessageList) || 'str-chat__virtual-list' },
-                    React__default["default"].createElement(on$1, __assign$8({ atBottomStateChange: atBottomStateChange, atBottomThreshold: 200, className: 'str-chat__message-list-scroll', components: virtuosoComponents, computeItemKey: function (index) {
+                    React__default["default"].createElement(ln$1, __assign$8({ atBottomStateChange: atBottomStateChange, atBottomThreshold: 200, className: 'str-chat__message-list-scroll', components: virtuosoComponents, computeItemKey: function (index) {
                             return processedMessages[numItemsPrepended + index - PREPEND_OFFSET].id;
                         }, endReached: endReached, firstItemIndex: PREPEND_OFFSET - numItemsPrepended, followOutput: followOutput, increaseViewportBy: { bottom: 200, top: 0 }, initialTopMostItemIndex: calculateInitialTopMostItemIndex(processedMessages, highlightedMessageId), itemContent: function (i) { return messageRenderer(processedMessages, i); }, itemSize: fractionalItemSize, key: messageSetKey, overscan: overscan, ref: virtuoso, startReached: startReached, style: { overflowX: 'hidden' }, totalCount: processedMessages.length }, additionalVirtuosoProps, (scrollSeekPlaceHolder ? { scrollSeek: scrollSeekPlaceHolder } : {}), (defaultItemHeight ? { defaultItemHeight: defaultItemHeight } : {}))))),
             React__default["default"].createElement(MessageListNotifications$1, { hasNewMessages: newMessagesNotification, isMessageListScrolledToBottom: isMessageListScrolledToBottom, isNotAtLatestMessageSet: hasMoreNewer, MessageNotification: MessageNotification$1, notifications: notifications, scrollToBottom: scrollToBottom, threadList: threadList }),
@@ -52215,6 +52003,52 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
+
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
+    var _extends_1 = createCommonjsModule$1(function (module) {
+    function _extends() {
+      module.exports = _extends = Object.assign ? Object.assign.bind() : function (target) {
+        for (var i = 1; i < arguments.length; i++) {
+          var source = arguments[i];
+
+          for (var key in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+
+        return target;
+      }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+      return _extends.apply(this, arguments);
+    }
+
+    module.exports = _extends, module.exports.__esModule = true, module.exports["default"] = module.exports;
+    });
+
+    unwrapExports(_extends_1);
+
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
+    var defineProperty = createCommonjsModule$1(function (module) {
+    function _defineProperty(obj, key, value) {
+      if (key in obj) {
+        Object.defineProperty(obj, key, {
+          value: value,
+          enumerable: true,
+          configurable: true,
+          writable: true
+        });
+      } else {
+        obj[key] = value;
+      }
+
+      return obj;
+    }
+
+    module.exports = _defineProperty, module.exports.__esModule = true, module.exports["default"] = module.exports;
+    });
+
+    unwrapExports(defineProperty);
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
     var sharedProps = createCommonjsModule$1(function (module, exports) {
@@ -52372,7 +52206,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
     var _extends2 = interopRequireDefault(_extends_1);
 
-    var _defineProperty2 = interopRequireDefault(defineProperty$1);
+    var _defineProperty2 = interopRequireDefault(defineProperty);
 
     var _react = interopRequireDefault(React__default["default"]);
 
@@ -52625,7 +52459,7 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
     var interopRequireWildcard = createCommonjsModule$1(function (module) {
-    var _typeof = _typeof_1["default"];
+    var _typeof = _typeof_1$1["default"];
 
     function _getRequireWildcardCache(nodeInterop) {
       if (typeof WeakMap !== "function") return null;
@@ -52681,6 +52515,96 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     });
 
     unwrapExports(interopRequireWildcard);
+
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
+    var assertThisInitialized = createCommonjsModule$1(function (module) {
+    function _assertThisInitialized(self) {
+      if (self === void 0) {
+        throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+      }
+
+      return self;
+    }
+
+    module.exports = _assertThisInitialized, module.exports.__esModule = true, module.exports["default"] = module.exports;
+    });
+
+    unwrapExports(assertThisInitialized);
+
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
+    var possibleConstructorReturn = createCommonjsModule$1(function (module) {
+    var _typeof = _typeof_1$1["default"];
+
+
+
+    function _possibleConstructorReturn(self, call) {
+      if (call && (_typeof(call) === "object" || typeof call === "function")) {
+        return call;
+      } else if (call !== void 0) {
+        throw new TypeError("Derived constructors may only return object or undefined");
+      }
+
+      return assertThisInitialized(self);
+    }
+
+    module.exports = _possibleConstructorReturn, module.exports.__esModule = true, module.exports["default"] = module.exports;
+    });
+
+    unwrapExports(possibleConstructorReturn);
+
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
+    var getPrototypeOf = createCommonjsModule$1(function (module) {
+    function _getPrototypeOf(o) {
+      module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) {
+        return o.__proto__ || Object.getPrototypeOf(o);
+      }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+      return _getPrototypeOf(o);
+    }
+
+    module.exports = _getPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
+    });
+
+    unwrapExports(getPrototypeOf);
+
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
+    var setPrototypeOf = createCommonjsModule$1(function (module) {
+    function _setPrototypeOf(o, p) {
+      module.exports = _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) {
+        o.__proto__ = p;
+        return o;
+      }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+      return _setPrototypeOf(o, p);
+    }
+
+    module.exports = _setPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
+    });
+
+    unwrapExports(setPrototypeOf);
+
+    window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
+    var inherits = createCommonjsModule$1(function (module) {
+    function _inherits(subClass, superClass) {
+      if (typeof superClass !== "function" && superClass !== null) {
+        throw new TypeError("Super expression must either be null or a function");
+      }
+
+      subClass.prototype = Object.create(superClass && superClass.prototype, {
+        constructor: {
+          value: subClass,
+          writable: true,
+          configurable: true
+        }
+      });
+      Object.defineProperty(subClass, "prototype", {
+        writable: false
+      });
+      if (superClass) setPrototypeOf(subClass, superClass);
+    }
+
+    module.exports = _inherits, module.exports.__esModule = true, module.exports["default"] = module.exports;
+    });
+
+    unwrapExports(inherits);
 
     window.StreamChat.StreamChat=StreamChat;window.StreamChat.logChatPromiseExecution=logChatPromiseExecution;window.StreamChat.Channel=Channel;window.ICAL=window.ICAL||{};
     var svgs = createCommonjsModule$1(function (module, exports) {
@@ -52952,9 +52876,9 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     });
     exports["default"] = void 0;
 
-    var _classCallCheck2 = interopRequireDefault(classCallCheck);
+    var _classCallCheck2 = interopRequireDefault(classCallCheck$1);
 
-    var _createClass2 = interopRequireDefault(createClass);
+    var _createClass2 = interopRequireDefault(createClass$1);
 
     var _possibleConstructorReturn2 = interopRequireDefault(possibleConstructorReturn);
 
@@ -53074,11 +52998,11 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     });
     exports["default"] = void 0;
 
-    var _defineProperty2 = interopRequireDefault(defineProperty$1);
+    var _defineProperty2 = interopRequireDefault(defineProperty);
 
-    var _classCallCheck2 = interopRequireDefault(classCallCheck);
+    var _classCallCheck2 = interopRequireDefault(classCallCheck$1);
 
-    var _createClass2 = interopRequireDefault(createClass);
+    var _createClass2 = interopRequireDefault(createClass$1);
 
     var _possibleConstructorReturn2 = interopRequireDefault(possibleConstructorReturn);
 
@@ -53157,11 +53081,11 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     });
     exports["default"] = void 0;
 
-    var _defineProperty2 = interopRequireDefault(defineProperty$1);
+    var _defineProperty2 = interopRequireDefault(defineProperty);
 
-    var _classCallCheck2 = interopRequireDefault(classCallCheck);
+    var _classCallCheck2 = interopRequireDefault(classCallCheck$1);
 
-    var _createClass2 = interopRequireDefault(createClass);
+    var _createClass2 = interopRequireDefault(createClass$1);
 
     var _possibleConstructorReturn2 = interopRequireDefault(possibleConstructorReturn);
 
@@ -53458,9 +53382,9 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     });
     exports["default"] = void 0;
 
-    var _classCallCheck2 = interopRequireDefault(classCallCheck);
+    var _classCallCheck2 = interopRequireDefault(classCallCheck$1);
 
-    var _createClass2 = interopRequireDefault(createClass);
+    var _createClass2 = interopRequireDefault(createClass$1);
 
     var _possibleConstructorReturn2 = interopRequireDefault(possibleConstructorReturn);
 
@@ -53541,9 +53465,9 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     });
     exports["default"] = void 0;
 
-    var _classCallCheck2 = interopRequireDefault(classCallCheck);
+    var _classCallCheck2 = interopRequireDefault(classCallCheck$1);
 
-    var _createClass2 = interopRequireDefault(createClass);
+    var _createClass2 = interopRequireDefault(createClass$1);
 
     var _possibleConstructorReturn2 = interopRequireDefault(possibleConstructorReturn);
 
@@ -53649,9 +53573,9 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
 
     var _extends2 = interopRequireDefault(_extends_1);
 
-    var _classCallCheck2 = interopRequireDefault(classCallCheck);
+    var _classCallCheck2 = interopRequireDefault(classCallCheck$1);
 
-    var _createClass2 = interopRequireDefault(createClass);
+    var _createClass2 = interopRequireDefault(createClass$1);
 
     var _possibleConstructorReturn2 = interopRequireDefault(possibleConstructorReturn);
 
@@ -53764,11 +53688,11 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     });
     exports["default"] = void 0;
 
-    var _defineProperty2 = interopRequireDefault(defineProperty$1);
+    var _defineProperty2 = interopRequireDefault(defineProperty);
 
-    var _classCallCheck2 = interopRequireDefault(classCallCheck);
+    var _classCallCheck2 = interopRequireDefault(classCallCheck$1);
 
-    var _createClass2 = interopRequireDefault(createClass);
+    var _createClass2 = interopRequireDefault(createClass$1);
 
     var _possibleConstructorReturn2 = interopRequireDefault(possibleConstructorReturn);
 
@@ -53927,9 +53851,9 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     });
     exports["default"] = void 0;
 
-    var _classCallCheck2 = interopRequireDefault(classCallCheck);
+    var _classCallCheck2 = interopRequireDefault(classCallCheck$1);
 
-    var _createClass2 = interopRequireDefault(createClass);
+    var _createClass2 = interopRequireDefault(createClass$1);
 
     var _possibleConstructorReturn2 = interopRequireDefault(possibleConstructorReturn);
 
@@ -54097,11 +54021,11 @@ var StreamChatReact = (function (exports, React, streamChat, ReactDOM) {
     });
     exports["default"] = void 0;
 
-    var _defineProperty2 = interopRequireDefault(defineProperty$1);
+    var _defineProperty2 = interopRequireDefault(defineProperty);
 
-    var _classCallCheck2 = interopRequireDefault(classCallCheck);
+    var _classCallCheck2 = interopRequireDefault(classCallCheck$1);
 
-    var _createClass2 = interopRequireDefault(createClass);
+    var _createClass2 = interopRequireDefault(createClass$1);
 
     var _possibleConstructorReturn2 = interopRequireDefault(possibleConstructorReturn);
 

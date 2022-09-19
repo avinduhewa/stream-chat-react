@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Textarea from 'react-textarea-autosize';
+// import Textarea from 'react-textarea-autosize';
 import getCaretCoordinates from 'textarea-caret';
 import { isValidElementType } from 'react-is';
 import clsx from 'clsx';
@@ -706,7 +706,7 @@ export class ReactTextareaAutocomplete extends React.Component {
         style={containerStyle}
       >
         {this.renderSuggestionListContainer()}
-        <Textarea
+        {/* <Textarea
           data-testid='message-input'
           {...this._cleanUpProps()}
           className={clsx('rta__textarea', className)}
@@ -726,7 +726,7 @@ export class ReactTextareaAutocomplete extends React.Component {
           value={value}
           {...this.props.additionalTextareaProps}
           defaultValue={undefined}
-        />
+        /> */}
       </div>
     );
   }
