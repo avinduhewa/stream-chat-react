@@ -114,7 +114,7 @@ const normalBundle = {
       sourcemap: true,
     },
   ],
-  plugins: [...basePlugins({ useBrowserResolve: true })],
+  plugins: [...basePlugins({ useBrowserResolve: false })],
 };
 
 const fullBrowserBundle = ({ min } = { min: false }) => ({
