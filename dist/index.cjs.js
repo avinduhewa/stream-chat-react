@@ -2039,7 +2039,7 @@ function ok$1() {
  * @returns {string}
  */
 function color(d) {
-  return d
+  return '\u001B[33m' + d + '\u001B[39m'
 }
 
 /**
