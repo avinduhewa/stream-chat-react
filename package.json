@@ -53,7 +53,7 @@
     "react-markdown": "^5.0.3",
     "react-player": "^2.10.1",
     "react-popper": "^2.3.0",
-    "react-textarea-autosize": "^8.3.0",
+    "react-textarea-autosize": "https://github.com/avinduhewa/react-textarea-autosize/#rp-main-built",
     "react-virtuoso": "^2.16.5",
     "textarea-caret": "^3.1.0"
   },
@@ -64,7 +64,7 @@
   "peerDependencies": {
     "react": "^18.0.0 || ^17.0.0 || ^16.8.0",
     "react-dom": "^18.0.0 || ^17.0.0 || ^16.8.0",
-    "stream-chat": "^7.1.0"
+    "stream-chat": "https://github.com/avinduhewa/stream-chat-js/#rp-master-built"
   },
   "files": [
     "dist",
